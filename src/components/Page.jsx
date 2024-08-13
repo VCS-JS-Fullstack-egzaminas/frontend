@@ -316,6 +316,7 @@ const CarCard = ({ car, isFlipped, onClick }) => (
     <div className="car-card-inner">
       <div className="car-card-front">
         <img src={car.imgSrc} alt={car.title} />
+
         <h2>{car.title}</h2>
       </div>
       <div className="car-card-back">
@@ -324,7 +325,9 @@ const CarCard = ({ car, isFlipped, onClick }) => (
         <p>{car.year}</p>
         <p>{car.info}</p>
         <p>{car.price}</p>
-        <a href="/rezervuoti">{car.reserve}</a>
+        <a href="/rezervuoti" className="btn btn-primary">
+          {car.reserve}
+        </a>
       </div>
     </div>
   </div>

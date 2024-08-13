@@ -84,7 +84,6 @@ h1 {
   font-size: 1.3em;
   font-weight: 500;
   margin: 10px 0;
-
 }
 
 .car-card-back p {
@@ -93,17 +92,4 @@ h1 {
   text-align: left;
   margin-left: 50px;
   margin-bottom: 2px;
-}
-
-.car-card-back a {
-  display: inline-block;
-  margin: 0 auto;
-  padding: 10px 20px;
-  border-radius: 5px;
-  background-color: #f48313;
-  color: #fff;
-}
-
-a:hover {
-  background-color: #f48413d3;
 }

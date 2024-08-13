@@ -1,21 +1,21 @@
-import React, { useState } from 'react';
-import './NewListing.css';
+import { useState } from "react";
+import "./NewListing.css";
 
 const NewListing = ({ addListing }) => {
-  const [id, setId] = useState('');
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [photos, setPhotos] = useState('');
-  const [price, setPrice] = useState('');
+  const [id, setId] = useState("");
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [photos, setPhotos] = useState("");
+  const [price, setPrice] = useState("");
   const [availability, setAvailability] = useState(false);
-  const [minduration, setMinDuration] = useState('');
-  const [maxduration, setMaxDuration] = useState('');
-  const [extras, setExtras] = useState('');
-  const [createdAt, setCreatedAt] = useState('');
+  const [minduration, setMinDuration] = useState("");
+  const [maxduration, setMaxDuration] = useState("");
+  const [extras, setExtras] = useState("");
+  const [createdAt, setCreatedAt] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const photosArray = photos.split(',').map(photo => photo.trim());
+    const photosArray = photos.split(",").map((photo) => photo.trim());
     addListing({
       id,
       title,
@@ -26,24 +26,24 @@ const NewListing = ({ addListing }) => {
       minduration,
       maxduration,
       extras,
-      createdAt
+      createdAt,
     });
-    setId('');
-    setTitle('');
-    setDescription('');
-    setPhotos('');
-    setPrice('');
+    setId("");
+    setTitle("");
+    setDescription("");
+    setPhotos("");
+    setPrice("");
     setAvailability(false);
-    setMinDuration('');
-    setMaxDuration('');
-    setExtras('');
-    setCreatedAt('');
+    setMinDuration("");
+    setMaxDuration("");
+    setExtras("");
+    setCreatedAt("");
   };
 
   return (
-    <div className="new-listing-container">
-      <h2>Add New Rental</h2>
-      <form onSubmit={handleSubmit} className="new-listing-form">
+    <div className="new-listing-container card">
+      <h2 className="font-bold text-3xl mb-4">Add New Rental</h2>
+      <form onSubmit={handleSubmit} className="new-listing-form gap-1">
         <input
           type="text"
           placeholder="ID"
@@ -115,7 +115,9 @@ const NewListing = ({ addListing }) => {
           className="input-field"
           required
         />
-        <button type="submit" className="submit-button">Add Listing</button>
+        <button type="submit" className="btn btn-primary w-full">
+          Add Listing
+        </button>
       </form>
     </div>
   );
