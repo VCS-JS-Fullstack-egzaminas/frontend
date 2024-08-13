@@ -1,15 +1,12 @@
-
-import './App.css'
-import Page from './components/Page'
+import { Outlet } from "react-router-dom";
+import "./App.css";
 
 function App() {
- 
-
   return (
     <>
-    <Page />
+      <Outlet />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
