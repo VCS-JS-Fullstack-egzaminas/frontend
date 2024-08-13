@@ -1,4 +1,3 @@
-
 /* General Styles */
 body {
   font-family: Arial, sans-serif;
@@ -22,55 +21,89 @@ h1 {
 }
 
 /* Individual car card */
-.auto1, .auto2, .auto3, .auto4, .auto5, .auto6, .auto7, .auto8, .auto9, .auto10,
-.auto11, .auto12, .auto13, .auto14, .auto15, .auto16, .auto17, .auto18, .auto19,
-.auto20, .auto21, .auto22, .auto23, .auto24, .auto25, .auto26, .auto27, .auto28,
-.auto29, .auto30 {
-  background-color: #fff;
+.car-card {
+  perspective: 1000px;
+  margin: 10px;
+}
+
+.car-card-inner {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.car-card.flipped .car-card-inner {
+  transform: rotateY(180deg);
+}
+
+.car-card-front,
+.car-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin: 10px;
-  width: 250px;
-  text-align: center;
-  transition: transform 0.3s;
+  background-color: #fff;
 }
 
-.auto1:hover, .auto2:hover, .auto3:hover, .auto4:hover, .auto5:hover, .auto6:hover,
-.auto7:hover, .auto8:hover, .auto9:hover, .auto10:hover, .auto11:hover, .auto12:hover,
-.auto13:hover, .auto14:hover, .auto15:hover, .auto16:hover, .auto17:hover, .auto18:hover,
-.auto19:hover, .auto20:hover, .auto21:hover, .auto22:hover, .auto23:hover, .auto24:hover,
-.auto25:hover, .auto26:hover, .auto27:hover, .auto28:hover, .auto29:hover, .auto30:hover {
-  transform: scale(1.05);
+.car-card-front {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-/* Image styling */
-.auto1 img, .auto2 img, .auto3 img, .auto4 img, .auto5 img, .auto6 img, .auto7 img,
-.auto8 img, .auto9 img, .auto10 img, .auto11 img, .auto12 img, .auto13 img, .auto14 img,
-.auto15 img, .auto16 img, .auto17 img, .auto18 img, .auto19 img, .auto20 img, .auto21 img,
-.auto22 img, .auto23 img, .auto24 img, .auto25 img, .auto26 img, .auto27 img, .auto28 img,
-.auto29 img, .auto30 img {
+.car-card-front img {
   width: 100%;
-  border-bottom: 1px solid #ddd;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
 }
 
-/* Text styling */
-.auto1 h2, .auto2 h2, .auto3 h2, .auto4 h2, .auto5 h2, .auto6 h2, .auto7 h2, .auto8 h2,
-.auto9 h2, .auto10 h2, .auto11 h2, .auto12 h2, .auto13 h2, .auto14 h2, .auto15 h2, .auto16 h2,
-.auto17 h2, .auto18 h2, .auto19 h2, .auto20 h2, .auto21 h2, .auto22 h2, .auto23 h2, .auto24 h2,
-.auto25 h2, .auto26 h2, .auto27 h2, .auto28 h2, .auto29 h2, .auto30 h2 {
+.car-card-front h2 {
   color: #333;
-  font-size: 1.2em;
+  font-size: 1.3em;
+  font-weight: 500;
   margin: 10px 0;
+  margin-top: 30px;
 }
 
-.auto1 p, .auto2 p, .auto3 p, .auto4 p, .auto5 p, .auto6 p, .auto7 p, .auto8 p,
-.auto9 p, .auto10 p, .auto11 p, .auto12 p, .auto13 p, .auto14 p, .auto15 p, .auto16 p,
-.auto17 p, .auto18 p, .auto19 p, .auto20 p, .auto21 p, .auto22 p, .auto23 p, .auto24 p,
-.auto25 p, .auto26 p, .auto27 p, .auto28 p, .auto29 p, .auto30 p {
+.car-card-back {
+  display: flex;
+  flex-direction: column;
+  transform: rotateY(180deg);
+  padding: 10px;
+  gap: 5px;
+}
+
+.car-card-back h2 {
+  color: Black;
+  font-size: 1.3em;
+  font-weight: 500;
+  margin: 10px 0;
+
+}
+
+.car-card-back p {
   color: #666;
   font-size: 0.9em;
-  margin: 10px 15px 20px;
+  text-align: left;
+  margin-left: 50px;
+  margin-bottom: 2px;
+}
+
+.car-card-back a {
+  display: inline-block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #f48313;
+  color: #fff;
+}
+
+a:hover {
+  background-color: #f48413d3;
 }
