@@ -46,14 +46,6 @@ const NewListing = ({ addListing }) => {
       <form onSubmit={handleSubmit} className="new-listing-form gap-1">
         <input
           type="text"
-          placeholder="ID"
-          value={id}
-          onChange={(e) => setId(e.target.value)}
-          className="input-field"
-          required
-        />
-        <input
-          type="text"
           placeholder="Title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
@@ -104,14 +96,6 @@ const NewListing = ({ addListing }) => {
           placeholder="Extras"
           value={extras}
           onChange={(e) => setExtras(e.target.value)}
-          className="input-field"
-          required
-        />
-        <input
-          type="text"
-          placeholder="Created At"
-          value={createdAt}
-          onChange={(e) => setCreatedAt(e.target.value)}
           className="input-field"
           required
         />
