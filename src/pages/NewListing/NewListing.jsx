@@ -1,5 +1,7 @@
 import { useState } from "react";
 import "./NewListing.css";
+import PropTypes from "prop-types";
+
 
 const NewListing = ({ addListing }) => {
   const [id, setId] = useState("");
@@ -105,6 +107,10 @@ const NewListing = ({ addListing }) => {
       </form>
     </div>
   );
+};
+
+NewListing.propTypes = {
+  addListing: PropTypes.func.isRequired,
 };
 
 export default NewListing;
