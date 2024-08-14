@@ -1,9 +1,9 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 import MainLayout from "./layouts/MainLayout";
-import Index from "./pages/Index";
-import NewListing from "./pages/NewListing";
-import Error from "./pages/Error";
+import Index from "./pages/Index/Index";
+import NewListing from "./pages/NewListing/NewListing";
+import Error from "./pages/Error/Error";
 import ComponentsDemo from "./pages/ComponentsDemo/ComponentsDemo";
 
 const router = createBrowserRouter([

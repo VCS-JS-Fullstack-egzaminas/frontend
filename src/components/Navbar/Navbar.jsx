@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Authentication from "./Authentication";
+import Authentication from "../Authentication/Authentication";
 import "./Navbar.css";
 import { NavLink } from "react-router-dom";
 
