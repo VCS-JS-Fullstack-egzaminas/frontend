@@ -39,8 +39,6 @@ CarCard.propTypes = {
     price: PropTypes.string.isRequired,
     reserve: PropTypes.string.isRequired,
   }).isRequired,
-  isFlipped: PropTypes.bool.isRequired,
-  onClick: PropTypes.func.isRequired,
 };
 
 export default CarCard;
