@@ -16,7 +16,7 @@ h1 {
 .car-card {
   perspective: 1000px;
   margin: 10px;
-  width: 260px !important;
+  width: 250px !important;
   max-width: 260px; 
   box-sizing: border-box; 
 }

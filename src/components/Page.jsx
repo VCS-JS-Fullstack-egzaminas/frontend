@@ -357,9 +357,9 @@ const CarCarousel = ({ cars }) => {
 
   const settings = {
     dots: true,
-    infinite: true,
+    infinite: false,
     speed: 500,
-    slidesToShow: Math.floor(1100 / 260), 
+    slidesToShow: Math.floor(1100 / 250), 
     slidesToScroll: 1,
     nextArrow: <button className="slick-next">Next</button>,
     prevArrow: <button className="slick-prev">Prev</button>,
