@@ -1,0 +1,30 @@
+.auth-container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    flex-direction: column;
+  }
+  
+  .input-field-one {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+    width: 150px;
+    border-radius: 10px;
+  }
+
+  .input-field-one::placeholder {
+    text-align: center;
+  }
+
+  #btn-one {
+    border: 2px solid rgb(102, 102, 102);
+    color: #ffffff;
+    padding: 7px;
+    border-radius: 10px;
+    position: fixed;
+    right: 180px;
+    top: 67px;
+    text-transform: uppercase;
+  }
