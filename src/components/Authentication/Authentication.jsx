@@ -15,7 +15,7 @@ const Authentication = () => {
         className="input-field-one"
       />
       <div className="button-div">
-      <button>Login</button>
+      <Button>Login</Button>
       </div>
     </div>
   );
