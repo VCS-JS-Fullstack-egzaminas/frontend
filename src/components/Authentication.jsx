@@ -1,4 +1,3 @@
-import React from 'react';
 import './Authentication.css';
 
 const Authentication = () => {
