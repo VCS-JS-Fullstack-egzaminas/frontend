@@ -12,24 +12,19 @@ h1 {
   margin-top: 20px;
 }
 
-/* Container for the cars */
-.autos {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 20px;
-}
-
 /* Individual car card */
 .car-card {
   perspective: 1000px;
   margin: 10px;
+  width: 260px !important; /* Force width */
+  max-width: 260px; /* Ensure max width */
+  box-sizing: border-box; /* Include padding and border in width */
 }
 
 .car-card-inner {
   position: relative;
-  width: 250px;
-  height: 250px;
+  width: 100%; /* Use 100% of the parent width */
+  height: 260px; /* Adjust height if needed */
   text-align: center;
   transition: transform 0.6s;
   transform-style: preserve-3d;
@@ -92,4 +87,29 @@ h1 {
   text-align: left;
   margin-left: 50px;
   margin-bottom: 2px;
+}
+
+/* Carousel Styles */
+.slick-slide img {
+  display: block;
+  margin: 0; /* Remove any margin */
+  padding: 0; /* Remove any padding */
+  max-width: 100%;
+  height: auto;
+}
+
+.slick-slide {
+  padding: 0; /* Remove any padding */
+  margin: 0; /* Remove any margin */
+  width: 260px !important; /* Ensure slides have the same width as the car cards */
+}
+
+.slick-list {
+  padding: 0; /* Remove any padding */
+  margin: 0; /* Remove any margin */
+}
+
+.slick-track {
+  display: flex;
+  align-items: center;
 }

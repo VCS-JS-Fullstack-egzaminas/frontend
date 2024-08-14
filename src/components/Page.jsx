@@ -1,4 +1,7 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import "./Page.css";
 
 const cars = [
@@ -316,7 +319,6 @@ const CarCard = ({ car, isFlipped, onClick }) => (
     <div className="car-card-inner">
       <div className="car-card-front">
         <img src={car.imgSrc} alt={car.title} />
-
         <h2>{car.title}</h2>
       </div>
       <div className="car-card-back">
@@ -333,7 +335,7 @@ const CarCard = ({ car, isFlipped, onClick }) => (
   </div>
 );
 
-const Page = () => {
+const CarCarousel = ({ cars }) => {
   const [flippedCards, setFlippedCards] = useState({});
 
   const handleCardClick = (id) => {
@@ -343,19 +345,49 @@ const Page = () => {
     }));
   };
 
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
+  return (
+    <Slider {...settings}>
+      {cars.map((car) => (
+        <div key={car.id} onClick={() => handleCardClick(car.id)}>
+          <CarCard car={car} isFlipped={flippedCards[car.id]} />
+        </div>
+      ))}
+    </Slider>
+  );
+};
+
+
+const Page = () => {
   return (
     <>
       <h1>Automobiliai nuomai</h1>
-      <div className="autos">
-        {cars.map((car) => (
-          <CarCard
-            key={car.id}
-            car={car}
-            isFlipped={flippedCards[car.id]}
-            onClick={() => handleCardClick(car.id)}
-          />
-        ))}
-      </div>
+      <CarCarousel cars={cars} />
     </>
   );
 };

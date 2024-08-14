@@ -1,10 +1,13 @@
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
 import Page from "../components/Page";
 
 const Index = () => {
   return (
     <div>
-      <h1>Index Page</h1>
+      <Navbar />
       <Page />
+      <Footer />
     </div>
   );
 };
