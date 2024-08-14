@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import "./Index.css";
 import { cars } from "../../data/mockdata.json";
 import PropTypes from "prop-types";
+import Search from "../../components/Search";
 
 const getRandomCars = (cars) => {
   const shuffled = cars.sort(() => 0.5 - Math.random());
@@ -112,6 +113,7 @@ CarCarousel.propTypes = {
 
 const Index = () => (
   <>
+    <Search />
     <h1>Automobiliai nuomai</h1>
     <CarCarousel cars={cars} />
   </>
