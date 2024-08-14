@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "./Page.css";
-import { cars } from "../data/mockdata";
+import "./Index.css";
+import { cars } from "../../data/mockdata.json";
 import PropTypes from "prop-types";
 
 const getRandomCars = (cars) => {
@@ -31,6 +31,20 @@ const CarCard = ({ car, isFlipped, onClick }) => (
     </div>
   </div>
 );
+
+CarCard.propTypes = {
+  car: PropTypes.shape({
+    imgSrc: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    size: PropTypes.string.isRequired,
+    year: PropTypes.string.isRequired,
+    info: PropTypes.string.isRequired,
+    price: PropTypes.string.isRequired,
+    reserve: PropTypes.string.isRequired,
+  }).isRequired,
+  isFlipped: PropTypes.bool.isRequired,
+  onClick: PropTypes.func.isRequired,
+};
 
 const CarCarousel = ({ cars }) => {
   const [flippedCards, setFlippedCards] = useState({});
@@ -80,7 +94,11 @@ const CarCarousel = ({ cars }) => {
       <Slider {...settings}>
         {randomCars.map((car) => (
           <div key={car.id} onClick={() => handleCardClick(car.id)}>
-            <CarCard car={car} isFlipped={flippedCards[car.id]} />
+            <CarCard
+              car={car}
+              isFlipped={flippedCards[car.id] || false}
+              onClick={() => handleCardClick(car.id)}
+            />
           </div>
         ))}
       </Slider>
@@ -88,17 +106,15 @@ const CarCarousel = ({ cars }) => {
   );
 };
 
-const Page = () => {
-  return (
-    <>
-      <h1>Automobiliai nuomai</h1>
-      <CarCarousel cars={cars} />
-    </>
-  );
+CarCarousel.propTypes = {
+  cars: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
-Page.propTypes = {
-  cars: PropTypes.array,
-};
+const Index = () => (
+  <>
+    <h1>Automobiliai nuomai</h1>
+    <CarCarousel cars={cars} />
+  </>
+);
 
-export default Page;
+export default Index;
