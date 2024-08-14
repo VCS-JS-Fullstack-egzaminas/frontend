@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import Authentication from './Authentication';
-import './Navbar.css';
+import { useState } from "react";
+import Authentication from "./Authentication";
+import "./Navbar.css";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const [showLogin, setShowLogin] = useState(false);
@@ -8,19 +9,19 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <div className="logo">.Index Rentals</div>
+        <NavLink to="/">
+          <div className="logo">.Index Rentals</div>
+        </NavLink>
         <div className="navbar-links">
           <button
             className="login-button"
             onClick={() => setShowLogin(!showLogin)}
           >
-            {showLogin ? 'Close' : 'Login'}
+            {showLogin ? "Close" : "Login"}
           </button>
         </div>
       </div>
-      {showLogin && (
-          <Authentication />
-      )}
+      {showLogin && <Authentication />}
     </nav>
   );
 };
