@@ -4,6 +4,7 @@ import MainLayout from "./layouts/MainLayout";
 import Index from "./pages/Index";
 import NewListing from "./pages/NewListing";
 import Error from "./pages/Error";
+import ComponentsDemo from "./pages/ComponentsDemo/ComponentsDemo";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
         element: <NewListing />,
       },
     ],
+  },
+  {
+    path: "/dev/components-demo",
+    element: <ComponentsDemo />,
   },
 ]);
 
