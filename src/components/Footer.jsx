@@ -8,13 +8,11 @@ const Footer = () => {
       <div className="footer-container">
         <div className="address">
           <h3>Contact Us</h3>
-          <p></p>
-          <p></p>
           <p>Email: contact@indexRental.lt</p>
-          <p>Number: 86034564</p>
+          <p>Number: 86534342</p> 
         </div>
         <div className="social-media">
-          <h3>Follow Us on:</h3>
+          <h3>Follow Us On:</h3>
           <div className="social-icons">
             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
               <FaFacebook />

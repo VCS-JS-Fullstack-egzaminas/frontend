@@ -14,9 +14,7 @@ const Authentication = () => {
         placeholder="Password"
         className="input-field-one"
       />
-      <div className="button-div">
       <button id="btn-one">Login</button>
-      </div>
     </div>
   );
 };
