@@ -5,6 +5,7 @@ import Index from "./pages/Index/Index";
 import NewListing from "./pages/NewListing/NewListing";
 import Error from "./pages/Error/Error";
 import ComponentsDemo from "./pages/ComponentsDemo/ComponentsDemo";
+import ImageUpload from "./pages/ImageUpload/ImageUpload";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
   {
     path: "/dev/components-demo",
     element: <ComponentsDemo />,
+  },
+  {
+    path: "/dev/image-upload-demo",
+    element: <ImageUpload />,
   },
 ]);
 
