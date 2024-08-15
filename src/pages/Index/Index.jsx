@@ -7,6 +7,8 @@ import { cars } from "../../data/mockdata.json";
 import PropTypes from "prop-types";
 import Search from "../../components/Search";
 import CarCard from "../../components/CarCard/CarCard";
+import Button from "../../components/ui/Button";
+import Banner from "../../components/Banner";
 
 const getRandomCars = (cars) => {
   const shuffled = cars.sort(() => 0.5 - Math.random());
@@ -22,10 +24,12 @@ const CarCarousel = ({ cars }) => {
 
   const settings = {
     dots: true,
-    infinite: false,
+    infinite: true,
     speed: 500,
-    slidesToShow: Math.floor(1100 / 250),
+    slidesToShow: Math.floor(1300 / 250),
     slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
     nextArrow: <button className="slick-next">Next</button>,
     prevArrow: <button className="slick-prev">Prev</button>,
     responsive: [
@@ -66,8 +70,15 @@ CarCarousel.propTypes = {
 const Index = () => (
   <>
     <Search />
-    <h1>Automobiliai nuomai</h1>
+    <div className="toCars">
+      <h3>
+        At VCS Rentals, our mission is simple – to provide you with top-tier car rental
+        services.
+      </h3>
+      <Button>See entire fleet</Button>
+    </div>
     <CarCarousel cars={cars} />
+    <Banner />
   </>
 );
 

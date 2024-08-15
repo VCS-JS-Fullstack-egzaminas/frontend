@@ -17,6 +17,19 @@ const Search = () => {
       <h1>Drive in style, Rent with smiles</h1>
       <div className="banner-container">
         <div className="banner-form">
+          <div className="choose-car">
+            <Label className="car-label">Select a Car</Label>
+            <select className="car-dropdown">
+              <option value="" disabled selected>
+                --- Choose car ---
+              </option>
+              {cars.map((car) => (
+                <option key={car.id} value={car.id}>
+                  {car.title} - {car.year} - {car.info} - {car.price}
+                </option>
+              ))}
+            </select>
+          </div>
           <div className="dates">
             <Label className="date-label">Pick Up/Drop Off Date and Time</Label>
             <Input type="datetime-local" className="date-input"></Input>
@@ -44,19 +57,7 @@ const Search = () => {
             </span>
             <Input type="datetime-local" className="date-input"></Input>
           </div>
-          <div className="choose-car">
-            <Label className="car-label">Select a Car</Label>
-            <select className="car-dropdown">
-              <option value="" disabled selected>
-               --- Choose car ---
-              </option>
-              {cars.map((car) => (
-                <option key={car.id} value={car.id}>
-                  {car.title} - {car.year} - {car.info} - {car.price}
-                </option>
-              ))}
-            </select>
-          </div>
+
           <Button>reserve</Button>
         </div>
       </div>

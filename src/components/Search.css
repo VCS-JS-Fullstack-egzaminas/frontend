@@ -6,7 +6,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 200px;
+    margin-bottom: 100px;
     position: relative;
 }
 
@@ -58,6 +58,7 @@
     border-radius: 4px;
     padding: 10px;
     position: relative;
+    margin-right: 10px;
     z-index: 1;
 }
 
