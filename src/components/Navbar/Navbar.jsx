@@ -33,7 +33,10 @@ const Navbar = () => {
             </button>
           </div> */}
           <div className="flex items-center">
-            <Link className="text-white px-6 py-2 font-semibold rounded-md transition duration-150 shadow-md bg-ecstasy-500 hover:bg-ecstasy-600 active:bg-ecstasy-700">
+            <Link
+              to="/login"
+              className="text-white px-6 py-2 font-semibold rounded-md transition duration-150 shadow-md bg-ecstasy-500 hover:bg-ecstasy-600 active:bg-ecstasy-700"
+            >
               Login
             </Link>
           </div>
