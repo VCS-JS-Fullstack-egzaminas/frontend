@@ -7,6 +7,10 @@ import Error from "./pages/Error/Error";
 import ComponentsDemo from "./pages/ComponentsDemo/ComponentsDemo";
 import Login from "./pages/Login/Login";
 import Signup from "./pages/Signup/Signup";
+import AboutUs from "./pages/AboutUs/AboutUs";
+import Contact from "./pages/Contact/Contact";
+import Terms from "./pages/Terms/Terms";
+
 
 const router = createBrowserRouter([
   {
@@ -31,6 +35,18 @@ const router = createBrowserRouter([
   {
     path: "/signup",
     element: <Signup />,
+  },
+  {
+    path: "/aboutus",
+    element: <AboutUs />,
+  },
+  {
+    path: "/contact",
+    element: <Contact />,
+  },
+  {
+    path: "/terms",
+    element: <Terms />,
   },
   {
     path: "/dev/components-demo",

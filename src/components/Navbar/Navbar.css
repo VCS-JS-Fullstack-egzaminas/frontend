@@ -1,7 +1,10 @@
 .navbar {
-    background-image: linear-gradient(rgb(80, 80, 80), rgba(255, 255, 255, 0));
-    padding: 1rem;
-    font-family: "Roboto", sans-serif;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000; 
+  background-color: white;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
   }
   
   .navbar-container {
