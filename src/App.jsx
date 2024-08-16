@@ -29,6 +29,10 @@ const router = createBrowserRouter([
         index: true,
         element: <Index />,
       },
+      {
+        path: "/terms",
+        element: <Terms />,
+      },
     ],
   },
   {
@@ -46,10 +50,6 @@ const router = createBrowserRouter([
   {
     path: "/contact",
     element: <Contact />,
-  },
-  {
-    path: "/terms",
-    element: <Terms />,
   },
   {
     path: "/dev/components-demo",
