@@ -1,5 +1,5 @@
 import './Authentication.css';
-import '../../components/ui/Button';
+import Button from "../../components/ui/Button";
 
 const Authentication = () => {
   return (
