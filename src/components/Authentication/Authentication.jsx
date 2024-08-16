@@ -1,4 +1,5 @@
 import './Authentication.css';
+import Button from "../../components/ui/Button";
 
 const Authentication = () => {
   return (
@@ -14,7 +15,7 @@ const Authentication = () => {
         className="input-field-one"
       />
       <div className="button-div">
-      <button id="btn-one">Login</button>
+      <Button>Login</Button>
       </div>
     </div>
   );

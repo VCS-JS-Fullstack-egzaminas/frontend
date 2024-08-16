@@ -15,6 +15,9 @@ import Users from "./pages/Admin/Users/Users";
 import UserDetails from "./pages/Admin/UserDetails/UserDetails";
 import ListingDetails from "./pages/Admin/ListingDetails/ListingDetails";
 import AdminHome from "./pages/Admin/AdminHome/AdminHome";
+import AboutUs from "./pages/AboutUs/AboutUs";
+import Contact from "./pages/Contact/Contact";
+import Terms from "./pages/Terms/Terms";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +38,18 @@ const router = createBrowserRouter([
   {
     path: "/signup",
     element: <Signup />,
+  },
+  {
+    path: "/aboutus",
+    element: <AboutUs />,
+  },
+  {
+    path: "/contact",
+    element: <Contact />,
+  },
+  {
+    path: "/terms",
+    element: <Terms />,
   },
   {
     path: "/dev/components-demo",

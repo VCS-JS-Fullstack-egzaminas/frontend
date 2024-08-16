@@ -1,0 +1,9 @@
+.termsBox {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    height: 80vh;
+    padding: 50px;
+    gap: 10px;
+}
