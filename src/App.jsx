@@ -7,6 +7,8 @@ import Error from "./pages/Error/Error";
 import ComponentsDemo from "./pages/ComponentsDemo/ComponentsDemo";
 import Login from "./pages/Login/Login";
 import Signup from "./pages/Signup/Signup";
+import ImageUpload from "./pages/ImageUpload/ImageUpload";
+
 
 const router = createBrowserRouter([
   {
@@ -35,6 +37,10 @@ const router = createBrowserRouter([
   {
     path: "/dev/components-demo",
     element: <ComponentsDemo />,
+  },
+  {
+    path: "/dev/image-upload-demo",
+    element: <ImageUpload />,
   },
 ]);
 
