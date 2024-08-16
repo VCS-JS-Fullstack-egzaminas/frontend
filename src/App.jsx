@@ -14,6 +14,7 @@ import Reservations from "./pages/Admin/Reservations/Reservations";
 import Users from "./pages/Admin/Users/Users";
 import UserDetails from "./pages/Admin/UserDetails/UserDetails";
 import ListingDetails from "./pages/Admin/ListingDetails/ListingDetails";
+import AdminHome from "./pages/Admin/AdminHome/AdminHome";
 
 const router = createBrowserRouter([
   {
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
     element: <AdminLayout />,
     children: [
       {
+        index: true,
+        element: <AdminHome />,
+      },
+      {
         path: "listings",
         element: <Listings />,
       },
@@ -64,7 +69,6 @@ const router = createBrowserRouter([
         element: <Reservations />,
       },
       {
-        index: true,
         path: "users",
         element: <Users />,
       },
