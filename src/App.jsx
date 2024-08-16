@@ -64,6 +64,7 @@ const router = createBrowserRouter([
         element: <Reservations />,
       },
       {
+        index: true,
         path: "users",
         element: <Users />,
       },
