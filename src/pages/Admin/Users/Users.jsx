@@ -1,18 +1,15 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import Button from "../../../components/ui/Button";
+import { getAllUsers } from "../../../services/userService";
 const Users = () => {
   const [content, setContent] = useState([]);
 
   useEffect(() => {
     const getEntries = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/api/users/", {
-          withCredentials: true,
-        });
+        const response = await getAllUsers();
         setContent(response.data);
-        //   console.log(response.data)
       } catch (error) {
         console.error("Error Fetching Entries", error);
       }

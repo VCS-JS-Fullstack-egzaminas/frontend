@@ -5,6 +5,7 @@ import Input from "../../components/ui/Input";
 import Label from "../../components/ui/Label";
 import { MdiCar } from "../../components/ui/icons/MdiCar";
 import { useState } from "react";
+import { login } from "../../services/userService";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -16,16 +17,9 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:3000/api/users/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-        credentials: "include",
-      });
+      const response = await login({ email, password });
 
-      if (response.ok) {
+      if (response.status === 200) {
         navigate("/");
       }
     } catch (error) {
