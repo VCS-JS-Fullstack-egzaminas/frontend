@@ -1,29 +1,23 @@
-import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
-import './Footer.css';
+import { MdiCar } from "../ui/icons/MdiCar";
 
 const Footer = () => {
   return (
-    <footer className="footer">
-      <div className="footer-container">
-        <div className="address">
-          <h3>Contact Us</h3>
-          <p></p>
-          <p></p>
-          <p>Email: contact@indexRental.lt</p>
-          <p>Number: 86034564</p>
-        </div>
-        <div className="social-media">
-          <h3>Follow Us on:</h3>
-          <div className="social-icons">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-              <FaFacebook />
-            </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-              <FaTwitter />
-            </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-              <FaInstagram />
-            </a>
+    <footer className="flex justify-center bg-river-bed-800 text-white">
+      <div className="container px-6 py-12">
+        <div className="flex justify-between">
+          <div className="">
+            <div className="flex items-center gap-1">
+              <MdiCar className="h-10 w-10 text-white" />
+              <div className="flex flex-col items-center">
+                <span className="text-2xl leading-none text-ecstasy-500">
+                  index
+                </span>
+                <span className="text-lg text-white leading-none">rentals</span>
+              </div>
+            </div>
+          </div>
+          <div>
+            <p>some text</p>
           </div>
         </div>
       </div>
