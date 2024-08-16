@@ -43,3 +43,58 @@ color: #656970;
   color: gold;
   font-size: 24px;
 }
+
+
+/* @media (max-width: 1810px) {
+.banner-message h3{
+  font-size: 24px;
+}
+.banner-message p{
+  font-size: 18px;
+}
+}
+@media (max-width: 1714px) {
+.banner-message h3{
+  font-size: 20px;
+}
+.banner-message p{
+  font-size: 16px;
+}
+} */
+@media (max-width: 1500px) {
+
+  .banner-container2 {
+  flex-direction: column;
+  align-items: start;
+  margin-top: 250px;
+
+}
+
+.banner-message{
+  margin-top: 50px;
+margin-left: 50px;
+}
+
+}
+
+@media (max-width: 1450px) {
+
+.banner-message{
+  margin-top: 50px;
+margin-left: 50px;
+}
+.banner-message h3{
+  font-size: 20px;
+}
+.banner-message p{
+  font-size: 16px;
+}
+}
+
+@media (max-width: 850px) {
+  .banner-container2 {
+  flex-direction:column-reverse;
+  gap: 50px;
+
+}
+}

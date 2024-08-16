@@ -1,6 +1,7 @@
 .search-main {
     background-image: url(../../public/banner.webp);
     background-size: cover;
+    background-position: center;
     height: 400px;
     display: flex;
     flex-direction: column;
@@ -9,6 +10,7 @@
     margin-bottom: 100px;
     position: relative;
 }
+
 
 .banner-container {
     display: flex;
@@ -99,4 +101,58 @@
     font-size: 12px;
     font-weight: 600;
     padding-left: 5px;
+}
+
+@media (max-width: 1350px) {
+    .banner-form {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+    }
+
+    .dates, .choose-car {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .date-input {
+        width: calc(100% - 40px);
+    }
+
+    .car-dropdown {
+        width: calc(100% - 40px);
+    }
+}
+
+@media (max-width: 768px) {
+    .search-main h1 {
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .banner-form {
+        padding: 10px;
+    }
+
+    .date-label, .car-label {
+        bottom: 35px;
+        left: 10px;
+    }
+
+    .car-label{
+        bottom: 48px;
+        left: 20px;
+    }
+}
+
+@media (max-width: 700px) {
+    .banner-form {
+        margin: 10px 20px;
+    }
+}
+@media (max-width: 500px) {
+    .banner-form {
+        margin: 0 10px;
+        width: calc(100% - 30px);
+    }
 }

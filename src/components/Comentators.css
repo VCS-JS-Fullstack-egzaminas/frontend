@@ -1,0 +1,148 @@
+.slider-container {
+  width: 1755px;
+  margin: 0 auto;
+  padding-top: 300px;
+  padding-bottom: 200px;
+}
+
+.slider-container h2 {
+  font-size: 30px;
+  color: #bca406;
+  font-weight: 400;
+  margin-bottom: 50px;
+  margin-left: 50px;
+}
+
+.comentator1,
+.comentator2,
+.comentator3,
+.comentator4,
+.comentator5,
+.comentator6,
+.comentator7,
+.comentator8,
+.comentator9,
+.comentator10 {
+  padding: 10px;
+  box-sizing: border-box;
+  height: 343px;
+}
+
+.message-star {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.message-star span {
+  font-size: 30px;
+}
+
+.comentator1 img,
+.comentator2 img,
+.comentator3 img,
+.comentator4 img,
+.comentator5 img,
+.comentator6 img,
+.comentator7 img,
+.comentator8 img,
+.comentator9 img,
+.comentator10 img {
+  display: block;
+  margin: 0 auto 10px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.comentator1 h3,
+.comentator2 h3,
+.comentator3 h3,
+.comentator4 h3,
+.comentator5 h3,
+.comentator6 h3,
+.comentator7 h3,
+.comentator8 h3,
+.comentator9 h3,
+.comentator10 h3 {
+  text-align: center;
+  margin-bottom: 10px;
+  color: #656970;
+  font-weight: 700;
+  font-size: 17px;
+}
+
+.comentator1 p,
+.comentator2 p,
+.comentator3 p,
+.comentator4 p,
+.comentator5 p,
+.comentator6 p,
+.comentator7 p,
+.comentator8 p,
+.comentator9 p,
+.comentator10 p {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  color: #656970;
+}
+
+.slider-container .slick-slide {
+  width: 439px !important;
+  height: 365px !important;
+}
+
+.slider-container .slick-track {
+  height: 400px !important;
+}
+
+.slider-container .slick-list {
+  height: 400px !important;
+}
+
+@media (max-width: 1800px) {
+  .slider-container .slick-slide {
+    width: 350px !important;
+  }
+  .slider-container {
+    width: 1400px;
+ 
+  }
+}
+@media (max-width: 1400px) {
+  .slider-container .slick-slide {
+    width: 330px !important;
+  }
+  .slider-container {
+    width: 990px;
+
+  }
+}
+@media (max-width: 1000px) {
+  .slider-container .slick-slide {
+    width: 330px !important;
+      height: 385px !important;
+  }
+  .slider-container {
+    width: 660px;
+
+  }
+}
+@media (max-width: 670px) {
+  .slider-container .slick-slide {
+    width: 439px !important;
+ 
+  }
+  .slider-container {
+    width: 439px;
+    margin: 0 auto;
+    padding-top: 150px;
+    padding-bottom: 200px;
+  }
+
+  .slider-container h2 {
+  font-size: 21px;
+text-align: center;
+}
+}
