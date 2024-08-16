@@ -1,6 +1,6 @@
 const Terms = () => {
   return (
-    <div className="flex justify-center pt-[64px]">
+    <div className="terms flex justify-center pt-[64px]">
       <div className="container px-6 my-12">
         <h1 className="text-left font-bold text-3xl mb-6">
           Terms & Conditions
