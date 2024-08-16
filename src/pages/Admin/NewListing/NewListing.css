@@ -1,0 +1,32 @@
+.new-listing-container {
+    padding: 1rem;
+    border: 1px solid #fff3f3;
+    border-radius: 4px;
+    max-width: 400px;
+    margin: 1rem auto;
+  }
+  
+  .new-listing-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .input-field {
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  .submit-button {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .submit-button:hover {
+    background-color: #555;
+  }
