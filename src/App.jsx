@@ -5,7 +5,10 @@ import Index from "./pages/Index/Index";
 import NewListing from "./pages/NewListing/NewListing";
 import Error from "./pages/Error/Error";
 import ComponentsDemo from "./pages/ComponentsDemo/ComponentsDemo";
+import Login from "./pages/Login/Login";
+import Signup from "./pages/Signup/Signup";
 import ImageUpload from "./pages/ImageUpload/ImageUpload";
+
 
 const router = createBrowserRouter([
   {
@@ -22,6 +25,14 @@ const router = createBrowserRouter([
         element: <NewListing />,
       },
     ],
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/signup",
+    element: <Signup />,
   },
   {
     path: "/dev/components-demo",
