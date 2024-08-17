@@ -10,7 +10,7 @@ import CarCard from "../../components/CarCard/CarCard";
 import Button from "../../components/ui/Button";
 import Banner from "../../components/Banner";
 import Comentators from "../../components/Comentators";
-import Fleet from "../../components/Fleet";
+
 
 const getRandomCars = (cars) => {
   const shuffled = cars.sort(() => 0.5 - Math.random());

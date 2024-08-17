@@ -1,0 +1,55 @@
+.fleet-Container1 h2 {
+  font-size: 34px;
+  color: #bca406;
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.fleet-Container1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.fleet-Container2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.fleet {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 400px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+
+
+.fleet-img {
+  width: 100%;
+  height: 200px; 
+  object-fit: cover; 
+  display: block;
+}
+
+.fleet-details {
+  padding: 15px;
+  background-color: #f9f9f9;
+}
+
+.fleet-details h3 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.fleet-details p {
+  font-size: 16px;
+  color: #666;
+  margin: 5px 0;
+}
+
