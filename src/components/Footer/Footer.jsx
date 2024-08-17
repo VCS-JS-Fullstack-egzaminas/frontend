@@ -99,20 +99,6 @@ const Footer = () => {
                     </svg>
                   </a>
                 </div>
-                <div className="justify-center md:justify-start items-center flex mt-3">
-                  <Link
-                    to="/aboutus"
-                    className="text-ecstasy-500 text-l border-solid border-2 border-ecstasy-500 px-2  font-thin rounded-lg transition duration-150 shadow-md  hover:bg-ecstasy-600  hover:text-amber-50 active:bg-ecstasy-700"
-                  >
-                    About us
-                  </Link>
-                  <Link
-                    to="/contact"
-                    className="text-ecstasy-500 text-l border-solid border-2  border-ecstasy-500 px-2  mx-2 font-thin rounded-lg  transition duration-150 shadow-md  hover:bg-ecstasy-600 hover:text-amber-50  active:bg-ecstasy-700"
-                  >
-                    Contact
-                  </Link>
-                </div>
               </div>
             </div>
           </div>
