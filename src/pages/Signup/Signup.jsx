@@ -3,9 +3,9 @@ import Button from "../../components/ui/Button";
 import Card from "../../components/ui/Card";
 import Input from "../../components/ui/Input";
 import Label from "../../components/ui/Label";
-import { MdiCar } from "../../components/ui/icons/MdiCar";
 import { useState } from "react";
 import { signup } from "../../services/userService";
+import Logo from "../../components/Logos/Logo";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -32,17 +32,7 @@ const Signup = () => {
     <div className="relative flex justify-center min-h-screen">
       <div className="flex flex-col gap-8 items-center justify-center min-h-screen sm:px-12 pb-[84px]">
         <Link to="/">
-          <div className="flex items-center gap-1">
-            <MdiCar className="h-20 w-20 text-river-bed-800" />
-            <div className="flex flex-col items-center">
-              <span className="text-5xl leading-none text-ecstasy-500">
-                index
-              </span>
-              <span className="text-4xl text-river-bed-800 leading-none">
-                rentals
-              </span>
-            </div>
-          </div>
+          <Logo color={"dark"} className="w-48 h-24" />
         </Link>
         <div className="flex justify-center items-center">
           <Card>
