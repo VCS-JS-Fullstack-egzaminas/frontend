@@ -5,13 +5,12 @@
   align-items: center;
   margin-left: 0;
   margin-top: 250px;
-
 }
 
 .banner-img img {
   max-width: 85%;
   height: auto;
-border-radius: 0px 500px 500px 0px;
+  border-radius: 0px 500px 500px 0px;
 }
 
 .banner-message {
@@ -27,23 +26,22 @@ border-radius: 0px 500px 500px 0px;
   padding: 10px 0;
 }
 
-.banner-message h3{
+/* .banner-message h3{
     color: #bca406;
     font-size: 27px;
     font-weight: 400;
-}
+} */
 
-.banner-message p{
-color: #656970;
-    font-size: 20px;
-    font-weight: 400;
-}
+/* .banner-message p {
+  color: #656970;
+  font-size: 20px;
+  font-weight: 400;
+} */
 
 .message-star span {
   color: gold;
   font-size: 24px;
 }
-
 
 /* @media (max-width: 1810px) {
 .banner-message h3{
@@ -62,39 +60,34 @@ color: #656970;
 }
 } */
 @media (max-width: 1500px) {
-
   .banner-container2 {
-  flex-direction: column;
-  align-items: start;
-  margin-top: 250px;
+    flex-direction: column;
+    align-items: start;
+    margin-top: 250px;
+  }
 
-}
-
-.banner-message{
-  margin-top: 50px;
-margin-left: 50px;
-}
-
+  .banner-message {
+    margin-top: 50px;
+    margin-left: 50px;
+  }
 }
 
 @media (max-width: 1450px) {
-
-.banner-message{
-  margin-top: 50px;
-margin-left: 50px;
-}
-.banner-message h3{
-  font-size: 20px;
-}
-.banner-message p{
-  font-size: 16px;
-}
+  .banner-message {
+    margin-top: 50px;
+    margin-left: 50px;
+  }
+  .banner-message h3 {
+    font-size: 20px;
+  }
+  .banner-message p {
+    font-size: 16px;
+  }
 }
 
 @media (max-width: 850px) {
   .banner-container2 {
-  flex-direction:column-reverse;
-  gap: 50px;
-
-}
+    flex-direction: column-reverse;
+    gap: 50px;
+  }
 }
