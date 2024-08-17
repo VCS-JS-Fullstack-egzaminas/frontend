@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-const Button = ({ children, color, ...props }) => {
+const Button = ({ children, color, className, ...props }) => {
   const baseClasses =
     "text-white px-8 py-3 font-semibold rounded-md transition duration-150 shadow-md";
   const colorClasses =
@@ -9,7 +9,10 @@ const Button = ({ children, color, ...props }) => {
       : "bg-ecstasy-500 hover:bg-ecstasy-600 active:bg-ecstasy-700";
 
   return (
-    <button className={`${baseClasses} ${colorClasses}`} {...props}>
+    <button
+      className={`${baseClasses} ${colorClasses} ${className}`}
+      {...props}
+    >
       {children}
     </button>
   );
@@ -18,6 +21,7 @@ const Button = ({ children, color, ...props }) => {
 Button.propTypes = {
   children: PropTypes.node.isRequired,
   color: PropTypes.oneOf(["primary", "secondary"]),
+  className: PropTypes.string,
 };
 
 export default Button;
