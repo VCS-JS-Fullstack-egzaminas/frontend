@@ -10,7 +10,7 @@ const Button = ({ children, color, className, ...props }) => {
 
   return (
     <button
-      className={`${baseClasses} ${colorClasses} ${className}`}
+      className={`${baseClasses} ${colorClasses} ${className ? className : ""}`}
       {...props}
     >
       {children}
