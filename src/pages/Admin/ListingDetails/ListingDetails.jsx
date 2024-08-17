@@ -8,6 +8,7 @@ const ListingDetails = () => {
     const [entry, setEntry] = useState ([])
     const [show,setShow] = useState(false) //editinimo slepimui
     const [editData, setEditData] = useState('')
+
     const navigate = useNavigate();
     const titleRef = useRef()
     const descriptionRef = useRef()
@@ -16,7 +17,7 @@ const ListingDetails = () => {
     const maxDurationRef = useRef()
     const minDurationRef = useRef()
     const extrasRef = useRef()
-
+    const photosRef = useRef()
     
   
 
@@ -68,27 +69,30 @@ const handleUpdate = async (e) => {
 }   
 
 const handleInputChange =  (e) => {
-  e.preventDefault()
-   let laikinasTitle = titleRef.current.value 
-   let laikinasDescription =  descriptionRef.current.value 
+  // e.preventDefault()
+   let laikinasTitle =  titleRef.current.value 
+   let laikinasDescription =  descriptionRef.current.value
    let laikinasPrice =  priceRef.current.value 
    let laikinasAvailable = availableRef.current.value 
    let laikinasMaxDur = maxDurationRef.current.value 
    let laikinasMinDur =  minDurationRef.current.value 
    let laikinasExtras =  extrasRef.current.value 
- 
-  // if (laikinasTitle.length > 3  ) {
-  //     setEditData({...editData, title: laikinasTitle })
-  //   } 
-  // if (laikinasDescription > 3) {
-  //   setEditData({...editData,description: laikinasDescription})
-  // }
+    let laikinasPhotos = photosRef.current.value
+    let photos = laikinasPhotos
+    let title = laikinasTitle.length > 0 && laikinasTitle != entry.title ? laikinasTitle : entry.title
+    let description = laikinasDescription.length > 0 && laikinasDescription != entry.description ? laikinasDescription 
+    : entry.description
+    let price = laikinasPrice.length > 0 && laikinasPrice !=entry.price ? laikinasPrice : entry.price
+    let available = laikinasAvailable != entry.available ? laikinasAvailable : entry.available
+    let min_duration = laikinasMinDur > 0 && laikinasMinDur < entry.max_duration && laikinasMinDur != entry.min_duration ? laikinasMinDur : entry.min_duration
+    let max_duration = laikinasMaxDur > 0 && laikinasMaxDur > entry.min_duration &&  laikinasMaxDur !=entry.max_duration ? laikinasMaxDur : entry.max_duration
+    let extras = laikinasExtras != entry.extras && laikinasExtras.length > 0 ? laikinasExtras : entry.extras
+    setEditData({...editData, title,description,price,available,min_duration,max_duration,extras,photos})
 
-
-}
+    }
  return (
     <div>
-  <div className="entry-details">
+  <div className="new-listing-container card">
     <div className="entry">
     <h2>{entry.title}</h2>
               <p>Description: {entry.description}</p>
@@ -106,26 +110,28 @@ const handleInputChange =  (e) => {
       <Button onClick={() => setShow(true)}>Edit</Button>
       <Button color="secondary" onClick={handleDelete}>Delete</Button>
       {show == true &&
-    <form  className='add-form' onSubmit={handleUpdate} >
+    <form className="new-listing-form"  onSubmit={handleUpdate} >
      <h2>Change information:</h2>
      <label>Change title:</label>
-     <input ref={titleRef} type="text" onChange={handleInputChange}  placeholder={entry.title} /> 
+     <input className="input-field" ref={titleRef} type="text" onChange={handleInputChange}  placeholder={entry.title} /> 
      <label>Change description:</label>
-     <input ref={descriptionRef} type="text" onChange={handleInputChange} placeholder={entry.description} />
+     <textarea   className="input-field" ref={descriptionRef} type="text" onChange={handleInputChange} placeholder={entry.description} />
+     <label>Change Photos:</label>
+     <input className="input-field" ref={photosRef} type="text" onChange={handleInputChange}  placeholder={entry.photos} /> 
      <label>Change price:</label>
-     <input ref={priceRef} type="number" onChange={handleInputChange} placeholder={entry.price} />
+     <input className="input-field" ref={priceRef} type="number" onChange={handleInputChange} placeholder={entry.price} />
      <label>Change available:</label>
-     <select name="pets" id="pet-select" onChange={handleInputChange} ref={availableRef}>
+     <select className="input-field" name="availability"  onChange={handleInputChange} ref={availableRef}>
       <option value="true">Available</option>
       <option value="false">Unavailable</option>
       </select>
   
      <label>Min duration: </label>
-     <input ref={minDurationRef} type="number" onChange={handleInputChange} placeholder={entry.min_duration} />
+     <input className="input-field" ref={minDurationRef} type="number" onChange={handleInputChange} placeholder={entry.min_duration} />
      <label>Max duration: </label>
-     <input ref={maxDurationRef} type="number" onChange={handleInputChange} placeholder={entry.max_duration} />
+     <input className="input-field" ref={maxDurationRef} type="number" onChange={handleInputChange} placeholder={entry.max_duration} />
      <label>Add extras:</label>
-     <input ref={extrasRef} type="number" onChange={handleInputChange} placeholder={entry.extras} />
+     <input className="input-field" ref={extrasRef} type="text" onChange={handleInputChange} placeholder={entry.extras} />
      
 
      <div className="edit-controls">

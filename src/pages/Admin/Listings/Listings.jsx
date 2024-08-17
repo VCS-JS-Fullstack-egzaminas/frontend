@@ -26,11 +26,11 @@ const Listings = () => {
     <div>
  
    <div className="App">
-      <div className="home-content">
+      <div className="new-listing-container card">
         {listings.length > 0 &&
           listings.map((info) => (
             <div key={info._id} className='listingInfo'>
-              <h2>{info.title}</h2>
+              <h2><strong>{info.title}</strong></h2>
               <p>Description: {info.description}</p>
               <p>Photo: (kolkas array) {info.photos}</p>
               <p>Price: {info.price}</p>
