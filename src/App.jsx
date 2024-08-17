@@ -7,6 +7,7 @@ import Error from "./pages/Error/Error";
 import ComponentsDemo from "./pages/ComponentsDemo/ComponentsDemo";
 import Login from "./pages/Login/Login";
 import Signup from "./pages/Signup/Signup";
+import Fleet from "./components/Fleet";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
     path: "/dev/components-demo",
     element: <ComponentsDemo />,
   },
+  {
+    path: "/fleet",
+    element: <Fleet />,
+  }
 ]);
 
 function App() {
