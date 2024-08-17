@@ -1,6 +1,6 @@
-import { MdiCar } from "../ui/icons/MdiCar";
 import { Link } from "react-router-dom";
 import "./Footer.css";
+import Logo from "../Logos/Logo";
 
 const Footer = () => {
   return (
@@ -9,13 +9,7 @@ const Footer = () => {
         <div className="container px-6 py-12">
           <div className="md:flex grid gap-8 justify-center md:justify-between">
             <div className="flex items-start justify-center gap-1">
-              <MdiCar className="h-14 w-14 text-white" />
-              <div className="flex flex-col items-center justify-center">
-                <span className="text-3xl font-bold leading-none text-ecstasy-500">
-                  VCS
-                </span>
-                <span className="text-lg text-white leading-none">rentals</span>
-              </div>
+              <Logo color={"light"} className="h-20 w-full" />
             </div>
             <div className="flex flex-col ">
               <div className="text-center md:text-left">
