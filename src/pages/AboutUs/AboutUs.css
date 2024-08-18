@@ -1,0 +1,30 @@
+.aboutUsText{
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    padding: 30px;
+    padding-top: 140px;
+    background-color: rgb(234, 234, 234);
+    gap: 20px;
+} 
+
+.aboutUsText h2{ 
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: rgb(255, 127, 53);
+    font-weight: 800;
+    text-underline-offset: 3px;
+  }
+
+  .aboutUsText p{ 
+    font-weight: 200;
+
+  }
+
+.boxas {
+    background-color: rgb(254, 251, 251);
+    padding: 10px 10px;
+    border-radius: 10px;
+    box-shadow: 6px 5px 5px rgb(149, 148, 148);
+    cursor: pointer;
+}

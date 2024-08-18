@@ -135,7 +135,7 @@ h1 {
 
 .toCars h3 {
   font-size: 30px;
-  width: 900px;
+  max-width: 900px;
   text-align: center;
   color: #2e2d35;
 }
@@ -148,4 +148,51 @@ h1 {
 
 .toCars Button:hover {
   color: #fff;
+}
+
+@media (max-width: 1350px) {
+
+.carousel-container {
+  width: 1040px;
+
+}
+
+.slick-slide {
+  padding: 0 0px;
+  margin: 0;
+  width: 260px !important;
+}
+.slick-track {
+  height: 260px !important;
+}
+.slick-list {
+  height: 260px !important;
+}
+
+}
+@media (max-width: 1060px) {
+
+.carousel-container {
+  width: 780px;
+
+}
+
+.toCars h3 {
+  font-size: 25px;
+}
+
+}
+@media (max-width: 800px) {
+
+.carousel-container {
+  width: 520px;
+
+}
+
+}
+@media (max-width: 580px) {
+
+.carousel-container {
+  width: 260px;
+}
 }
