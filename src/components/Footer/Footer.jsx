@@ -20,21 +20,21 @@ const Footer = () => {
           <div className="textBox flex-col items-start ">
             <h2>Company</h2>
             <Link
-              to="/terms"
+              to="/terms" className="hyperLinks"
             >
               Terms & conditions
             </Link>
-            <p>Privacy policy</p>
-            <p>Careers</p>
+            <p className="hyperLinks">Privacy policy</p>
+            <p className="hyperLinks">Careers</p>
           </div>
           <div className="textBox1">
             <p>2024 &copy; VCS, All rights reserved.</p>
           </div>
           <div className="textBox textBox flex-col items-start ">
           <h2>Services</h2>
-            <p>Car rentals</p>
-            <p>Personal car listing for rent</p>
-            <p>Partnership</p>
+            <p className="hyperLinks">Car rentals</p>
+            <p className="hyperLinks">Personal car listing for rent</p>
+            <p className="hyperLinks">Partnership</p>
        
           </div>
 
