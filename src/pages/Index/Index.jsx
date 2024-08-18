@@ -94,13 +94,13 @@ CarCarousel.propTypes = {
 const Index = () => (
   <>
     <Search />
-    <div className="toCars">
+    {/* <div className="toCars">
       <h3>
         At VCS Rentals, our mission is simple – to provide you with top-tier car
         rental services.
       </h3>
       <Button>See entire fleet</Button>
-    </div>
+    </div> */}
     <CarCarousel cars={cars} />
     <Banner />
     <Comentators />
