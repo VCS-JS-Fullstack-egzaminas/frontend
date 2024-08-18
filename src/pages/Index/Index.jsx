@@ -11,6 +11,7 @@ import Button from "../../components/ui/Button";
 import Banner from "../../components/Banner";
 import Comentators from "../../components/Comentators";
 
+
 const getRandomCars = (cars) => {
   const shuffled = cars.sort(() => 0.5 - Math.random());
   return shuffled.slice(0, 10);
@@ -99,7 +100,9 @@ const Index = () => (
         At VCS Rentals, our mission is simple – to provide you with top-tier car
         rental services.
       </h3>
+      <a href="/fleet">
       <Button>See entire fleet</Button>
+      </a>
     </div>
     <CarCarousel cars={cars} />
     <Banner />
