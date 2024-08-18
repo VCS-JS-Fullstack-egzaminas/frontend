@@ -1,4 +1,3 @@
-
 import "./Comentators.css";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -46,7 +45,7 @@ const Comentators = () => {
         },
       },
       {
-        breakpoint:1000,
+        breakpoint: 1000,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
@@ -66,16 +65,28 @@ const Comentators = () => {
   };
 
   return (
-    <div className="slider-container">
-      <h2>Excellent service endorsed by our clients</h2>
-      <Slider {...settings}>
-        <div className="comentator1">
-          <div className="message-star">
-            <span>&#9733;</span>
-            <span>&#9733;</span>
-            <span>&#9733;</span>
-            <span>&#9733;</span>
-            <span>&#9733;</span>
+    <div className="flex justify-center my-24">
+      <div className="container px-6">
+        <h2 className="font-bold text-4xl text-left text-river-bed-800 max-w-[450px] mb-12">
+          Excellent service endorsed by our clients
+        </h2>
+        <Slider {...settings} className="flex gap-2">
+          <div className="comentator1">
+            <div className="message-star">
+              <span>&#9733;</span>
+              <span>&#9733;</span>
+              <span>&#9733;</span>
+              <span>&#9733;</span>
+              <span>&#9733;</span>
+            </div>
+            <img src="../../public/avatar.png" alt="" />
+            <h3>Emily Carter</h3>
+            <p>
+              Renting from VCS Rentals was a breeze! The car was spotless and in
+              perfect condition. The staff were incredibly helpful and made the
+              entire process smooth and stress-free. I’ll definitely be using
+              VCS Rentals for all my future rentals. Highly recommended!
+            </p>
           </div>
           <img src="../../public/profile-img/1.jpg" alt="1" />
           <h3>Emill Carter</h3>
