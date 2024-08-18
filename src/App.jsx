@@ -23,6 +23,10 @@ const router = createBrowserRouter([
         path: "/new-listing",
         element: <NewListing />,
       },
+      {
+        path: "/fleet",
+        element: <Fleet />,
+      },
     ],
   },
   {
@@ -37,10 +41,6 @@ const router = createBrowserRouter([
     path: "/dev/components-demo",
     element: <ComponentsDemo />,
   },
-  {
-    path: "/fleet",
-    element: <Fleet />,
-  }
 ]);
 
 function App() {
