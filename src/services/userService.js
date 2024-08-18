@@ -27,3 +27,17 @@ export const deleteUserById = async (id) => {
 export const updateUserById = async (id, update) => {
   return axios.patch(`/users/${id}`, update);
 };
+
+export const checkAuthStatus = async () => {
+  return axios.get("/users/check-auth");
+};
+
+export const checkCookie = async () => {
+  try {
+    const response = await axios.get("/users/check-cookie");
+    return response.data.isValid;
+  } catch (error) {
+    console.error("Error checking auth cookie:", error.message);
+    return false;
+  }
+};

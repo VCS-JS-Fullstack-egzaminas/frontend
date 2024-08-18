@@ -16,12 +16,12 @@ const Search = () => {
   return (
     <div className="search-main bg-black/20 bg-blend-darken flex justify-center">
       <div className="container px-6 py-12">
-        <div className="flex flex-col lg:flex-row gap-8 items-center justify-between">
-          <div className="grid gap-2 max-w-[420px]">
-            <h1 className="leading-none text-left font-extrabold text-white text-5xl">
+        <div className="flex flex-col lg:flex-row gap-8 lg:items-center justify-between">
+          <div className="grid gap-2 max-w-[320px] sm:max-w-[420px]">
+            <h1 className="leading-none text-left font-extrabold text-white text-4xl sm:text-5xl">
               Drive in Style, Rent with Smiles
             </h1>
-            <p className="text-xl text-white">
+            <p className="text-lg sm:text-xl text-white">
               Our mission is simple - to provide you with top-tier car rental
               services.
             </p>
@@ -42,12 +42,12 @@ const Search = () => {
                     ))}
                   </select>
                 </div>
-                <div className="flex gap-2">
-                  <div className="flex flex-col w-1/2">
+                <div className="flex flex-col sm:flex-row gap-2">
+                  <div className="flex flex-col sm:w-1/2">
                     <Label>Pick Up</Label>
                     <Input type="datetime-local" className="w-full" />
                   </div>
-                  <div className="flex flex-col w-1/2">
+                  <div className="flex flex-col sm:w-1/2">
                     <Label>Drop Off</Label>
                     <Input type="datetime-local" className={"w-full"} />
                   </div>
