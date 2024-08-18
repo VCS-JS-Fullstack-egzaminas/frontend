@@ -7,6 +7,7 @@ import Error from "./pages/Error/Error";
 import ComponentsDemo from "./pages/ComponentsDemo/ComponentsDemo";
 import Login from "./pages/Login/Login";
 import Signup from "./pages/Signup/Signup";
+import Fleet from "./components/Fleet";
 import ImageUpload from "./pages/ImageUpload/ImageUpload";
 import AdminLayout from "./layouts/AdminLayout";
 import Listings from "./pages/Admin/Listings/Listings";
@@ -19,6 +20,7 @@ import AboutUs from "./pages/AboutUs/AboutUs";
 import Contact from "./pages/Contact/Contact";
 import Terms from "./pages/Terms/Terms";
 import AuthenticationLayout from "./layouts/AuthenticationLayout";
+
 
 const router = createBrowserRouter([
   {
@@ -41,6 +43,14 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/new-listing",
+        element: <NewListing />,
+      },
+      {
+        path: "/fleet",
+        element: <Fleet />,
       },
     ],
   },

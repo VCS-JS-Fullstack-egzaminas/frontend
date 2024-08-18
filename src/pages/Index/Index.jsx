@@ -12,6 +12,7 @@ import Banner from "../../components/Banner";
 import Comentators from "../../components/Comentators";
 import { Link } from "react-router-dom";
 
+
 const getRandomCars = (cars) => {
   const shuffled = cars.sort(() => 0.5 - Math.random());
   return shuffled.slice(0, 10);
@@ -105,14 +106,6 @@ CarCarousel.propTypes = {
 const Index = () => (
   <>
     <Search />
-    {/* <div className="toCars">
-      <h3>
-        At VCS Rentals, our mission is simple – to provide you with top-tier car
-        rental services.
-      </h3>
-      <Button>See entire fleet</Button>
-    </div> */}
-
     <CarCarousel cars={cars} />
     <Banner />
     <Comentators />
