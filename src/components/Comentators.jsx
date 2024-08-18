@@ -67,10 +67,10 @@ const Comentators = () => {
   return (
     <div className="flex justify-center my-24">
       <div className="container px-6">
-        <h2 className="font-bold text-4xl text-center text-river-bed-800 max-w-[450px]">
+        <h2 className="font-bold text-4xl text-left text-river-bed-800 max-w-[450px] mb-12">
           Excellent service endorsed by our clients
         </h2>
-        <Slider {...settings}>
+        <Slider {...settings} className="flex gap-2">
           <div className="comentator1">
             <div className="message-star">
               <span>&#9733;</span>
