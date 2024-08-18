@@ -34,8 +34,8 @@ const Login = () => {
           <div className="flex items-center gap-1">
             <MdiCar className="h-20 w-20 text-river-bed-800" />
             <div className="flex flex-col items-center">
-              <span className="text-5xl leading-none text-ecstasy-500">
-                index
+              <span className="text-5xl font-bold leading-none text-ecstasy-500">
+                VSC
               </span>
               <span className="text-4xl text-river-bed-800 leading-none">
                 rentals

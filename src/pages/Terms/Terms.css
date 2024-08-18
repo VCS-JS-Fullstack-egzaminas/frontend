@@ -3,7 +3,7 @@
     align-items: flex-start;
     justify-content: center;
     flex-direction: column;
-    height: 80vh;
+    height: 100vh;
     padding: 50px;
     gap: 10px;
 }
