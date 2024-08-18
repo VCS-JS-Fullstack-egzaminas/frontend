@@ -14,7 +14,7 @@ const Fleet = () => {
     <>
       <div className="fleet-Container1">
         <h2>
-          Discover the Perfect Ride: Introducing the VCS Fleet in Lithuania
+          Discover the Perfect Ride: Introducing the VCS Rental Fleet in Lithuania
         </h2>
       </div>
       <div className="fleet-Container2">

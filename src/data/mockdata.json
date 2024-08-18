@@ -4,301 +4,301 @@
         "id": 1,
         "imgSrc": "../../public/auto/Automobilio-nuoma-Toyota-Corolla-autonuoma-Vilniuje3-265x128.jpg",
         "title": "Toyota Corolla",
-        "size": "Vidutinė (IDMR)",
-        "year": "metai: 2023",
-        "info": "Pavarų dėžė: mechaninė",
-        "price": "Kaina nuo: 21.56€",
-        "reserve": "Rezervuoti"
+        "size": "Medium (IDMR)",
+        "year": "Year: 2023",
+        "info": "Transmission: Manual",
+        "price": "Price from: 21€",
+        "reserve": "Reserve"
       },
       {
         "id": 2,
         "imgSrc": "../../public/auto/Automobilio-nuoma-Volkswagen-Golf3-265x151.png",
         "title": "Volkswagen Golf 3",
-        "size": "Kompaktinė (CDMR)",
-        "year": "metai: 2020",
-        "info": "Pavarų dėžė: mechaninė",
-        "price": "Kaina nuo: 18.78€",
-        "reserve": "Rezervuoti"
+        "size": "Compact (CDMR)",
+        "year": "Year: 2020",
+        "info": "Transmission: Manual",
+        "price": "Price from: 18€",
+        "reserve": "Reserve"
       },
       {
         "id": 3,
         "imgSrc": "../../public/auto/Automobilio-nuoma-Volkswagen-Jetta-265x132.png",
         "title": "Volkswagen Jetta",
-        "size": "Vidutinė (IDMR)",
-        "year": "metai: 2020",
-        "info": "Pavarų dėžė: mechaninė",
-        "price": "Kaina nuo: 21.88€",
-        "reserve": "Rezervuoti"
+        "size": "Medium (IDMR)",
+        "year": "Year: 2020",
+        "info": "Transmission: Manual",
+        "price": "Price from: 21€",
+        "reserve": "Reserve"
       },
       {
         "id": 4,
         "imgSrc": "../../public/auto/Automobilio-nuoma-Volkswagen-Polo-265x149.png",
         "title": "Volkswagen Polo",
-        "size": "Ekonominė",
-        "year": "metai: 2021",
-        "info": "Pavarų dėžė: mechaninė",
-        "price": "Kaina nuo: 17,67€",
-        "reserve": "Rezervuoti"
+        "size": "Economic",
+        "year": "Year: 2021",
+        "info": "Transmission: Manual",
+        "price": "Price from: 17€",
+        "reserve": "Reserve"
       },
       {
         "id": 5,
         "imgSrc": "../../public/auto/Automobilių-nuoma-Ford-Focus3-265x144.png",
         "title": "Ford Focus",
-        "size": "Kompaktinė (CWAR)",
-        "year": "metai: 2023",
-        "info": "Pavarų dėžė: mechaninė",
-        "price": "Kaina nuo: 17.9€",
-        "reserve": "Rezervuoti"
+        "size": "Compact (CWAR)",
+        "year": "Year: 2023",
+        "info": "Transmission: Manual",
+        "price": "Price from: 19€",
+        "reserve": "Reserve"
       },
       {
         "id": 6,
         "imgSrc": "../../public/auto/Automobilių-nuoma-Ford-Mondeo.-265x153.png",
         "title": "Ford Mondeo",
-        "size": "Standartinė (SDAR)",
-        "year": "metai: 2022",
-        "info": "Pavarų dėžė: Automatinė",
-        "price": "Kaina nuo: 29.22€",
-        "reserve": "Rezervuoti"
+        "size": "Standart (SDAR)",
+        "year": "Year: 2022",
+        "info": "Transmission: Automatic",
+        "price": "Price from: 29€",
+        "reserve": "Reserve"
       },
       {
         "id": 7,
         "imgSrc": "../../public/auto/Automobilių-nuoma-Hyundai-i10-252x160.jpg",
         "title": "Hyundai i10",
         "size": "Mini (MDMR)",
-        "year": "metai: 2023",
-        "info": "Pavarų dėžė: mechaninė",
-        "price": "Kaina nuo: 9.98€",
-        "reserve": "Rezervuoti"
+        "year": "Year: 2023",
+        "info": "Transmission: Manual",
+        "price": "Price from: 9€",
+        "reserve": "Reserve"
       },
       {
         "id": 8,
         "imgSrc": "../../public/auto/hyundai-i20.png",
         "title": "Hyundai i20",
-        "size": "Ekonominė",
-        "year": "metai: 2021",
-        "info": "Pavarų dėžė: mechaninė",
-        "price": "Kaina nuo: 22.45€",
-        "reserve": "Rezervuoti"
+        "size": "Ekonomic",
+        "year": "Year: 2021",
+        "info": "Transmission: Manual",
+        "price": "Price from: 22€",
+        "reserve": "Reserve"
       },
       {
         "id": 9,
         "imgSrc": "../../public/auto/Automobiliu-nuoma-Hyundai-i30.-265x138.jpg",
         "title": "Hyundai i30",
         "size": "Kompaktinė (CDMR)",
-        "year": "metai: 2023",
-        "info": "Pavarų dėžė: mechaninė",
-        "price": "Kaina nuo: 18.88€",
-        "reserve": "Rezervuoti"
+        "year": "Year: 2023",
+        "info": "Transmission: Manual",
+        "price": "Price from: 18€",
+        "reserve": "Reserve"
       },
       {
         "id": 10,
         "imgSrc": "../../public/auto/Automobiliu-nuoma-Toyota-Auris-autonuoma..-265x150.jpg",
         "title": "Toyota Auris",
-        "size": "Kompaktinė (CDMR)",
-        "year": "metai: 2019",
-        "info": "Pavarų dėžė: mechaninė",
-        "price": "Kaina nuo: 19.77€",
-        "reserve": "Rezervuoti"
+        "size": "Compact (CDMR)",
+        "year": "Year: 2019",
+        "info": "Transmission: Manual",
+        "price": "Price from: 19€",
+        "reserve": "Reserve"
       },
       {
         "id": 11,
         "imgSrc": "../../public/auto/Automobiliu-nuoma-Toyota-Avensis-autonuoma-265x130.jpg",
         "title": "Toyota Avensis",
-        "size": "Standartinė (SWMR)",
-        "year": "metai: 2022",
-        "info": "Pavarų dėžė: mechaninė",
-        "price": "Kaina nuo: 22.45€",
-        "reserve": "Rezervuoti"
+        "size": "Standart (SWMR)",
+        "year": "Year: 2022",
+        "info": "Transmission: Manual",
+        "price": "Price from: 22€",
+        "reserve": "Reserve"
       },
       {
         "id": 12,
         "imgSrc": "../../public/auto/Automobiliu-nuoma-Toyota-CHR-autonuoma.-265x156.jpg",
         "title": "Toyota CHR",
-        "size": "Vidutinė (IFAR)",
-        "year": "metai: 2023",
-        "info": "Pavarų dėžė: automatinė",
-        "price": "Kaina nuo: 25.98€",
-        "reserve": "Rezervuoti"
+        "size": "Medium (IFAR)",
+        "year": "Year: 2023",
+        "info": "Transmission: Manual",
+        "price": "Price from: 25€",
+        "reserve": "Reserve"
       },
       {
         "id": 13,
         "imgSrc": "../../public/auto/Automobiliu-nuoma-Toyota-Corolla-autonuoma-11-265x135.jpg",
         "title": "Toyota Corolla",
-        "size": "Vidutinė (IWAR)",
-        "year": "metai: 2022",
-        "info": "Pavarų dėžė: mechaninė",
-        "price": "Kaina nuo: 24.99€",
-        "reserve": "Rezervuoti"
+        "size": "Medium (IWAR)",
+        "year": "Year: 2022",
+        "info": "Transmission: Manual",
+        "price": "Price from: 24€",
+        "reserve": "Reserve"
       },
       {
         "id": 14,
         "imgSrc": "../../public/auto/Automobiliu-nuoma-Toyota-Yaris-autonuoma.-260x160.jpg",
         "title": "Toyota Yaris",
-        "size": "Ekonominė",
-        "year": "metai: 2023",
-        "info": "Pavarų dėžė: mechaninė",
-        "price": "Kaina nuo: 14.56€",
-        "reserve": "Rezervuoti"
+        "size": "Ekonomic",
+        "year": "Year: 2023",
+        "info": "Transmission: Manual",
+        "price": "Price from: 14€",
+        "reserve": "Reserve"
       },
       {
         "id": 15,
         "imgSrc": "../../public/auto/car_group_2018-05-15-22-29-46_5afb5f5a2c54e-1-265x153.jpg",
         "title": "Ford Focus",
-        "size": "Kompaktinė (CDAR)",
-        "year": "metai: 2023",
-        "info": "Pavarų dėžė: automatinė",
-        "price": "Kaina nuo: 21.56€",
-        "reserve": "Rezervuoti"
+        "size": "Compact (CWAR)",
+        "year": "Year: 2023",
+        "info": "Transmission: Manual",
+        "price": "Price from: 21€",
+        "reserve": "Reserve"
       },
       {
         "id": 16,
         "imgSrc": "../../public/auto/Ford-Fiesta.png",
         "title": "Ford Fiesta",
-        "size": "Ekonominė",
-        "year": "metai: 2020",
-        "info": "Pavarų dėžė: mechaninė",
-        "price": "Kaina nuo: 17.67€",
-        "reserve": "Rezervuoti"
+        "size": "Ekonomic",
+        "year": "Year: 2020",
+        "info": "Transmission: Manual",
+        "price": "Price from: 17€",
+        "reserve": "Reserve"
       },
       {
         "id": 17,
         "imgSrc": "../../public/auto/Ford-Focus-EU-1-265x151.png",
         "title": "Ford Focus",
-        "size": "Kompaktinė (CDAR)",
-        "year": "metai: 2022",
-        "info": "Pavarų dėžė: mechaninė",
-        "price": "Kaina nuo: 13,86€",
-        "reserve": "Rezervuoti"
+        "size": "Compact (CWAR)",
+        "year": "Year: 2022",
+        "info": "Transmission: Manual",
+        "price": "Price from: 13€",
+        "reserve": "Reserve"
       },
       {
         "id": 18,
         "imgSrc": "../../public/auto/Hyundai-i10.jpg",
         "title": "Hyundai i10",
         "size": "Mini (MDMR)",
-        "year": "metai: 2022",
-        "info": "Pavarų dėžė: mechaninė",
-        "price": "Kaina nuo: 14.55€",
-        "reserve": "Rezervuoti"
+        "year": "Year: 2022",
+        "info": "Transmission: Manual",
+        "price": "Price from: 14€",
+        "reserve": "Reserve"
       },
       {
         "id": 19,
         "imgSrc": "../../public/auto/VW-Taigo.jpg",
         "title": "VW Taigo",
-        "size": "Kompaktinė (CFAR)",
-        "year": "metai: 2023",
-        "info": "Pavarų dėžė: automatinė",
-        "price": "Kaina nuo: 24€",
-        "reserve": "Rezervuoti"
+        "size": "Compact (CWAR)",
+        "year": "Year: 2023",
+        "info": "Transmission: Manual",
+        "price": "Price from: 24€",
+        "reserve": "Reserve"
       },
       {
         "id": 20,
         "imgSrc": "../../public/auto/hyundai-i30.png",
         "title": "Hyundai i30",
-        "size": "Kompaktinė (CDMR)",
-        "year": "metai: 2023",
-        "info": "Pavarų dėžė: mechaninė",
-        "price": "Kaina nuo: 18.88€",
-        "reserve": "Rezervuoti"
+        "size": "Compact (CDMR)",
+        "year": "Year: 2023",
+        "info": "Transmission: Manual",
+        "price": "Price from: 18€",
+        "reserve": "Reserve"
       },
       {
         "id": 21,
         "imgSrc": "../../public/auto/hyundai-i40-265x111.png",
         "title": "hyundai i40",
-        "size": "Standartinė (SWAR)",
-        "year": "metai: 2022",
-        "info": "Pavarų dėžė: mechaninė",
-        "price": "Kaina nuo: 24.66€",
-        "reserve": "Rezervuoti"
+        "size": "Standart (SWAR)",
+        "year": "Year: 2022",
+        "info": "Transmission: Manual",
+        "price": "Price from: 24€",
+        "reserve": "Reserve"
       },
       {
         "id": 22,
         "imgSrc": "../../public/auto/i40-new-265x140.jpg",
         "title": "hyundai i40 CW",
-        "size": "Standartinė (CWAR)",
-        "year": "metai: 2023",
-        "info": "Pavarų dėžė: automatinė",
-        "price": "Kaina nuo: 24.66€",
-        "reserve": "Rezervuoti"
+        "size": "Standart (CWAR)",
+        "year": "Year: 2023",
+        "info": "Transmission: Automatic",
+        "price": "Price from: 24€",
+        "reserve": "Reserve"
       },
       {
         "id": 23,
         "imgSrc": "../../public/auto/Mondeo.png",
         "title": "Ford Mondeo",
-        "size": "Standartinė (CDMR)",
-        "year": "metai: 2023",
-        "info": "Pavarų dėžė: mechaninė",
-        "price": "Kaina nuo: 27.55€",
-        "reserve": "Rezervuoti"
+        "size": "Standart (CDMR)",
+        "year": "Year: 2023",
+        "info": "Transmission: Manual",
+        "price": "Price from: 27€",
+        "reserve": "Reserve"
       },
       {
         "id": 24,
         "imgSrc": "../../public/auto/Toyota-Auris.jpg",
         "title": "Toyota-Auris",
-        "size": "Kompaktinė (CDMR)",
-        "year": "metai: 2023",
-        "info": "Pavarų dėžė: mechaninė",
-        "price": "Kaina nuo: 19.77€",
-        "reserve": "Rezervuoti"
+        "size": "Compact (CDMR)",
+        "year": "Year: 2023",
+        "info": "Transmission: Manual",
+        "price": "Price from: 19€",
+        "reserve": "Reserve"
       },
       {
         "id": 25,
         "imgSrc": "../../public/auto/Toyota-Corolla.jpg",
         "title": "Toyota Corolla New",
-        "size": "Vidutinė (IDMR)",
-        "year": "metai: 2023",
-        "info": "Pavarų dėžė: mechaninė",
-        "price": "Kaina nuo: 19.99€",
-        "reserve": "Rezervuoti"
+        "size": "Medium (IDMR)",
+        "year": "Year: 2023",
+        "info": "Transmission: Manual",
+        "price": "Price from: 19€",
+        "reserve": "Reserve"
       },
       {
         "id": 26,
         "imgSrc": "../../public/auto/toyota-rav4.jpg",
         "title": "Toyota RAV 4",
-        "size": "Visureigis (FDAR)",
-        "year": "metai: 2021",
-        "info": "Pavarų dėžė: automatinė",
-        "price": "Kaina nuo: 29.99€",
-        "reserve": "Rezervuoti"
+        "size": "SUV (FDAR)",
+        "year": "Year: 2021",
+        "info": "Transmission: Automatic",
+        "price": "Price from: 29€",
+        "reserve": "Reserve"
       },
       {
         "id": 27,
         "imgSrc": "../../public/auto/Volkswagen-Passsat.png",
         "title": "Volkswagen Passsat",
-        "size": "Standartinė (SDMR)",
-        "year": "metai: 2023",
-        "info": "Pavarų dėžė: mechaninė",
-        "price": "Kaina nuo: 26.56€",
-        "reserve": "Rezervuoti"
+        "size": "Standart (SDMR)",
+        "year": "Year: 2023",
+        "info": "Transmission: Manual",
+        "price": "Price from: 26€",
+        "reserve": "Reserve"
       },
       {
         "id": 28,
         "imgSrc": "../../public/auto/volkswagen-t-roc.jpg",
         "title": "Volkswagen T-Roc A/T",
-        "size": "Vidutinė (IFAR)",
-        "year": "metai: 2023",
-        "info": "Pavarų dėžė: mechaninė",
-        "price": "Kaina nuo: 28.88€",
-        "reserve": "Rezervuoti"
+        "size": "Medium (IFAR)",
+        "year": "Year: 2023",
+        "info": "Transmission: Manual",
+        "price": "Price from: 28€",
+        "reserve": "Reserve"
       },
       {
         "id": 29,
         "imgSrc": "../../public/auto/Volkswagen-Touran-.png",
         "title": "Volkswagen Touran",
-        "size": "Vidutinė (IWMR)",
-        "year": "metai: 2019",
-        "info": "Pavarų dėžė: mechaninė",
-        "price": "Kaina nuo: 22.23€",
-        "reserve": "Rezervuoti"
+        "size": "Medium (IWMR)",
+        "year": "Year: 2019",
+        "info": "Transmission: Manual",
+        "price": "Price from: 22€",
+        "reserve": "Reserve"
       },
       {
         "id": 30,
         "imgSrc": "../../public/auto/VW-T-Cross.jpg",
         "title": "VW-T-Cross",
-        "size": "Vidutinė (CFAR)",
-        "year": "metai: 2022",
-        "info": "Pavarų dėžė: automatinė",
-        "price": "Kaina nuo: 24€",
-        "reserve": "Rezervuoti"
+        "size": "Medium (CFAR)",
+        "year": "Year: 2022",
+        "info": "Transmission: Automatic",
+        "price": "Price from: 24€",
+        "reserve": "Reserve"
       }
     ]
 }

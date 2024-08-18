@@ -77,8 +77,8 @@ const Comentators = () => {
             <span>&#9733;</span>
             <span>&#9733;</span>
           </div>
-          <img src="../../public/avatar.png" alt="" />
-          <h3>Emily Carter</h3>
+          <img src="../../public/profile-img/1.jpg" alt="1" />
+          <h3>Emill Carter</h3>
           <p>
             Renting from VCS Rentals was a breeze! The car was spotless and in
             perfect condition. The staff were incredibly helpful and made the
@@ -93,7 +93,7 @@ const Comentators = () => {
             <span>&#9733;</span>
             <span>&#9733;</span>
           </div>
-          <img src="../../public/avatar.png" alt="" />
+          <img src="../../public/profile-img/2.jpg" alt="2" />
           <h3>Michael Bennett</h3>
           <p>
             Great experience overall with VCS Rentals. The booking process was
@@ -110,8 +110,8 @@ const Comentators = () => {
             <span>&#9733;</span>
             <span>&#9733;</span>
           </div>
-          <img src="../../public/avatar.png" alt="" />
-          <h3>Olivia Martin</h3>
+          <img src="../../public/profile-img/3.jpg" alt="3" />
+          <h3>Olive Martin</h3>
           <p>
             VCS Rentals exceeded my expectations! The car I rented was in
             pristine condition and drove like a dream. The customer service was
@@ -127,7 +127,7 @@ const Comentators = () => {
             <span>&#9733;</span>
             <span>&#9733;</span>
           </div>
-          <img src="../../public/avatar.png" alt="" />
+          <img src="../../public/profile-img/4.jpg" alt="4" />
           <h3>David Johnson</h3>
           <p>
             Quick and easy rental process with VCS Rentals. The car was clean
@@ -144,7 +144,7 @@ const Comentators = () => {
             <span>&#9733;</span>
             <span>&#9733;</span>
           </div>
-          <img src="../../public/avatar.png" alt="" />
+          <img src="../../public/profile-img/5.jpg" alt="5" />
           <h3>Sarah Thompson</h3>
           <p>
             VCS Rentals made my trip to the city so much easier. The staff were
@@ -161,7 +161,7 @@ const Comentators = () => {
             <span>&#9733;</span>
             <span>&#9733;</span>
           </div>
-          <img src="../../public/avatar.png" alt="" />
+          <img src="../../public/profile-img/6.jpg" alt="6" />
           <h3>James Parker</h3>
           <p>
             I had a fantastic experience with VCS Rentals. The car was ready
@@ -178,7 +178,7 @@ const Comentators = () => {
             <span>&#9733;</span>
             <span>&#9733;</span>
           </div>
-          <img src="../../public/avatar.png" alt="" />
+          <img src="../../public/profile-img/7.jpg" alt="7" />
           <h3>Emily Carter</h3>
           <p>
             VCS Rentals provided excellent service from start to finish. The car
@@ -195,8 +195,8 @@ const Comentators = () => {
             <span>&#9733;</span>
             <span>&#9733;</span>
           </div>
-          <img src="../../public/avatar.png" alt="" />
-          <h3>Daniel Lee</h3>
+          <img src="../../public/profile-img/8.jpg" alt="8" />
+          <h3>Daniela Lee</h3>
           <p>
             I’ve rented from several companies, but VCS Rentals stands out for
             their outstanding service and quality vehicles. The car was in great
@@ -212,7 +212,7 @@ const Comentators = () => {
             <span>&#9733;</span>
             <span>&#9733;</span>
           </div>
-          <img src="../../public/avatar.png" alt="" />
+          <img src="../../public/profile-img/9.jpg" alt="9" />
           <h3>Jessica Brown</h3>
           <p>
             VCS Rentals made my weekend getaway stress-free. The car was
@@ -229,7 +229,7 @@ const Comentators = () => {
             <span>&#9733;</span>
             <span>&#9733;</span>
           </div>
-          <img src="../../public/avatar.png" alt="" />
+          <img src="../../public/profile-img/10.jpg" alt="10" />
           <h3>William Davis</h3>
           <p>
             VCS Rentals delivered on all fronts. The car was ready on time,
