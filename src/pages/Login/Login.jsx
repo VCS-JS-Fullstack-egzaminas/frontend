@@ -1,11 +1,32 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Button from "../../components/ui/Button";
 import Card from "../../components/ui/Card";
 import Input from "../../components/ui/Input";
 import Label from "../../components/ui/Label";
 import { MdiCar } from "../../components/ui/icons/MdiCar";
+import { useState } from "react";
+import { login } from "../../services/userService";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await login({ email, password });
+
+      if (response.status === 200) {
+        navigate("/");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div className="relative flex justify-center min-h-screen">
       <div className="flex flex-col gap-8 items-center justify-center min-h-screen sm:px-12 pb-[84px]">
@@ -26,15 +47,27 @@ const Login = () => {
           <Card>
             <div className="grid gap-4 min-w-80">
               <h1 className="font-bold text-3xl">Log in</h1>
-              <form onSubmit={(e) => e.preventDefault()}>
+              <form onSubmit={handleSubmit}>
                 <div className="grid gap-4">
                   <div className="grid">
                     <Label htmlFor="email">Email</Label>
-                    <Input type="email" name="email" id="email" />
+                    <Input
+                      type="email"
+                      name="email"
+                      id="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
                   </div>
                   <div className="grid">
                     <Label htmlFor="password">Password</Label>
-                    <Input type="password" name="password" id="password" />
+                    <Input
+                      type="password"
+                      name="password"
+                      id="password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                    />
                   </div>
                   <Button type="submit">Log in</Button>
                 </div>
