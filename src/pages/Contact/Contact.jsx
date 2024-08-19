@@ -35,8 +35,10 @@ const Contact = () => {
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3878.7108101143426!2d25.27333125072153!3d54.68683693527319!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dd93fb5c6408f5%3A0x400d18c70e9dc40!2sVilnius%2C%20Vilnius%20City%20Municipality%2C%20Lithuania!5e0!3m2!1sen!2s!4v1724000696892!5m2!1sen!2s"
                 width="100%"
-                height="450"
-                style={{ border: 0 }}
+                height="445"
+                style={{ border: 0,
+                  borderRadius:12
+                 }}
                 allowfullscreen=""
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
@@ -45,7 +47,7 @@ const Contact = () => {
             </div>
           </div>
           <div className="w-1/2">
-            <Card className="w-full">
+            <Card className="w-full  ml-10">
               <h2>Send us a message</h2>
               <form className="flex flex-col gap-4" action="#">
                 <div className="grid gap-1">
@@ -75,7 +77,7 @@ const Contact = () => {
                 <div className="grid gap-1">
                   <Label htmlFor="message">Message</Label>
                   <textarea
-                    className="border border-river-bed-50 rounded-md shadow-sm p-2 outline-none active:outline-1 h-full"
+                    className="border h-64 border-river-bed-50 rounded-md shadow-sm p-2 outline-none active:outline-1 "
                     placeholder="Message"
                     name="message"
                     id="message"
