@@ -2,7 +2,7 @@ import "./Navbar.css";
 import { Link, NavLink } from "react-router-dom";
 import Logo from "../Logos/Logo";
 import { useAuth } from "../../hooks/useAuth";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Navbar = () => {
   const { user, role, logOut } = useAuth();
@@ -19,6 +19,28 @@ const Navbar = () => {
       console.error("Logout failed:", error.message);
     }
   };
+
+
+  const handleClickOutside = (event) => {
+    if (
+      !event.target.closest(".menu-wrapper") &&
+      !event.target.closest("#mobile-menu-btn")
+    ) {
+      setIsMenuOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.addEventListener("click", handleClickOutside);
+    } else {
+      document.removeEventListener("click", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [isMenuOpen]);
 
   return (
     <nav className="navbar flex justify-center bg-slate-100 shadow-sm">
