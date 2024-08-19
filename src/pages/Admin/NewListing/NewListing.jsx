@@ -1,7 +1,7 @@
 import "./NewListing.css";
 import {  useRef, useState} from "react"
 import {  useNavigate} from "react-router-dom"
-import axios from 'axios';
+import {createListing } from "../../../services/listingsService"
 
 
 const NewListing = () => {
@@ -21,7 +21,7 @@ const NewListing = () => {
     e.preventDefault(e)
       try{
        
-          await axios.post(`http://localhost:3000/api/listings/`,entryData)
+          await createListing (entryData)
             console.log('bando ikelti',entryData)
             alert('Record succesfully added')
           }catch(error){
@@ -29,7 +29,7 @@ const NewListing = () => {
           }
           
           console.log("returning"); 
-          // navigate('/admin/listings');
+          navigate('/admin/listings');
         }      
 
 

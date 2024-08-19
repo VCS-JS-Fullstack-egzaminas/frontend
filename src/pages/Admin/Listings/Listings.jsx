@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import Button from '../../../components/ui/Button'
 import { Link} from 'react-router-dom'
-import axios from 'axios';
+import {getAllListings } from "../../../services/listingsService"
 
 const Listings = () => {
     const [listings, setListings] = useState ([])
@@ -10,9 +10,7 @@ const Listings = () => {
             
       const getEntries = async () => {
         try {
-          const response = await axios.get(
-            'http://localhost:3000/api/listings/'
-          )
+          const response = await getAllListings()
           setListings(response.data)
          
         } catch(error) {
@@ -27,6 +25,7 @@ const Listings = () => {
  
    <div className="App">
       <div className="new-listing-container card">
+       <Link to='/admin/new-listing'> <Button style={{backgroundColor :"darkGray"}}>+ New Listing</Button> </Link>
         {listings.length > 0 &&
           listings.map((info) => (
             <div key={info._id} className='listingInfo'>

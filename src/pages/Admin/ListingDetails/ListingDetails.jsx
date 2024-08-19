@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react"
 import { useParams, useNavigate} from "react-router-dom"
-import axios from 'axios';
 import Button from '../../../components/ui/Button'
+import {getListingById, updateListingById, deleteListingById} from "../../../services/listingsService";
+
 
 const ListingDetails = () => {
     const {id} = useParams()
@@ -24,10 +25,7 @@ const ListingDetails = () => {
     useEffect(() => {
     const getEntries = async () => {
           try {
-            const response = await axios.get(
-              `http://localhost:3000/api/listings/${id}`
-            )
-          
+            const response = await getListingById(id)
             setEntry(response.data)
            
           } catch(error) {
@@ -40,7 +38,7 @@ const ListingDetails = () => {
     const handleDelete = async (e) =>{
       e.preventDefault(e)
         try{
-            await axios.delete(`http://localhost:3000/api/listings/${id}`)
+            await deleteListingById(id)
               console.log('bando pasalinti',id)
               alert('Record succesfully deleted!')
             }catch(error){
@@ -56,7 +54,7 @@ const handleUpdate = async (e) => {
   console.log('cia paprasta', editData)
   try{
       console.log(editData)
-    await axios.patch(`http://localhost:3000/api/listings/${id}`,editData)
+    await updateListingById(id,editData)
       console.log('bando atnaujinti',id)
       alert('Record succesfully updated!')
     }catch(error){

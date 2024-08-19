@@ -19,7 +19,7 @@ const Users = () => {
   return (
     <div>
       <div className="App">
-        <div className="home-content">
+        <div className="new-listing-container card">
           {content.length > 0 &&
             content.map((info) => (
               <div key={info._id} className="recordInfo">

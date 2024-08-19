@@ -10,6 +10,7 @@ const AdminHeader = () => {
 
   return (
     <header className="admin-header flex justify-between items-center px-4 pt-4">
+
       <NavLink to="/admin">
         <div className="flex items-center gap-1">
           <MdiCar className="h-10 w-10 text-river-bed-800" />
@@ -24,6 +25,16 @@ const AdminHeader = () => {
         </div>
       </NavLink>
       <nav className="flex gap-4">
+      <NavLink
+          to="/"
+          className={({ isActive }) =>
+            `${tabStyleClasses} ${
+              isActive ? activeTabStyleClasses : "border-river-bed-800"
+            }`
+          }
+        >
+          Home
+        </NavLink>
         <NavLink
           to="users"
           className={({ isActive }) =>
