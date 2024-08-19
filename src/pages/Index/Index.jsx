@@ -90,7 +90,7 @@ const CarCarousel = ({ cars }) => {
           ))}
         </Slider>
         <div className="flex justify-center mt-24">
-          <Link to={"/about-us"}>
+          <Link to={"/fleet"}>
             <Button>See Entire Fleet</Button>
           </Link>
         </div>
