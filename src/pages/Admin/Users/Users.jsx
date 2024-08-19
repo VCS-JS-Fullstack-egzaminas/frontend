@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Button from "../../../components/ui/Button";
+import Card from "../../../components/ui/Card"; // Import Card component
 import { getAllUsers } from "../../../services/userService";
+
 const Users = () => {
   const [content, setContent] = useState([]);
 
@@ -15,28 +17,29 @@ const Users = () => {
       }
     };
     getEntries();
-  }, [content]);
+  }, []);
+
   return (
-    <div>
-      <div className="App">
-        <div className="new-listing-container card">
-          {content.length > 0 &&
-            content.map((info) => (
-              <div key={info._id} className="recordInfo">
-                <p>
-                  {" "}
-                  <strong>Username:</strong> {info.username}
-                </p>
-                <p>
-                  <strong>Email:</strong> {info.email}
-                </p>
+    <div className="App bg-gray-100">
+      <div className="home-content space-y-4 pt-8 mx-4">
+        {content.length > 0 &&
+          content.map((info) => (
+            <Card key={info._id} className="recordInfo w-full">
+              <div className="flex justify-between items-center">
+                <div>
+                  <p className="text-lg font-bold mb-2">
+                    <strong>Username:</strong> {info.username}
+                  </p>
+                  <p className="text-sm text-gray-600">
+                    <strong>Email:</strong> {info.email}
+                  </p>
+                </div>
                 <Link to={`${info._id}`}>
-                  {" "}
-                  <Button>Details</Button>
+                  <Button color="primary">Details</Button>
                 </Link>
               </div>
-            ))}
-        </div>
+            </Card>
+          ))}
       </div>
     </div>
   );
