@@ -16,6 +16,9 @@ const Button = ({ children, color, className, ...props }) => {
     case "danger":
       colorClasses = "bg-red-500 hover:bg-red-700 active:bg-red-800";
       break;
+    case "create":
+      colorClasses = "bg-green-500 hover:bg-green-700 active:bg-green-800";
+      break;
     default:
       colorClasses =
         "bg-ecstasy-500 hover:bg-ecstasy-600 active:bg-ecstasy-700";
@@ -33,7 +36,13 @@ const Button = ({ children, color, className, ...props }) => {
 
 Button.propTypes = {
   children: PropTypes.node.isRequired,
-  color: PropTypes.oneOf(["primary", "secondary"]),
+  color: PropTypes.oneOf([
+    "primary",
+    "secondary",
+    "disabled",
+    "danger",
+    "create",
+  ]),
   className: PropTypes.string,
 };
 
