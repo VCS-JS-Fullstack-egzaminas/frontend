@@ -2,8 +2,8 @@
   font-size: 34px;
   color: #bca406;
   text-align: center;
-  margin-top: 100px;
-  margin-bottom: 20px;
+  margin-top: 150px;
+  margin-bottom: 80px;
 }
 
 .fleet-Container1 {
@@ -42,6 +42,8 @@
   gap: 20px;
   opacity: 1;
   transition: opacity 1s ease-in-out;
+  padding-bottom: 100px;
+  padding-top: 20px;
 }
 
 .fleet-Container2.fade-out {

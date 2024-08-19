@@ -38,7 +38,7 @@ const Fleet = () => {
           <button onClick={() => filterCars("Economic")}>Economic</button>
           <button onClick={() => filterCars("Compact")}>Compact</button>
           <button onClick={() => filterCars("Medium")}>Medium</button>
-          <button onClick={() => filterCars("Standart")}>Standart</button>
+          <button onClick={() => filterCars("Standard")}>Standard</button>
           <button onClick={() => filterCars("SUV")}>SUV</button>
         </div>
       </div>

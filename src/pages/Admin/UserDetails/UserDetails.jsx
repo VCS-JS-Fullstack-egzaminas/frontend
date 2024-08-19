@@ -28,7 +28,7 @@ const UserDetails = () => {
     getEntries();
   }, [entry, id]);
 
-  // kad nesikabunciau prie sito delete :(
+
   const handleDelete = async (e) => {
     e.preventDefault(e);
     try {
@@ -63,15 +63,15 @@ const UserDetails = () => {
     e.preventDefault();
     let laikinasEmail = emailRef.current.value;
     let laikinasUsername = usernameRef.current.value;
-    if (laikinasEmail.length > 3 && laikinasUsername.length > 3) {
+    if (laikinasEmail.length >= 6 && laikinasUsername.length >= 3) {
       setEditData({
         ...editData,
         email: laikinasEmail,
         username: laikinasUsername,
       });
-    } else if (laikinasEmail.length > 3 && laikinasUsername.length < 3) {
+    } else if (laikinasEmail.length >= 6 && laikinasUsername.length < 3) {
       setEditData({ ...editData, email: laikinasEmail });
-    } else if (laikinasUsername.length > 3 && laikinasEmail.length < 3) {
+    } else if (laikinasUsername.length > 3 && laikinasEmail.length <= 6) {
       setEditData({ ...editData, username: laikinasUsername });
     } //krc ims viena is dveju ant patcho jeigu nepildytas vienas
   };
