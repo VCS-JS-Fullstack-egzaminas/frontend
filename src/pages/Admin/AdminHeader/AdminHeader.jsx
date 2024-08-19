@@ -16,7 +16,7 @@ const AdminHeader = () => {
           <MdiCar className="h-10 w-10 text-river-bed-800" />
           <div className="flex flex-col items-left">
             <span className="text-2xl leading-none text-ecstasy-500">
-              index.admin
+              <strong>VCS</strong>.admin
             </span>
             <span className="text-lg text-river-bed-800 leading-none">
               rentals
