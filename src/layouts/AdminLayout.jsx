@@ -4,14 +4,17 @@ import { useAuth } from "../hooks/useAuth";
 import { useEffect } from "react";
 
 const AdminLayout = () => {
-  // TODO - fix redirect out of admin panel if role !== "admin"
-  // const { user, role } = useAuth();
+  const { loading, user, role } = useAuth();
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   console.log(role, user);
-  // }, [role]);
+  useEffect(() => {
+    if (!loading) {
+      if (!user || role !== "admin") {
+        navigate("/");
+      }
+    }
+  }, [role, loading, user, navigate]);
 
   return (
     <div className="flex flex-col h-screen">
