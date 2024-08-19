@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Card from "../../components/ui/Card";
-import {uploadImg} from "../../services/uploadService"
-
+import { uploadImg } from "../../services/uploadService";
 
 const ImageUpload = () => {
   const [images, setImages] = useState([]);
@@ -29,10 +28,8 @@ const ImageUpload = () => {
 
     try {
       const response = await uploadImg(formData);
-      console.log(formData)
-      if (response.ok) {
-        const result = await response.json();
-        console.log(result);
+      if (response.status === 200) {
+        console.log(response.data);
         setImages([]);
       }
     } catch (error) {
