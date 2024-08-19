@@ -33,6 +33,9 @@ export default {
           950: "#0F1215",
         },
       },
+      fontFamily: {
+        inter: ["Inter", "sans-serif"],
+      },
     },
   },
   plugins: [],

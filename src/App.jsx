@@ -19,7 +19,8 @@ import AdminHome from "./pages/Admin/AdminHome/AdminHome";
 import AboutUs from "./pages/AboutUs/AboutUs";
 import Contact from "./pages/Contact/Contact";
 import Terms from "./pages/Terms/Terms";
-
+import AuthenticationLayout from "./layouts/AuthenticationLayout";
+import AuthProvider from "./components/AuthProvider/AuthProvider";
 
 const router = createBrowserRouter([
   {
@@ -31,7 +32,18 @@ const router = createBrowserRouter([
         index: true,
         element: <Index />,
       },
-
+      {
+        path: "/terms",
+        element: <Terms />,
+      },
+      {
+        path: "/about-us",
+        element: <AboutUs />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
       {
         path: "/new-listing",
         element: <NewListing />,
@@ -40,28 +52,25 @@ const router = createBrowserRouter([
         path: "/fleet",
         element: <Fleet />,
       },
-
     ],
   },
   {
-    path: "/login",
-    element: <Login />,
-  },
-  {
-    path: "/signup",
-    element: <Signup />,
-  },
-  {
-    path: "/aboutus",
-    element: <AboutUs />,
-  },
-  {
-    path: "/contact",
-    element: <Contact />,
-  },
-  {
-    path: "/terms",
-    element: <Terms />,
+    path: "/auth",
+    element: <AuthenticationLayout />,
+    children: [
+      {
+        index: true,
+        element: <Login />,
+      },
+      {
+        path: "login",
+        element: <Login />,
+      },
+      {
+        path: "signup",
+        element: <Signup />,
+      },
+    ],
   },
   {
     path: "/dev/components-demo",
@@ -73,7 +82,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/admin",
-    element: <AdminLayout />,
+    element: (
+      <AuthProvider>
+        <AdminLayout />
+      </AuthProvider>
+    ),
     children: [
       {
         index: true,

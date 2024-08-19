@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -30,4 +32,17 @@
 
 .btn-primary:hover {
   background-color: var(--primary-hover);
+}
+
+.terms h1,
+.terms h2 {
+  @apply text-river-bed-950;
+}
+
+.terms h3 {
+  @apply text-river-bed-900;
+}
+
+.terms p {
+  @apply text-river-bed-800;
 }
