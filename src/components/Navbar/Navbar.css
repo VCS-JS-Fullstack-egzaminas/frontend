@@ -24,6 +24,7 @@
   align-items: center;
 }
 
+
 .login-button {
   color: white;
   font-weight: 600;
@@ -43,11 +44,14 @@
   transition: transform 0.3s ease-in-out;
   z-index: 999;
   display: none; 
+  opacity: 0;
 }
 
 .menu-wrapper.open {
   transform: translateY(0);
   display: block;
+  opacity: 1;
+  animation: slideDown 0.3s forwards;
 }
 
 .menu {
@@ -55,7 +59,6 @@
   flex-direction: column;
   padding: 1rem;
 }
-
 
 #mobile-menu-btn[aria-expanded="true"] .line1 {
   transform: rotate(45deg) translatey(5px);
@@ -70,11 +73,33 @@
 }
 
 .line1,
-  .line2,
-  .line3 {
-    transform-origin: center;
-    transition: 300ms;
+.line2,
+.line3 {
+  transform-origin: center;
+  transition: 300ms;
+}
+
+
+
+.text-ecstasy-400 {
+  color: #f97316; /* Pakeiskite spalvą pagal savo poreikius */
+}
+
+
+
+
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
   }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 
 
 @media (min-width: 768px) {
@@ -84,7 +109,8 @@
     box-shadow: none;
     background-color: transparent;
     display: block;
-  
+    opacity: 1;
+    animation: none;
   }
 
   .menu {

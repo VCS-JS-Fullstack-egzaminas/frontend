@@ -9,6 +9,13 @@
   --primary-hover: #f19437;
 }
 
+/* 
+* {
+  outline: 1px solid #f00 !important;
+} */
+
+
+
 .card {
   border: 1px solid #ddd;
   border-radius: 8px;

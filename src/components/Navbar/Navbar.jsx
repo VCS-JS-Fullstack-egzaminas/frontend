@@ -35,7 +35,7 @@ const Navbar = () => {
               className="md:hidden"
               onClick={toggleMenu}
               aria-expanded={isMenuOpen}
-              >
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-9 w-9 fill-black"
@@ -68,20 +68,41 @@ const Navbar = () => {
               </svg>
             </button>
             <div className={`menu-wrapper ${isMenuOpen ? "open" : ""}`}>
-              <div className="menu md:flex gap-3 items-center bg-slate-100">
-                <NavLink className="hover:text-ecstasy-400" to={"/"}>
+              <div className="menu md:flex gap-3 items-center bg-slate-100/95">
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-ecstasy-400 hover:text-ecstasy-400"
+                      : "hover:text-ecstasy-400"
+                  }
+                  to="/"
+                >
                   Home
                 </NavLink>
-                <NavLink className="hover:text-ecstasy-400" to={"/about-us"}>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-ecstasy-400 hover:text-ecstasy-400"
+                      : "hover:text-ecstasy-400"
+                  }
+                  to="/about-us"
+                >
                   About us
                 </NavLink>
-                <NavLink className="hover:text-ecstasy-400" to={"/contact"}>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-ecstasy-400 hover:text-ecstasy-400"
+                      : "hover:text-ecstasy-400"
+                  }
+                  to="/contact"
+                >
                   Contacts
                 </NavLink>
                 {user ? (
                   <>
                     {role === "admin" && (
-                      <NavLink to={"/admin"}>Admin panel</NavLink>
+                      <NavLink to="/admin">Admin panel</NavLink>
                     )}
                     <button
                       className="text-white px-4 py-1 font-semibold rounded-md transition duration-150 shadow-md bg-ecstasy-500 hover:bg-ecstasy-600 active:bg-ecstasy-700"

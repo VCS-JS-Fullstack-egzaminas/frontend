@@ -50,7 +50,7 @@ const Fleet = () => {
               <h3>{car.title}</h3>
               <p>{car.size}</p>
               <p>{car.year}</p>
-              <p>{car.price}</p>
+              <p>Price from:{car.price}€</p>
               <a href="/rezervuoti" className="btn btn-primary">
                 {car.reserve}
               </a>
