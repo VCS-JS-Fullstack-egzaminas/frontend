@@ -79,18 +79,20 @@ const CarCarousel = ({ cars }) => {
   };
 
   return (
-    <div className="flex justify-center my-24">
+    <div className="flex flex-col items-center justify-center my-24 ">
       <div className="container px-6">
         <h2 className="font-bold text-4xl text-left text-river-bed-800 max-w-[450px] mb-12">
           Popular cars
         </h2>
-        <Slider {...settings}>
-          {randomCars.map((car) => (
-            <CarCard key={car.id} car={car} />
-          ))}
-        </Slider>
+      </div>
+      <Slider {...settings} className="carousel-container ">
+        {randomCars.map((car) => (
+          <CarCard key={car.id} car={car} />
+        ))}
+      </Slider>
+      <div className="flex mt-46">
         <div className="flex justify-center mt-24">
-          <Link to={"/about-us"}>
+          <Link to={"/fleet"}>
             <Button>See Entire Fleet</Button>
           </Link>
         </div>
