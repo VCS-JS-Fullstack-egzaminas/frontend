@@ -17,6 +17,8 @@ const NewListing = () => {
   const minDurationRef = useRef();
   const extrasRef = useRef();
   const photosRef = useRef();
+  const yearRef = useRef();
+  const sizeRef = useRef();
 
   const handleImageInput = (e) => {
     const newImages = Array.from(e.target.files).map((file) => ({
@@ -100,8 +102,11 @@ const NewListing = () => {
     let laikinasMaxDur = maxDurationRef.current.value;
     let laikinasMinDur = minDurationRef.current.value;
     let laikinasExtras = extrasRef.current.value;
-    let laikinasPhotos = photosRef.current.value;
-    // console.log(laikinasPhotos)
+    let laikinasYear = yearRef.current.value
+    let laikinasSize = sizeRef.current.value
+    
+    let size = laikinasSize
+    let year = laikinasYear
     let title = laikinasTitle;
     let description = laikinasDescription;
     let price = laikinasPrice;
@@ -109,7 +114,6 @@ const NewListing = () => {
     let min_duration = laikinasMinDur;
     let max_duration = laikinasMaxDur;
     let extras = laikinasExtras;
-    // let photos = laikinasPhotos
     setEntryData({
       ...entryData,
       title,
@@ -120,6 +124,8 @@ const NewListing = () => {
       max_duration,
       extras,
       photos,
+      year,
+      size
     });
   };
 
@@ -134,6 +140,25 @@ const NewListing = () => {
           onChange={handleInputChange}
           placeholder="Title"
         />
+        <input
+          className="input-field"
+          ref={yearRef}
+          type="number"
+          onChange={handleInputChange}
+          placeholder="Year"
+        />
+          <select
+          className="input-field"
+          onChange={handleInputChange}
+          ref={sizeRef}
+        >
+          <option value="Mini">Mini</option>
+          <option value="Economic">Economic</option>
+          <option value="Compact">Compact</option>
+          <option value="Medium">Medium</option>
+          <option value="Standard">Standard</option>
+          <option value="SUV">SUV</option>
+        </select>
         <textarea
           className="input-field"
           ref={descriptionRef}
@@ -150,8 +175,6 @@ const NewListing = () => {
         />
         <select
           className="input-field"
-          name="pets"
-          id="pet-select"
           onChange={handleInputChange}
           ref={availableRef}
         >
@@ -187,9 +210,7 @@ const NewListing = () => {
                 ref={photosRef}
               />
             </div>
-            <button className="bg-red-500 text-white" onClick={handleImgSubmit}>
-              UploadImg
-            </button>
+
           </div>
         </div>
         <input
