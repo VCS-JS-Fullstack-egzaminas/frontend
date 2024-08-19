@@ -1,107 +1,74 @@
-import { useState } from "react";
 import "./NewListing.css";
-import PropTypes from "prop-types";
+import {  useRef, useState} from "react"
+import {  useNavigate} from "react-router-dom"
+import {createListing } from "../../../services/listingsService"
 
 
-const NewListing = ({ addListing }) => {
-  const [id, setId] = useState("");
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [photos, setPhotos] = useState("");
-  const [price, setPrice] = useState("");
-  const [availability, setAvailability] = useState(false);
-  const [minduration, setMinDuration] = useState("");
-  const [maxduration, setMaxDuration] = useState("");
-  const [extras, setExtras] = useState("");
-  const [createdAt, setCreatedAt] = useState("");
+const NewListing = () => {
+  const [entryData, setEntryData] = useState('')
+  const navigate = useNavigate();
+  const titleRef = useRef()
+  const descriptionRef = useRef()
+  const priceRef = useRef()
+  const availableRef = useRef()
+  const maxDurationRef = useRef()
+  const minDurationRef = useRef()
+  const extrasRef = useRef()
+  const photosRef = useRef()
+ 
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const photosArray = photos.split(",").map((photo) => photo.trim());
-    addListing({
-      id,
-      title,
-      description,
-      photos: photosArray,
-      price,
-      availability,
-      minduration,
-      maxduration,
-      extras,
-      createdAt,
-    });
-    setId("");
-    setTitle("");
-    setDescription("");
-    setPhotos("");
-    setPrice("");
-    setAvailability(false);
-    setMinDuration("");
-    setMaxDuration("");
-    setExtras("");
-    setCreatedAt("");
-  };
+  const handleSubmit = async (e) =>{
+    e.preventDefault(e)
+      try{
+       
+          await createListing (entryData)
+            console.log('bando ikelti',entryData)
+            alert('Record succesfully added')
+          }catch(error){
+            console.log(error)
+          }
+          
+          console.log("returning"); 
+          navigate('/admin/listings');
+        }      
+
+
+  const handleInputChange =  (e) => {
+    e.preventDefault()
+     let laikinasTitle =  titleRef.current.value 
+     let laikinasDescription =  descriptionRef.current.value
+     let laikinasPrice =  priceRef.current.value 
+     let laikinasAvailable = availableRef.current.value 
+     let laikinasMaxDur = maxDurationRef.current.value 
+     let laikinasMinDur =  minDurationRef.current.value 
+     let laikinasExtras =  extrasRef.current.value 
+     let laikinasPhotos = photosRef.current.value
+      let title = laikinasTitle
+      let description = laikinasDescription
+      let price = laikinasPrice
+      let available = laikinasAvailable 
+      let min_duration = laikinasMinDur
+      let max_duration = laikinasMaxDur
+      let extras = laikinasExtras 
+      let photos = laikinasPhotos
+      setEntryData({...entryData, title,description,price,available,min_duration,max_duration,extras,photos})}
 
   return (
     <div className="new-listing-container card">
       <h2 className="font-bold text-3xl mb-4">Add New Rental</h2>
       <form onSubmit={handleSubmit} className="new-listing-form gap-1">
-        <input
-          type="text"
-          placeholder="Title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          className="input-field"
-          required
-        />
-        <textarea
-          placeholder="Description"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-          className="input-field"
-          required
-        />
-        <input
-          type="text"
-          placeholder="Photos (comma separated URLs)"
-          value={photos}
-          onChange={(e) => setPhotos(e.target.value)}
-          className="input-field"
-          required
-        />
-        <input
-          type="number"
-          placeholder="Price"
-          value={price}
-          onChange={(e) => setPrice(e.target.value)}
-          className="input-field"
-          required
-        />
-        <input
-          type="number"
-          placeholder="Min Duration"
-          value={minduration}
-          onChange={(e) => setMinDuration(e.target.value)}
-          className="input-field"
-          required
-        />
-        <input
-          type="number"
-          placeholder="Max Duration"
-          value={maxduration}
-          onChange={(e) => setMaxDuration(e.target.value)}
-          className="input-field"
-          required
-        />
-        <input
-          type="text"
-          placeholder="Extras"
-          value={extras}
-          onChange={(e) => setExtras(e.target.value)}
-          className="input-field"
-          required
-        />
-        <button type="submit" className="btn btn-primary w-full">
+     <input className="input-field" ref={titleRef} type="text" onChange={handleInputChange} placeholder="Title"  /> 
+     <textarea className="input-field" ref={descriptionRef} type="text" onChange={handleInputChange} placeholder="Description" />
+     <input  className="input-field" ref={priceRef} type="number" onChange={handleInputChange} placeholder="Price"  />
+     <select  className="input-field" name="pets" id="pet-select" onChange={handleInputChange} ref={availableRef}>
+      <option value="true">Available</option>
+      <option value="false">Unavailable</option>
+      </select>
+      <input  placeholder="Photo URLs" className="input-field" ref={photosRef} type="text" onChange={handleInputChange} />
+     <input placeholder="Min Rental Duration" className="input-field" ref={minDurationRef} type="number" onChange={handleInputChange}  />
+     <input  placeholder="Max Rental Duration"  className="input-field" ref={maxDurationRef} type="number" onChange={handleInputChange}  />
+     <input  placeholder="Extras" className="input-field" ref={extrasRef} type="text" onChange={handleInputChange} />
+      <button type="submit" className="btn btn-primary w-full">
           Add Listing
         </button>
       </form>
@@ -109,8 +76,6 @@ const NewListing = ({ addListing }) => {
   );
 };
 
-NewListing.propTypes = {
-  addListing: PropTypes.func.isRequired,
-};
+
 
 export default NewListing;
