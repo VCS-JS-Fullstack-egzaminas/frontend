@@ -2,6 +2,7 @@ import "./NewListing.css";
 import {  useRef, useState} from "react"
 import {  useNavigate} from "react-router-dom"
 import {createListing } from "../../../services/listingsService"
+import ImageUpload from "../../ImageUpload/ImageUpload";
 
 
 const NewListing = () => {
@@ -65,6 +66,7 @@ const NewListing = () => {
       <option value="false">Unavailable</option>
       </select>
       <input  placeholder="Photo URLs" className="input-field" ref={photosRef} type="text" onChange={handleInputChange} />
+      <ImageUpload/>
      <input placeholder="Min Rental Duration" className="input-field" ref={minDurationRef} type="number" onChange={handleInputChange}  />
      <input  placeholder="Max Rental Duration"  className="input-field" ref={maxDurationRef} type="number" onChange={handleInputChange}  />
      <input  placeholder="Extras" className="input-field" ref={extrasRef} type="text" onChange={handleInputChange} />
