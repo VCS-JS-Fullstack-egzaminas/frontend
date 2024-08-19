@@ -8,10 +8,15 @@ import Card from "./ui/Card";
 
 const Search = () => {
   const [cars, setCars] = useState([]);
+  const [selectedCar, setSelectedCar] = useState(""); // State to manage selected car
 
   useEffect(() => {
     setCars(mockData.cars);
   }, []);
+
+  const handleCarSelect = (event) => {
+    setSelectedCar(event.target.value);
+  };
 
   return (
     <div className="search-main bg-black/20 bg-blend-darken flex justify-center">
@@ -31,7 +36,11 @@ const Search = () => {
               <div className="flex flex-col gap-2">
                 <div className="flex w-full flex-col">
                   <Label>Select a Car</Label>
-                  <select className="w-full bg-white border border-river-bed-50 rounded-md shadow-sm p-2 outline-none active:outline-1 focus:outline-1">
+                  <select
+                    className="w-full bg-white border border-river-bed-50 rounded-md shadow-sm p-2 outline-none active:outline-1 focus:outline-1"
+                    value={selectedCar}
+                    onChange={handleCarSelect} 
+                  >
                     <option value="" disabled>
                       --- Choose car ---
                     </option>

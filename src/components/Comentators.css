@@ -1,8 +1,8 @@
 .slider-container {
   width: 1755px;
   margin: 0 auto;
-  padding-top: 300px;
-  padding-bottom: 200px;
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
 
 .slider-container h2 {
@@ -98,7 +98,7 @@
 }
 
 .slider-container .slick-list {
-  height: 400px !important;
+  height: 300px !important;
 }
 
 @media (max-width: 1800px) {
