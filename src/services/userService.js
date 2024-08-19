@@ -32,6 +32,8 @@ export const checkAuthStatus = async () => {
   return axios.get("/users/check-auth");
 };
 
+
+
 export const checkCookie = async () => {
   try {
     const response = await axios.get("/users/check-cookie");

@@ -62,7 +62,9 @@ const ListingDetails = () => {
       displayNotification("error", "Error updating listing!");
       console.error(error);
     }
+
   };
+
 
   const handleInputChange = () => {
     const title = titleRef.current.value.trim() || entry.title;
