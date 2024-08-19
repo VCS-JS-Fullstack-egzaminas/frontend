@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./Fleet.css";
 import { cars } from "../data/mockdata.json";
 
@@ -51,9 +52,9 @@ const Fleet = () => {
               <p>{car.size}</p>
               <p>{car.year}</p>
               <p>{car.price}</p>
-              <a href="/rezervuoti" className="btn btn-primary">
+              <Link to={`/car/${car.id}`} className="btn btn-primary">
                 {car.reserve}
-              </a>
+              </Link>
             </div>
           </div>
         ))}

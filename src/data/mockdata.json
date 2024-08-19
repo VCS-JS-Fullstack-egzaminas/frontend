@@ -7,7 +7,7 @@
         "size": "Medium (IDMR)",
         "year": "Year: 2023",
         "info": "Transmission: Manual",
-        "price": "Price from: 21€",
+        "price": 21,
         "reserve": "Reserve"
       },
       {
@@ -17,7 +17,7 @@
         "size": "Compact (CDMR)",
         "year": "Year: 2020",
         "info": "Transmission: Manual",
-        "price": "Price from: 18€",
+        "price": 18,
         "reserve": "Reserve"
       },
       {
@@ -27,7 +27,7 @@
         "size": "Medium (IDMR)",
         "year": "Year: 2020",
         "info": "Transmission: Manual",
-        "price": "Price from: 21€",
+        "price":  21,
         "reserve": "Reserve"
       },
       {
@@ -37,7 +37,7 @@
         "size": "Economic",
         "year": "Year: 2021",
         "info": "Transmission: Manual",
-        "price": "Price from: 17€",
+        "price": 17,
         "reserve": "Reserve"
       },
       {
@@ -47,7 +47,7 @@
         "size": "Compact (CWAR)",
         "year": "Year: 2023",
         "info": "Transmission: Manual",
-        "price": "Price from: 19€",
+        "price":  19,
         "reserve": "Reserve"
       },
       {
@@ -57,7 +57,7 @@
         "size": "Standard (SDAR)",
         "year": "Year: 2022",
         "info": "Transmission: Automatic",
-        "price": "Price from: 29€",
+        "price": 29,
         "reserve": "Reserve"
       },
       {
@@ -67,7 +67,7 @@
         "size": "Mini (MDMR)",
         "year": "Year: 2023",
         "info": "Transmission: Manual",
-        "price": "Price from: 9€",
+        "price": 9,
         "reserve": "Reserve"
       },
       {
@@ -77,7 +77,7 @@
         "size": "Ekonomic",
         "year": "Year: 2021",
         "info": "Transmission: Manual",
-        "price": "Price from: 22€",
+        "price": 22,
         "reserve": "Reserve"
       },
       {
@@ -87,7 +87,7 @@
         "size": "Kompaktinė (CDMR)",
         "year": "Year: 2023",
         "info": "Transmission: Manual",
-        "price": "Price from: 18€",
+        "price": 18,
         "reserve": "Reserve"
       },
       {
@@ -97,7 +97,7 @@
         "size": "Compact (CDMR)",
         "year": "Year: 2019",
         "info": "Transmission: Manual",
-        "price": "Price from: 19€",
+        "price": 19,
         "reserve": "Reserve"
       },
       {
@@ -107,7 +107,7 @@
         "size": "Standard (SWMR)",
         "year": "Year: 2022",
         "info": "Transmission: Manual",
-        "price": "Price from: 22€",
+        "price": 22,
         "reserve": "Reserve"
       },
       {
@@ -117,7 +117,7 @@
         "size": "Medium (IFAR)",
         "year": "Year: 2023",
         "info": "Transmission: Manual",
-        "price": "Price from: 25€",
+        "price": 25,
         "reserve": "Reserve"
       },
       {
@@ -127,7 +127,7 @@
         "size": "Medium (IWAR)",
         "year": "Year: 2022",
         "info": "Transmission: Manual",
-        "price": "Price from: 24€",
+        "price": 24,
         "reserve": "Reserve"
       },
       {
@@ -137,7 +137,7 @@
         "size": "Ekonomic",
         "year": "Year: 2023",
         "info": "Transmission: Manual",
-        "price": "Price from: 14€",
+        "price": 14,
         "reserve": "Reserve"
       },
       {
@@ -147,7 +147,7 @@
         "size": "Compact (CWAR)",
         "year": "Year: 2023",
         "info": "Transmission: Manual",
-        "price": "Price from: 21€",
+        "price": 21,
         "reserve": "Reserve"
       },
       {
@@ -157,7 +157,7 @@
         "size": "Ekonomic",
         "year": "Year: 2020",
         "info": "Transmission: Manual",
-        "price": "Price from: 17€",
+        "price": 17,
         "reserve": "Reserve"
       },
       {
@@ -167,7 +167,7 @@
         "size": "Compact (CWAR)",
         "year": "Year: 2022",
         "info": "Transmission: Manual",
-        "price": "Price from: 13€",
+        "price": 13,
         "reserve": "Reserve"
       },
       {
@@ -177,7 +177,7 @@
         "size": "Mini (MDMR)",
         "year": "Year: 2022",
         "info": "Transmission: Manual",
-        "price": "Price from: 14€",
+        "price": 14,
         "reserve": "Reserve"
       },
       {
@@ -187,7 +187,7 @@
         "size": "Compact (CWAR)",
         "year": "Year: 2023",
         "info": "Transmission: Manual",
-        "price": "Price from: 24€",
+        "price": 24,
         "reserve": "Reserve"
       },
       {
@@ -197,7 +197,7 @@
         "size": "Compact (CDMR)",
         "year": "Year: 2023",
         "info": "Transmission: Manual",
-        "price": "Price from: 18€",
+        "price": 18,
         "reserve": "Reserve"
       },
       {
@@ -207,7 +207,7 @@
         "size": "Standard (SWAR)",
         "year": "Year: 2022",
         "info": "Transmission: Manual",
-        "price": "Price from: 24€",
+        "price": 24,
         "reserve": "Reserve"
       },
       {
@@ -217,7 +217,7 @@
         "size": "Standard (CWAR)",
         "year": "Year: 2023",
         "info": "Transmission: Automatic",
-        "price": "Price from: 24€",
+        "price": 24,
         "reserve": "Reserve"
       },
       {
@@ -227,7 +227,7 @@
         "size": "Standard (CDMR)",
         "year": "Year: 2023",
         "info": "Transmission: Manual",
-        "price": "Price from: 27€",
+        "price": 27,
         "reserve": "Reserve"
       },
       {
@@ -237,7 +237,7 @@
         "size": "Compact (CDMR)",
         "year": "Year: 2023",
         "info": "Transmission: Manual",
-        "price": "Price from: 19€",
+        "price": 19,
         "reserve": "Reserve"
       },
       {
@@ -247,7 +247,7 @@
         "size": "Medium (IDMR)",
         "year": "Year: 2023",
         "info": "Transmission: Manual",
-        "price": "Price from: 19€",
+        "price": 19,
         "reserve": "Reserve"
       },
       {
@@ -257,7 +257,7 @@
         "size": "SUV (FDAR)",
         "year": "Year: 2021",
         "info": "Transmission: Automatic",
-        "price": "Price from: 29€",
+        "price": 29,
         "reserve": "Reserve"
       },
       {
@@ -267,7 +267,7 @@
         "size": "Standart (SDMR)",
         "year": "Year: 2023",
         "info": "Transmission: Manual",
-        "price": "Price from: 26€",
+        "price": 26,
         "reserve": "Reserve"
       },
       {
@@ -277,7 +277,7 @@
         "size": "Medium (IFAR)",
         "year": "Year: 2023",
         "info": "Transmission: Manual",
-        "price": "Price from: 28€",
+        "price": 28,
         "reserve": "Reserve"
       },
       {
@@ -287,7 +287,7 @@
         "size": "Medium (IWMR)",
         "year": "Year: 2019",
         "info": "Transmission: Manual",
-        "price": "Price from: 22€",
+        "price": 22,
         "reserve": "Reserve"
       },
       {
@@ -297,7 +297,7 @@
         "size": "Medium (CFAR)",
         "year": "Year: 2022",
         "info": "Transmission: Automatic",
-        "price": "Price from: 24€",
+        "price": 24,
         "reserve": "Reserve"
       }
     ]
