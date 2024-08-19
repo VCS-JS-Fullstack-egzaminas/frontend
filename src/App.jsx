@@ -21,6 +21,7 @@ import Contact from "./pages/Contact/Contact";
 import Terms from "./pages/Terms/Terms";
 import AuthenticationLayout from "./layouts/AuthenticationLayout";
 import AuthProvider from "./components/AuthProvider/AuthProvider";
+import ReservationPage from "./pages/ReservationPage/ReservationPage";
 
 const router = createBrowserRouter([
   {
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
       {
         path: "/fleet",
         element: <Fleet />,
+      },
+      {
+        path: "/car/:id",
+        element: <ReservationPage />,
       },
     ],
   },
