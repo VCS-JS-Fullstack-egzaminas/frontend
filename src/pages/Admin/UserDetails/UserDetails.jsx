@@ -145,7 +145,7 @@ const UserDetails = () => {
               <Button
                 type="submit"
                 disabled={!editData.username && !editData.email}
-                color={!editData.username && !editData.email ? "disabled" : ""}
+                color={!editData.username && !editData.email ? "disabled" : "create"}
               >
                 Submit
               </Button>
