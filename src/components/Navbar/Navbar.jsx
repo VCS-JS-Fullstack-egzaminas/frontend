@@ -24,9 +24,9 @@ const Navbar = () => {
             </div>
           </Link>
           <div className="flex gap-3 items-center">
-            <NavLink to={"/"}>Home</NavLink>
-            <NavLink to={"/about-us"}>About us</NavLink>
-            <NavLink to={"/contact"}>Contacts</NavLink>
+            <NavLink className="hover:text-ecstasy-400" to={"/"}>Home</NavLink>
+            <NavLink className="hover:text-ecstasy-400" to={"/about-us"}>About us</NavLink>
+            <NavLink className="hover:text-ecstasy-400" to={"/contact"}>Contacts</NavLink>
             {user ? (
               <>
                 {role === "admin" && (

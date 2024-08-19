@@ -15,13 +15,13 @@ const Footer = () => {
               <div className="text-center md:text-left">
                 <h2 className="font-bold text-2xl mb-2">Company</h2>
                 <ul className="text-river-bed-100 grid gap-1 capitalize">
-                  <li className="hover:text-white underline transition duration-150">
+                  <li className="hover:text-ecstasy-400 hover:underline transition duration-150">
                     <Link to="/terms">Terms & conditions</Link>
                   </li>
-                  <li className="hover:text-white underline transition duration-150">
+                  <li className="hover:text-ecstasy-400 hover:underline transition duration-150">
                     Privacy policy
                   </li>
-                  <li className="hover:text-white underline transition duration-150">
+                  <li className="hover:text-ecstasy-400 hover:underline transition duration-150">
                     Careers
                   </li>
                 </ul>
@@ -31,13 +31,13 @@ const Footer = () => {
               <div className="text-center md:text-left">
                 <h2 className="font-bold text-2xl mb-2">Services</h2>
                 <ul className="text-river-bed-100 grid gap-1 capitalize">
-                  <li className="hover:text-white underline transition duration-150">
+                  <li className="hover:text-ecstasy-400 hover:underline transition duration-150">
                     Car rentals
                   </li>
-                  <li className="hover:text-white underline transition duration-150">
+                  <li className="hover:text-ecstasy-400 hover:underline transition duration-150">
                     Personal car listing for rent
                   </li>
-                  <li className="hover:text-white underline transition duration-150">
+                  <li className="hover:text-ecstasy-400 hover:underline transition duration-150">
                     Partnership
                   </li>
                 </ul>
@@ -50,7 +50,7 @@ const Footer = () => {
                 </h2>
                 <div className="items-center justify-center md:justify-start flex gap-6">
                   <a href="https://www.facebook.com/" target="_blank">
-                    <svg
+                    <svg className="hover:text-ecstasy-400"
                       stroke="currentColor"
                       fill="currentColor"
                       strokeWidth="0"
@@ -63,7 +63,7 @@ const Footer = () => {
                     </svg>
                   </a>
                   <a href="https://www.instagram.com/" target="_blank">
-                    <svg
+                    <svg className="hover:text-ecstasy-400"
                       stroke="currentColor"
                       fill="none"
                       strokeWidth="2"
@@ -87,12 +87,12 @@ const Footer = () => {
                     </svg>
                   </a>
                   <a href="https://x.com/" target="_blank">
-                    <svg
+                    <svg 
                       xmlns="http://www.w3.org/2000/svg"
                       width="35"
                       height="35"
                       fill="currentColor"
-                      className="bi bi-twitter-x"
+                      className="bi bi-twitter-x hover:text-ecstasy-400"
                       viewBox="0 0 16 16"
                     >
                       <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z" />
