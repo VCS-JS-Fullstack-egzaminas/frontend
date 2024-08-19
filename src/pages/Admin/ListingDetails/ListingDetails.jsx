@@ -94,7 +94,7 @@ const handleInputChange =  (e) => {
     <div className="entry">
     <h2>{entry.title}</h2>
               <p>Description: {entry.description}</p>
-              <p>Photo: (kolkas array) {entry.photos}</p>
+              {/* <p>Photo: (kolkas array) {entry.photos}</p> */}
               <p>Price: {entry.price}</p>
               <p>Availabilty : {entry.available == true ? 'Currently available' : 'Unavailable'}</p>
               <p>Min_duration: {entry.min_duration}</p>
