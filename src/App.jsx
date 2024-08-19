@@ -20,7 +20,7 @@ import AboutUs from "./pages/AboutUs/AboutUs";
 import Contact from "./pages/Contact/Contact";
 import Terms from "./pages/Terms/Terms";
 import AuthenticationLayout from "./layouts/AuthenticationLayout";
-
+import AuthProvider from "./components/AuthProvider/AuthProvider";
 
 const router = createBrowserRouter([
   {
@@ -82,7 +82,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/admin",
-    element: <AdminLayout />,
+    element: (
+      <AuthProvider>
+        <AdminLayout />
+      </AuthProvider>
+    ),
     children: [
       {
         index: true,

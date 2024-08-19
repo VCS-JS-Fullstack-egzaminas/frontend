@@ -4,7 +4,7 @@ import Logo from "../Logos/Logo";
 import { useAuth } from "../../hooks/useAuth";
 
 const Navbar = () => {
-  const { user, logOut } = useAuth();
+  const { user, role, logOut } = useAuth();
 
   const handleLogout = async () => {
     try {
@@ -28,12 +28,17 @@ const Navbar = () => {
             <NavLink to={"/about-us"}>About us</NavLink>
             <NavLink to={"/contact"}>Contacts</NavLink>
             {user ? (
-              <button
-                className="text-white px-4 py-1 font-semibold rounded-md transition duration-150 shadow-md bg-ecstasy-500 hover:bg-ecstasy-600 active:bg-ecstasy-700"
-                onClick={handleLogout}
-              >
-                Logout
-              </button>
+              <>
+                {role === "admin" && (
+                  <NavLink to={"/admin"}>Admin panel</NavLink>
+                )}
+                <button
+                  className="text-white px-4 py-1 font-semibold rounded-md transition duration-150 shadow-md bg-ecstasy-500 hover:bg-ecstasy-600 active:bg-ecstasy-700"
+                  onClick={handleLogout}
+                >
+                  Logout
+                </button>
+              </>
             ) : (
               <>
                 <Link
