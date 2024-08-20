@@ -14,15 +14,14 @@ const Fleet = () => {
       try {
         const response = await getAllListings();
         const combinedListings = [...response.data]; 
-        console.log(response.data)// Combine backend data with mock data
         setListings(combinedListings);
-        setFilteredCars(combinedListings); // Set initial filtered cars to combined data
+        setFilteredCars(combinedListings); 
       } catch (error) {
         console.error("Error Fetching Entries", error);
       }
     };
     getEntries();
-  }, []); // Only run once on component mount
+  }, []);
 
   const filterCars = (size) => {
     setFadeClass("fade-out");
@@ -36,7 +35,7 @@ const Fleet = () => {
       setFadeClass("fade-in");
     }, 500);
   };
-
+  
   return (
     <>
       <div className="fleet-Container1">
@@ -62,8 +61,8 @@ const Fleet = () => {
               <h3>{car.title}</h3>
               <p>{car.size}</p>
               <p>{car.year}</p>
-              <p>Price from: {car.price}€</p>
-              <Link to={`/car/${car.id}`} className="btn btn-primary">
+              <p>Price from:{car.price}€</p>
+              <Link to={`/car/${car.id}`} className="btn btn-primary">Reserve
                 {car.reserve}
               </Link>
             </div>
