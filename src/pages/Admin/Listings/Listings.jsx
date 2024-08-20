@@ -23,7 +23,9 @@ const Listings = () => {
       <div>
         <h1 className="text-2xl font-bold mb-4">Listings</h1>
         <Link to="/admin/new-listing">
-          <Button className="mb-6" color={"create"}>+ New Listing</Button>
+          <Button className="mb-6" color={"create"}>
+            + New Listing
+          </Button>
         </Link>
         {listings.length > 0 ? (
           <div className="space-y-4">
@@ -33,11 +35,9 @@ const Listings = () => {
                 <p className="mb-2">
                   <strong>Description:</strong> {info.description}
                 </p>
-                <p>
-              
-                </p>
+                <p></p>
                 <p className="mb-2">
-              <img src={`http://141.136.44.49:3000/${info.photos}`} />
+                  <img src={`${info.photos}`} />
                 </p>
                 <p className="mb-2">
                   <strong>Price:</strong> {info.price} €
