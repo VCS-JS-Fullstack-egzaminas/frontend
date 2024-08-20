@@ -227,7 +227,8 @@ const ListingDetails = () => {
           className="input-field"
           onChange={handleInputChange}
           ref={sizeRef}
-        >
+             > 
+          <option selected disabled hidden value={entry.size}>{entry.size}</option>
           <option value="Mini">Mini</option>
           <option value="Economic">Economic</option>
           <option value="Compact">Compact</option>
@@ -252,7 +253,8 @@ const ListingDetails = () => {
                 ref={transmissionRef}
                 onChange={handleInputChange}
                 className="w-full p-2 border border-gray-300 rounded"
-              >
+                placeholder={entry.transmission}
+              >   <option  selected disabled hidden value={entry.transmission}>{entry.transmission}</option>
                 <option value="Automatic">Automatic</option>
                 <option value="Manual">Manual</option>
               </select>
@@ -262,7 +264,8 @@ const ListingDetails = () => {
         
           onChange={handleInputChange}
           ref={fuelTypeRef}
-        >
+        > 
+        <option  selected disabled hidden value={entry.fuelType}>{entry.fuelType}</option>
           <option value="Diesel">Diesel</option>
           <option value="Gasoline">Gasoline</option>
           <option value="Ethanol">Ethanol</option>
@@ -316,8 +319,8 @@ const ListingDetails = () => {
                 ref={availableRef}
                 onChange={handleInputChange}
                 className="w-full p-2 border border-gray-300 rounded"
-              >
-                <option value="true">Available</option>
+              >   <option value={entry.available} selected disabled hidden>{entry.available ? "Currently available" : "Unavailable"}</option>
+                <option value="true"> Currently Available</option>
                 <option value="false">Unavailable</option>
               </select>
             </div>
