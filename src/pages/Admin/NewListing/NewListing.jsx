@@ -51,7 +51,7 @@ const NewListing = () => {
 
       await createListing({
         ...entryData,
-        photos: uploadedImagesResponse.data.urls,
+        photos: uploadedImagesResponse.data.images,
       });
       console.log("bando ikelti", entryData);
       alert("Record succesfully added");
@@ -137,7 +137,7 @@ const NewListing = () => {
               <img
                 src={image.preview}
                 alt={`Thumbnail ${index}`}
-                className="w-full h-auto rounded-md"
+                className="w-full p-2 border border-gray-300 rounded"
               />
               <div
                 className="absolute top-2 right-2 h-6 w-6 bg-red-600 text-white rounded-full hover:bg-red-700 transition-bg duration-150 flex items-center justify-center cursor-pointer"
@@ -148,9 +148,6 @@ const NewListing = () => {
             </div>
           ))}
           <div className={inputStyle}>
-            <label htmlFor="file-input" className="">
-              Add image
-            </label>
             <input
               id="file-input"
               name="file-input"

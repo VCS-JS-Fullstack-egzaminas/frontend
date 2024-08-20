@@ -147,10 +147,10 @@ const ListingDetails = () => {
           </p>
         
           <p>
-            <strong>Photos:</strong> {entry.photos}
+            <strong>Photos:</strong> <img src={entry.photos}></img>
           </p>
           <p>
-            <strong>Price:</strong> ${entry.price}
+            <strong>Price:</strong> {entry.price} €
           </p>
           <p>
             <strong>Availability:</strong>{" "}
@@ -240,30 +240,27 @@ const ListingDetails = () => {
             <div className="mb-4">
             {images.map((image, index) => (
               <div key={index}>
-                <img src={image.preview} alt={`Thumbnail ${index}`} />
-                <button
-                  type="button"
-                  onClick={() => handleImageDelete(image.id)}
-                >
-                  x
-                </button>
+                     <div
+                className="relative  left-3 h-6 w-6 bg-red-600 text-white rounded-full hover:bg-red-700 transition-bg duration-150 flex items-center justify-center cursor-pointer"
+                onClick={() => handleImageDelete(image.id)}
+              >
+                ×
               </div>
+                <img src={image.preview} alt={`Thumbnail ${index}`} />
+           
+            </div>
             ))}
             <div className="input-field">
-              <label htmlFor="file-input">
-                <span className="mt-2 text-sm text-gray-500">Add image</span>
-              </label>
               <input
-                id="file-input"
-                type="file"
-                multiple
-                onChange={handleImageInput}
-                className="hidden"
-                accept="image/*"
-                ref={photosRef}
-                placeholder={entry.photos}
-              />
-            </div>
+              id="file-input"
+              name="file-input"
+              type="file"
+              multiple
+              onChange={handleImageInput}
+              accept="image/*"
+              ref={photosRef}
+            />
+          </div>
 
           </div>
           </div>
