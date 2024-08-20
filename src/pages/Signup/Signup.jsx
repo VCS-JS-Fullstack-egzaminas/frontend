@@ -61,6 +61,11 @@ const Signup = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
+              <ul className="list-disc list-inside mt-2 text-xs text-river-bed-800">
+                <li>Has to be at least 5 characters long</li>
+                <li>Has to have at least one numerical character</li>
+                <li>Has to have at least one uppercase letter</li>
+              </ul>
             </div>
             <Button type="submit">Sign up</Button>
           </div>
