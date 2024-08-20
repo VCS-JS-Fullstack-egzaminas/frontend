@@ -11,7 +11,7 @@ const CarCard = ({ car }) => {
     >
       <div className="car-card-inner">
         <div className="car-card-front">
-          <img src={car.imgSrc} alt={car.title} />
+          <img src={car.photos[0]} alt={car.title} />
           <h2>{car.title}</h2>
         </div>
         <div className="car-card-back">
