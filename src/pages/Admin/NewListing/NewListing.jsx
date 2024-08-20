@@ -8,6 +8,7 @@ const NewListing = () => {
   const [entryData, setEntryData] = useState("");
   const [images, setImages] = useState([]);
   const [photos, setPhotos] = useState([]);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const titleRef = useRef();
   const descriptionRef = useRef();
@@ -35,12 +36,8 @@ const NewListing = () => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault(e);
-    // const formData = new FormData();
-    //   images.forEach((image) => {
-    //     formData.append(`images`, image.file);
-    //   setPhotos(formData)
+    setLoading(true);
 
-    //   });
     try {
       const imagesFormData = new FormData();
       images.forEach((image) => {
@@ -49,48 +46,22 @@ const NewListing = () => {
 
       const uploadedImagesResponse = await uploadImg(imagesFormData);
 
+      console.log(uploadedImagesResponse);
+
       await createListing({
         ...entryData,
-        photos: uploadedImagesResponse.data.images,
+        photos: uploadedImagesResponse.data.urls,
       });
       console.log("bando ikelti", entryData);
       alert("Record succesfully added");
+      setLoading(false);
+      navigate("/admin/listings");
     } catch (error) {
       console.log(error);
+      setLoading(false);
     }
-    //  try {
-
-    //       const response = await uploadImg(formData);
-    //       if (response.status === 200) {
-    //         console.log(response.data);
-    //         setImages([]);
-    //       }
-    //     } catch (error) {
-    //       console.error(error);
-    //     }
 
     console.log("returning");
-    navigate("/admin/listings");
-  };
-
-  const handleImgSubmit = async (e) => {
-    e.preventDefault();
-
-    const formData = new FormData();
-    images.forEach((image) => {
-      formData.append(`images`, image.file);
-    });
-
-    try {
-      const response = await uploadImg(formData);
-      if (response.status === 200) {
-        console.log(response.data);
-        setImages([]);
-        setPhotos(response.data);
-      }
-    } catch (error) {
-      console.error(error);
-    }
   };
 
   const handleInputChange = (e) => {
@@ -102,11 +73,11 @@ const NewListing = () => {
     let laikinasMaxDur = maxDurationRef.current.value;
     let laikinasMinDur = minDurationRef.current.value;
     let laikinasExtras = extrasRef.current.value;
-    let laikinasYear = yearRef.current.value
-    let laikinasSize = sizeRef.current.value
-    
-    let size = laikinasSize
-    let year = laikinasYear
+    let laikinasYear = yearRef.current.value;
+    let laikinasSize = sizeRef.current.value;
+
+    let size = laikinasSize;
+    let year = laikinasYear;
     let title = laikinasTitle;
     let description = laikinasDescription;
     let price = laikinasPrice;
@@ -125,7 +96,7 @@ const NewListing = () => {
       extras,
       photos,
       year,
-      size
+      size,
     });
   };
 
@@ -147,7 +118,7 @@ const NewListing = () => {
           onChange={handleInputChange}
           placeholder="Year"
         />
-          <select
+        <select
           className="input-field"
           onChange={handleInputChange}
           ref={sizeRef}
@@ -210,7 +181,6 @@ const NewListing = () => {
                 ref={photosRef}
               />
             </div>
-
           </div>
         </div>
         <input
@@ -234,8 +204,12 @@ const NewListing = () => {
           type="text"
           onChange={handleInputChange}
         />
-        <button type="submit" className="btn btn-primary w-full">
-          Add Listing
+        <button
+          type="submit"
+          className="btn btn-primary w-full disabled:bg-ecstasy-800"
+          disabled={loading}
+        >
+          {loading ? "Adding listing..." : "Add listing"}
         </button>
       </form>
       <div></div>
