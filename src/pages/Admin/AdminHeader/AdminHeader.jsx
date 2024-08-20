@@ -1,7 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 import Logo from "../../../components/Logos/Logo";
-import './AdminHeader.css';
 
 const AdminHeader = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
