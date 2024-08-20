@@ -6,6 +6,8 @@ import {
   updateListingById,
   deleteListingById,
 } from "../../../services/listingsService";
+import { uploadImg } from "../../../services/uploadService";
+
 
 const ListingDetails = () => {
   const { id } = useParams();
@@ -23,6 +25,8 @@ const ListingDetails = () => {
   const minDurationRef = useRef();
   const extrasRef = useRef();
   const photosRef = useRef();
+  const yearRef = useRef();
+  const sizeRef = useRef();
 
   useEffect(() => {
     const getEntries = async () => {
@@ -78,6 +82,8 @@ const ListingDetails = () => {
       maxDurationRef.current.value.trim() || entry.max_duration;
     const extras = extrasRef.current.value.trim() || entry.extras;
     const photos = photosRef.current.value.trim() || entry.photos;
+    const year = yearRef.current.value.trim() || entry.year;
+    const size = sizeRef.current.value.trim() || entry.size
 
     setEditData({
       title,
@@ -88,6 +94,8 @@ const ListingDetails = () => {
       max_duration,
       extras,
       photos,
+      year,
+      size
     });
   };
 
@@ -100,8 +108,15 @@ const ListingDetails = () => {
             <strong>Title:</strong> {entry.title}
           </p>
           <p>
+            <strong>Year:</strong> {entry.year}
+          </p>
+          <p>
+            <strong>Size:</strong> {entry.size}
+          </p>
+          <p>
             <strong>Description:</strong> {entry.description}
           </p>
+        
           <p>
             <strong>Photos:</strong> {entry.photos}
           </p>
@@ -154,6 +169,31 @@ const ListingDetails = () => {
                 className="w-full p-2 border border-gray-300 rounded"
               />
             </div>
+            <div>
+            <label className="block mb-2">Year</label>
+            <input
+          className="input-field"
+          ref={yearRef}
+          type="number"
+          onChange={handleInputChange}
+          placeholder="Year"
+        />
+        </div>
+        <div>
+        <label className="block mb-2">Size</label>
+          <select
+          className="input-field"
+          onChange={handleInputChange}
+          ref={sizeRef}
+        >
+          <option value="Mini">Mini</option>
+          <option value="Economic">Economic</option>
+          <option value="Compact">Compact</option>
+          <option value="Medium">Medium</option>
+          <option value="Standard">Standard</option>
+          <option value="SUV">SUV</option>
+        </select>
+        </div>
             <div className="mb-4">
               <label className="block mb-2">Description</label>
               <textarea
