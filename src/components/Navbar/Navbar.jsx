@@ -7,9 +7,18 @@ import { useState, useEffect } from "react";
 const Navbar = () => {
   const { user, role, logOut } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+    if (isMenuOpen) {
+      setIsClosing(true);
+      setTimeout(() => {
+        setIsMenuOpen(false);
+        setIsClosing(false);
+      }, 300); // Duration of the slideOut animation
+    } else {
+      setIsMenuOpen(true);
+    }
   };
 
   const handleLogout = async () => {
@@ -20,13 +29,12 @@ const Navbar = () => {
     }
   };
 
-
   const handleClickOutside = (event) => {
     if (
       !event.target.closest(".menu-wrapper") &&
       !event.target.closest("#mobile-menu-btn")
     ) {
-      setIsMenuOpen(false);
+      toggleMenu();
     }
   };
 
@@ -89,7 +97,11 @@ const Navbar = () => {
                 ></rect>
               </svg>
             </button>
-            <div className={`menu-wrapper ${isMenuOpen ? "open" : ""}`}>
+            <div
+              className={`menu-wrapper ${isMenuOpen ? "open" : ""} ${
+                isClosing ? "closing" : ""
+              }`}
+            >
               <div className="menu md:flex gap-3 items-center bg-slate-100/95">
                 <NavLink
                   className={({ isActive }) =>
