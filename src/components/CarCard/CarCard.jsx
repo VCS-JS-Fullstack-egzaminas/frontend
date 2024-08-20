@@ -21,7 +21,7 @@ const CarCard = ({ car }) => {
           <p>{car.year}</p>
           <p>{car.info}</p>
           <p>Price from: {car.price}€</p>
-       <Link to={`/car/${car._id}`} >  <button className="btn btn-primary"> </button>
+       <Link to={`/car/${car._id}`} >  <button className="btn btn-primary">Find out more</button>
             {car.reserve}
             </Link>
         </div>

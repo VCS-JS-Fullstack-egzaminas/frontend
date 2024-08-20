@@ -58,6 +58,9 @@ const ReservationPage = () => {
             <strong>Size:</strong> {car.size}
           </p>
           <p>
+              <strong>Description:</strong> {car.description}
+            </p>
+          <p>
             <strong>Fuel:</strong> {car.fuelType}
           </p>
           <p>
@@ -66,6 +69,20 @@ const ReservationPage = () => {
           <p>
               <strong>Price:</strong> {car.price} <strong>€</strong>
             </p>
+
+            <p>
+            <strong>Availability:</strong>{" "}
+            {car.available ? "Currently available" : "Unavailable"}
+          </p>
+          <p>
+            <strong>Min Duration:</strong> {car.min_duration} days
+          </p>
+          <p>
+            <strong>Max Duration:</strong> {car.max_duration} days
+          </p>
+          <p>
+            <strong>Extras Included:</strong> {car.extras}
+          </p>
           </div>
         </div>
         <div className="reservationForm">
