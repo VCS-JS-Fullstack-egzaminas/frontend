@@ -150,10 +150,7 @@ const ListingDetails = () => {
             <strong>Photos:</strong> <img src={entry.photos}></img>
           </p>
           <p>
-            <strong>Photoname: {entry.photos}</strong>
-          </p>
-          <p>
-            <strong>Price:</strong> ${entry.price}
+            <strong>Price:</strong> {entry.price} €
           </p>
           <p>
             <strong>Availability:</strong>{" "}

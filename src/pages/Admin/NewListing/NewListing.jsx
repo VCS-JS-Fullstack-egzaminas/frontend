@@ -51,7 +51,7 @@ const NewListing = () => {
 
       await createListing({
         ...entryData,
-        photos: uploadedImagesResponse.data.urls,
+        photos: uploadedImagesResponse.data.images,
       });
       console.log("bando ikelti", entryData);
       alert("Record succesfully added");
@@ -148,9 +148,6 @@ const NewListing = () => {
             </div>
           ))}
           <div className={inputStyle}>
-            <label htmlFor="file-input" className="">
-              Add image
-            </label>
             <input
               id="file-input"
               name="file-input"
