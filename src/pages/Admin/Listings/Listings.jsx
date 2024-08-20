@@ -39,8 +39,9 @@ const Listings = () => {
                 <p className="mb-2">
                   <strong>Description:</strong> {info.description}
                 </p>
+                <p></p>
                 <p className="mb-2">
-                  <strong>Photo:</strong> {info.photos.join(", ")}
+                  <img src={`${info.photos}`} />
                 </p>
                 <p className="mb-2">
                   <strong>Price:</strong> {info.price} €
