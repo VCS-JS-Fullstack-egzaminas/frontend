@@ -11,6 +11,8 @@ import Button from "../../components/ui/Button";
 import Banner from "../../components/Banner";
 import Comentators from "../../components/Comentators";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
+
 import { getAllListings } from "../../services/listingsService";
 
 const getRandomCars = (cars) => {
@@ -96,6 +98,9 @@ const CarCarousel = ({ cars }) => {
 
   return (
     <div className="flex flex-col items-center justify-center my-24 ">
+      <Helmet>
+        <title>Home</title>
+      </Helmet>
       <div className="container px-6">
         <h2 className="font-bold text-4xl text-left text-river-bed-800 max-w-[450px] mb-12">
           Popular cars

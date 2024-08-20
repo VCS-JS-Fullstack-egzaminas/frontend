@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Fleet.css";
 import { cars } from "../data/mockdata.json";
+import { Helmet } from "react-helmet";
 import { getAllListings } from "../services/listingsService";
 
 const Fleet = () => {
@@ -38,6 +39,9 @@ const Fleet = () => {
   
   return (
     <>
+      <Helmet>
+        <title>All Fleet</title>
+      </Helmet>
       <div className="fleet-Container1">
         <h2>
           Discover the Perfect Ride: Introducing the VCS Rental Fleet in

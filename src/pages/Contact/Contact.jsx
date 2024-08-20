@@ -3,10 +3,14 @@ import Card from "../../components/ui/Card";
 import Input from "../../components/ui/Input";
 import Label from "../../components/ui/Label";
 import "./Contact.css";
+import { Helmet } from "react-helmet";
 
 const Contact = () => {
   return (
     <div className="flex flex-col items-center">
+      <Helmet>
+        <title>Contacts</title>
+      </Helmet>
       <div className="container px-6">
         <div className="contactContainer flex">
           <div className="contactUs">
@@ -143,7 +147,6 @@ const Contact = () => {
               </a>
             </div>
           </div>
-
           <div className="cardContainer">
             <Card className="cardOne">
               <h2>Send us a message</h2>

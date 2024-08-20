@@ -5,6 +5,7 @@ import Input from "../../components/ui/Input";
 import Label from "../../components/ui/Label";
 import { useEffect, useState } from "react";
 import { useAuth } from "../../hooks/useAuth";
+import { Helmet } from "react-helmet";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -27,6 +28,9 @@ const Login = () => {
 
   return (
     <Card>
+      <Helmet>
+        <title>Login</title>
+      </Helmet>
       <div className="grid gap-4 min-w-80">
         <h1 className="font-bold text-3xl">Log in</h1>
         <form onSubmit={handleSubmit}>
