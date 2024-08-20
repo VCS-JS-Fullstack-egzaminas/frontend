@@ -8,6 +8,9 @@ import { Helmet } from "react-helmet";
 const Contact = () => {
   return (
     <div className="flex flex-col items-center">
+      <Helmet>
+        <title>Contacts</title>
+      </Helmet>
       <div className="container px-6">
         <div className="contactContainer flex">
           <div className="contactUs">
@@ -148,106 +151,44 @@ const Contact = () => {
             <Card className="cardOne">
               <h2>Send us a message</h2>
               <br />
-              Our customer support team is available 24/7 to assist you with any
-              inquiries.
-            </h2>
+              <form className="forma flex flex-col gap-4" action="#">
+                <div className="grid gap-1">
+                  <Label htmlFor="email"></Label>
+                  <Input placeholder="Your email" name="email" id="email" />
+                </div>
+                <div className="grid gap-1">
+                  <Label htmlFor="first-name"></Label>
+                  <Input
+                    placeholder="Your firstname"
+                    name="first-name"
+                    id="first-name"
+                  />
+                </div>
+                <div className="grid gap-1">
+                  <Label htmlFor="last-name"></Label>
+                  <Input
+                    placeholder="Your lastname"
+                    name="last-name"
+                    id="last-name"
+                  />
+                </div>
+                <div className="grid gap-1">
+                  <Label htmlFor="topic"></Label>
+                  <Input placeholder="Topic" name="topic" id="topic" />
+                </div>
+                <div className="grid gap-1">
+                  <Label htmlFor="message"></Label>
+                  <textarea
+                    className="border border-river-bed-50 rounded-md shadow-sm p-2 outline-none active:outline-1 "
+                    placeholder="Message"
+                    name="message"
+                    id="message"
+                  />
+                </div>
+                <Button type="submit">Send Message</Button>
+              </form>
+            </Card>
           </div>
-          <br />
-          <hr />
-          <br />
-          <div className="items-center justify-center md:justify-start flex gap-6">
-            <a href="https://www.facebook.com/" target="_blank">
-              <svg
-                className="hover:text-ecstasy-400"
-                stroke="currentColor"
-                fill="currentColor"
-                strokeWidth="0"
-                viewBox="0 0 448 512"
-                width="35"
-                height="35"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z"></path>
-              </svg>
-            </a>
-            <a href="https://www.instagram.com/" target="_blank">
-              <svg
-                className="hover:text-ecstasy-400"
-                stroke="currentColor"
-                fill="none"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                width="35"
-                height="35"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line>
-              </svg>
-            </a>
-            <a href="https://x.com/" target="_blank">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="35"
-                height="35"
-                fill="currentColor"
-                className="bi bi-twitter-x hover:text-ecstasy-400"
-                viewBox="0 0 16 16"
-              >
-                <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z" />
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <div className="cardContainer">
-          <Card className="cardOne">
-            <h2>Send us a message</h2>
-            <br />
-            <form className="forma flex flex-col gap-4" action="#">
-              <div className="grid gap-1">
-                <Label htmlFor="email"></Label>
-                <Input placeholder="Your email" name="email" id="email" />
-              </div>
-              <div className="grid gap-1">
-                <Label htmlFor="first-name"></Label>
-                <Input
-                  placeholder="Your firstname"
-                  name="first-name"
-                  id="first-name"
-                />
-              </div>
-              <div className="grid gap-1">
-                <Label htmlFor="last-name"></Label>
-                <Input
-                  placeholder="Your lastname"
-                  name="last-name"
-                  id="last-name"
-                />
-              </div>
-              <div className="grid gap-1">
-                <Label htmlFor="topic"></Label>
-                <Input placeholder="Topic" name="topic" id="topic" />
-              </div>
-              <div className="grid gap-1">
-                <Label htmlFor="message"></Label>
-                <textarea
-                  className="border border-river-bed-50 rounded-md shadow-sm p-2 outline-none active:outline-1 "
-                  placeholder="Message"
-                  name="message"
-                  id="message"
-                />
-              </div>
-              <Button type="submit">Send Message</Button>
-            </form>
-          </Card>
-        </div>
-      </div>
-
-      <div className="mapContainer">
         </div>
       </div>
       <div className="mapContainer container px-6">
