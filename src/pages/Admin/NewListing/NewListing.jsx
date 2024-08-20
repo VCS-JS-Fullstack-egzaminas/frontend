@@ -19,6 +19,8 @@ const NewListing = () => {
   const photosRef = useRef();
   const yearRef = useRef();
   const sizeRef = useRef();
+  const transmissionRef = useRef();
+  const fuelTypeRef = useRef()
 
   const inputStyle = "mb-2 p-2 rounded-md border border-gray-300";
 
@@ -76,6 +78,8 @@ const NewListing = () => {
       extras: extrasRef.current.value,
       year: yearRef.current.value,
       size: sizeRef.current.value,
+      transmission:transmissionRef.current.value,
+      fuelType: fuelTypeRef.current.value
     });
   };
 
@@ -97,6 +101,19 @@ const NewListing = () => {
           onChange={handleInputChange}
           placeholder="Year"
         />
+        <label>Fuel type:</label>
+         <select
+          className={inputStyle}
+          onChange={handleInputChange}
+          ref={fuelTypeRef}
+        >
+          <option value="Diesel">Diesel</option>
+          <option value="Gasoline">Gasoline</option>
+          <option value="Ethanol">Ethanol</option>
+          <option value="Natural Gas">Natural gas</option>
+          <option value="LPG">LPG</option>
+        </select>
+        <label>Size:</label>
         <select
           className={inputStyle}
           onChange={handleInputChange}
@@ -108,6 +125,15 @@ const NewListing = () => {
           <option value="Medium">Medium</option>
           <option value="Standard">Standard</option>
           <option value="SUV">SUV</option>
+        </select>
+        <label>Transmission:</label>
+        <select
+          className={inputStyle}
+          onChange={handleInputChange}
+          ref={transmissionRef}
+        >
+          <option value="Automatic">Automatic</option>
+          <option value="Manual">Manual</option>
         </select>
         <textarea
           className={inputStyle}
@@ -123,6 +149,7 @@ const NewListing = () => {
           onChange={handleInputChange}
           placeholder="Price"
         />
+         <label>Available:</label>
         <select
           className={inputStyle}
           onChange={handleInputChange}
@@ -131,6 +158,7 @@ const NewListing = () => {
           <option value="true">Available</option>
           <option value="false">Unavailable</option>
         </select>
+        <label>Photo:</label>
         <div>
           {images.map((image, index) => (
             <div key={index} className="mb-2 relative">

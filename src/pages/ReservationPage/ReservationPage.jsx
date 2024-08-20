@@ -1,20 +1,20 @@
-import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { cars } from '../../data/mockdata.json';
-import './ReservationPage.css'
-import { Helmet } from 'react-helmet';
+import { useState } from "react";
+import { useParams } from "react-router-dom";
+import { cars } from "../../data/mockdata.json";
+import "./ReservationPage.css";
+import { Helmet } from "react-helmet";
 
 const ReservationPage = () => {
-    const { id } = useParams();
+  const { id } = useParams();
   const car = cars.find((car) => car.id === parseInt(id));
-  const [startDate, setStartDate] = useState('');
-  const [endDate, setEndDate] = useState('');
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
   const [totalCost, setTotalCost] = useState(0);
 
   if (!car) {
     return <div>Car not found</div>;
   }
-  
+
   const calculateTotalCost = () => {
     const start = new Date(startDate);
     const end = new Date(endDate);
@@ -24,7 +24,8 @@ const ReservationPage = () => {
     setTotalCost(cost);
   };
 
-    return (
+  return (
+    <>
       <div>
       <div>
         <Helmet>
@@ -78,16 +79,18 @@ const ReservationPage = () => {
         </div>
       </div>
       <div className="reservationForm">
-      <h2 className='text-center text-xl font-semibold'>Choose the duration of your rental:</h2>
-     <label className='font-medium'>
+        <h2 className="text-center text-xl font-semibold">
+          Choose the duration of your rental:
+        </h2>
+        <label className="font-medium">
           Start Date:
           <input
             type="date"
             value={startDate}
             onChange={(e) => setStartDate(e.target.value)}
           />
-        </label >
-        <label className='font-medium'>
+        </label>
+        <label className="font-medium">
           End Date:
           <input
             type="date"
@@ -97,10 +100,13 @@ const ReservationPage = () => {
         </label>
         <button onClick={calculateTotalCost}>Calculate Cost</button>
         {totalCost > 0 && (
-          <p id="costId"><strong>Total Cost:</strong> {totalCost}<strong> € </strong></p>
+          <p id="costId">
+            <strong>Total Cost:</strong> {totalCost}
+            <strong> € </strong>
+          </p>
         )}
       </div>
-    </div>
-    );
-  };
-export default ReservationPage
+    </>
+  );
+};
+export default ReservationPage;
