@@ -76,6 +76,30 @@ const ReservationPage = () => {
           )}
         </div>
       </div>
+      <div className="reservationForm">
+      <h2 className='text-center text-xl font-semibold'>Choose the duration of your rental:</h2>
+     <label className='font-medium'>
+          Start Date:
+          <input
+            type="date"
+            value={startDate}
+            onChange={(e) => setStartDate(e.target.value)}
+          />
+        </label >
+        <label className='font-medium'>
+          End Date:
+          <input
+            type="date"
+            value={endDate}
+            onChange={(e) => setEndDate(e.target.value)}
+          />
+        </label>
+        <button onClick={calculateTotalCost}>Calculate Cost</button>
+        {totalCost > 0 && (
+          <p id="costId"><strong>Total Cost:</strong> {totalCost}<strong> € </strong></p>
+        )}
+      </div>
+    </div>
     );
   };
 export default ReservationPage
