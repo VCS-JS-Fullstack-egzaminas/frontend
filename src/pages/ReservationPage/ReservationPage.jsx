@@ -36,16 +36,16 @@ const ReservationPage = () => {
         </div>
       </div>
       <div className="reservationForm">
-      <h2 className='text-center'>Choose your rental duration:</h2>
-     <label>
+      <h2 className='text-center text-xl font-semibold'>Choose the duration of your rental:</h2>
+     <label className='font-medium'>
           Start Date:
           <input
             type="date"
             value={startDate}
             onChange={(e) => setStartDate(e.target.value)}
           />
-        </label>
-        <label>
+        </label >
+        <label className='font-medium'>
           End Date:
           <input
             type="date"
