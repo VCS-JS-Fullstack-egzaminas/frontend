@@ -140,6 +140,9 @@ const ListingDetails = () => {
         <h2 className="text-2xl font-bold mb-4">Listing Details</h2>
         <div className="mb-6">
           <p>
+            {entry._id}
+          </p>
+          <p>
             <strong>Title:</strong> {entry.title}
           </p>
           <p>
