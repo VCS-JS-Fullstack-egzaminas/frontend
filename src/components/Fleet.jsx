@@ -2,30 +2,40 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Fleet.css";
 import { cars } from "../data/mockdata.json";
+import { getAllListings } from "../services/listingsService";
 
 const Fleet = () => {
-  const [carList, setCarList] = useState([]);
   const [filteredCars, setFilteredCars] = useState([]);
   const [fadeClass, setFadeClass] = useState("fade-in");
+  const [listings, setListings] = useState([]);
 
   useEffect(() => {
-    setCarList(cars);
-    setFilteredCars(cars);
+    const getEntries = async () => {
+      try {
+        const response = await getAllListings();
+        const combinedListings = [...response.data]; 
+        setListings(combinedListings);
+        setFilteredCars(combinedListings); 
+      } catch (error) {
+        console.error("Error Fetching Entries", error);
+      }
+    };
+    getEntries();
   }, []);
 
   const filterCars = (size) => {
     setFadeClass("fade-out");
     setTimeout(() => {
       if (size === "All") {
-        setFilteredCars(carList);
+        setFilteredCars(listings);
       } else {
-        const filtered = carList.filter((car) => car.size.includes(size));
+        const filtered = listings.filter((car) => car.size.includes(size));
         setFilteredCars(filtered);
       }
       setFadeClass("fade-in");
     }, 500);
   };
-
+  
   return (
     <>
       <div className="fleet-Container1">
@@ -46,13 +56,13 @@ const Fleet = () => {
       <div className={`fleet-Container2 ${fadeClass}`}>
         {filteredCars.map((car) => (
           <div key={car.id} className="fleet">
-            <img src={car.imgSrc} alt={car.name} className="fleet-img" />
+            <img src={car.photos[0]} alt={car.name} className="fleet-img" />
             <div className="fleet-details">
               <h3>{car.title}</h3>
               <p>{car.size}</p>
               <p>{car.year}</p>
               <p>Price from:{car.price}€</p>
-              <Link to={`/car/${car.id}`} className="btn btn-primary">
+              <Link to={`/car/${car.id}`} className="btn btn-primary">Reserve
                 {car.reserve}
               </Link>
             </div>
