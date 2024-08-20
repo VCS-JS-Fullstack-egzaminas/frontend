@@ -6,12 +6,15 @@ import {
   updateListingById,
   deleteListingById,
 } from "../../../services/listingsService";
+import { uploadImg } from "../../../services/uploadService";
+
 
 const ListingDetails = () => {
   const { id } = useParams();
   const [entry, setEntry] = useState({});
   const [showEdit, setShowEdit] = useState(false);
   const [editData, setEditData] = useState({});
+  const [images, setImages] = useState([]);
   const [notification, setNotification] = useState(null);
 
   const navigate = useNavigate();
@@ -23,6 +26,8 @@ const ListingDetails = () => {
   const minDurationRef = useRef();
   const extrasRef = useRef();
   const photosRef = useRef();
+  const yearRef = useRef();
+  const sizeRef = useRef();
 
   useEffect(() => {
     const getEntries = async () => {
@@ -34,12 +39,12 @@ const ListingDetails = () => {
       }
     };
     getEntries();
-  }, [id, entry]);
+  }, [id, entry]); //isveda visa info
 
   const displayNotification = (type, message) => {
     setNotification({ type, message });
     setTimeout(() => navigate("/admin/listings"), 3000);
-  };
+  }; 
 
   const handleDelete = async (e) => {
     e.preventDefault();
@@ -52,10 +57,39 @@ const ListingDetails = () => {
     }
   };
 
+  const handleImageInput = (e) => {
+    const newImages = Array.from(e.target.files).map((file) => ({
+      file,
+      preview: URL.createObjectURL(file),
+      id: crypto.randomUUID(),
+    }));
+    setImages((prev) => [...prev, ...newImages]);
+   
+  };
+
+  const handleImageDelete = (id) => {
+    setImages((prev) => prev.filter((image) => image.id !== id));
+  };
+
+
+
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
-      await updateListingById(id, editData);
+      const imagesFormData = new FormData();
+      if (images.length >= 1 ) {
+      images.forEach((image) => {
+        imagesFormData.append("images", image.file)
+      }) 
+   
+      const uploadedImagesResponse = await uploadImg(imagesFormData)
+      await updateListingById(id, {...editData
+        ,photos: uploadedImagesResponse.data.images,
+      });}
+      else {
+        await updateListingById(id, {...editData
+          ,photos: entry.photos,
+        });}
       displayNotification("success", "Listing successfully updated!");
       setShowEdit(false);
     } catch (error) {
@@ -77,7 +111,9 @@ const ListingDetails = () => {
     const max_duration =
       maxDurationRef.current.value.trim() || entry.max_duration;
     const extras = extrasRef.current.value.trim() || entry.extras;
-    const photos = photosRef.current.value.trim() || entry.photos;
+    const year = yearRef.current.value.trim() || entry.year;
+    const size = sizeRef.current.value.trim() || entry.size
+   
 
     setEditData({
       title,
@@ -87,7 +123,8 @@ const ListingDetails = () => {
       min_duration,
       max_duration,
       extras,
-      photos,
+      year,
+      size
     });
   };
 
@@ -100,8 +137,15 @@ const ListingDetails = () => {
             <strong>Title:</strong> {entry.title}
           </p>
           <p>
+            <strong>Year:</strong> {entry.year}
+          </p>
+          <p>
+            <strong>Size:</strong> {entry.size}
+          </p>
+          <p>
             <strong>Description:</strong> {entry.description}
           </p>
+        
           <p>
             <strong>Photos:</strong> {entry.photos}
           </p>
@@ -154,6 +198,31 @@ const ListingDetails = () => {
                 className="w-full p-2 border border-gray-300 rounded"
               />
             </div>
+            <div>
+            <label className="block mb-2">Year</label>
+            <input
+          className="input-field"
+          ref={yearRef}
+          type="number"
+          onChange={handleInputChange}
+          placeholder="Year"
+        />
+        </div>
+        <div>
+        <label className="block mb-2">Size</label>
+          <select
+          className="input-field"
+          onChange={handleInputChange}
+          ref={sizeRef}
+        >
+          <option value="Mini">Mini</option>
+          <option value="Economic">Economic</option>
+          <option value="Compact">Compact</option>
+          <option value="Medium">Medium</option>
+          <option value="Standard">Standard</option>
+          <option value="SUV">SUV</option>
+        </select>
+        </div>
             <div className="mb-4">
               <label className="block mb-2">Description</label>
               <textarea
@@ -165,14 +234,39 @@ const ListingDetails = () => {
             </div>
             <div className="mb-4">
               <label className="block mb-2">Photos</label>
+             
+            </div>
+            <div>
+            <div className="mb-4">
+            {images.map((image, index) => (
+              <div key={index}>
+                <img src={image.preview} alt={`Thumbnail ${index}`} />
+                <button
+                  type="button"
+                  onClick={() => handleImageDelete(image.id)}
+                >
+                  x
+                </button>
+              </div>
+            ))}
+            <div className="input-field">
+              <label htmlFor="file-input">
+                <span className="mt-2 text-sm text-gray-500">Add image</span>
+              </label>
               <input
+                id="file-input"
+                type="file"
+                multiple
+                onChange={handleImageInput}
+                className="hidden"
+                accept="image/*"
                 ref={photosRef}
-                type="text"
-                onChange={handleInputChange}
                 placeholder={entry.photos}
-                className="w-full p-2 border border-gray-300 rounded"
               />
             </div>
+
+          </div>
+          </div>
             <div className="mb-4">
               <label className="block mb-2">Price</label>
               <input
