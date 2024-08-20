@@ -24,9 +24,9 @@ const Users = () => {
       <div className="home-content space-y-4 pt-8 mx-4">
         {content.length > 0 &&
           content.map((info) => (
-            <Card key={info._id} className="recordInfo w-full">
-              <div className="flex justify-between items-center">
-                <div>
+            <Card key={info._id} className="recordInfo w-full flex">
+              <div className="flex justify-between items-center w-full flex-wrap">
+                <div className="basis-80">
                   <p className="text-lg font-bold mb-2">
                     <strong>Username:</strong> {info.username}
                   </p>
@@ -34,7 +34,7 @@ const Users = () => {
                     <strong>Email:</strong> {info.email}
                   </p>
                 </div>
-                <Link to={`${info._id}`}>
+                <Link to={`${info._id}`} className="mt-4">
                   <Button color="primary">Details</Button>
                 </Link>
               </div>

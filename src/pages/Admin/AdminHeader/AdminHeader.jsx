@@ -1,70 +1,110 @@
-
-import { NavLink } from "react-router-dom";
-import { MdiCar } from "../../../components/ui/icons/MdiCar";
-
+import { Link, NavLink } from "react-router-dom";
+import { useState } from "react";
+import Logo from "../../../components/Logos/Logo";
+import './AdminHeader.css';
 
 const AdminHeader = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
   const tabStyleClasses =
-    "p-4 border-b-2 border-river-bed-800 hover:border-ecstasy-500 hover:text-ecstasy-500";
+    "px-4 pb-4 border-b-2 hover:border-ecstasy-500 hover:text-ecstasy-500";
   const activeTabStyleClasses = "border-ecstasy-500 text-ecstasy-500";
 
   return (
-    <header className="admin-header flex justify-between items-center px-4 pt-4">
-
-      <NavLink to="/admin">
+    <header className="flex justify-between items-end px-6 pt-2 relative">
+      <Link to="/">
         <div className="flex items-center gap-1">
-          <MdiCar className="h-10 w-10 text-river-bed-800" />
-          <div className="flex flex-col items-left">
-            <span className="text-2xl leading-none text-ecstasy-500">
-              <strong>VCS</strong>.admin
-            </span>
-            <span className="text-lg text-river-bed-800 leading-none">
-              rentals
-            </span>
+          <Logo color={"dark"} className="w-24 h-14" />
+          <span className="text-ecstasy-500 font-bold text-2xl">.admin</span>
+        </div>
+      </Link>
+      <nav>
+        <div className={`menu-wrapper ${isMenuOpen ? "open bg-white" : ""}`}>
+          <div
+            className={`justify-end gap-4 md:flex menu`}
+          >
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                `${tabStyleClasses} ${
+                  isActive ? activeTabStyleClasses : "border-river-bed-800"
+                }`
+              }
+            >
+              Home
+            </NavLink>
+            <NavLink
+              to="users"
+              className={({ isActive }) =>
+                `${tabStyleClasses} ${
+                  isActive ? activeTabStyleClasses : "border-river-bed-800"
+                }`
+              }
+            >
+              Users
+            </NavLink>
+            <NavLink
+              to="listings"
+              className={({ isActive }) =>
+                `${tabStyleClasses} ${
+                  isActive ? activeTabStyleClasses : "border-river-bed-800"
+                }`
+              }
+            >
+              Listings
+            </NavLink>
+            <NavLink
+              to="reservations"
+              className={({ isActive }) =>
+                `${tabStyleClasses} ${
+                  isActive ? activeTabStyleClasses : "border-river-bed-800"
+                }`
+              }
+            >
+              Reservations
+            </NavLink>
           </div>
         </div>
-      </NavLink>
-      <nav className="flex gap-4">
-      <NavLink
-          to="/"
-          className={({ isActive }) =>
-            `${tabStyleClasses} ${
-              isActive ? activeTabStyleClasses : "border-river-bed-800"
-            }`
-          }
+        <button
+          id="mobile-menu-btn"
+          className="md:hidden self-center"
+          onClick={toggleMenu}
+          aria-expanded={isMenuOpen}
         >
-          Home
-        </NavLink>
-        <NavLink
-          to="users"
-          className={({ isActive }) =>
-            `${tabStyleClasses} ${
-              isActive ? activeTabStyleClasses : "border-river-bed-800"
-            }`
-          }
-        >
-          Users
-        </NavLink>
-        <NavLink
-          to="listings"
-          className={({ isActive }) =>
-            `${tabStyleClasses} ${
-              isActive ? activeTabStyleClasses : "border-river-bed-800"
-            }`
-          }
-        >
-          Listings
-        </NavLink>
-        <NavLink
-          to="reservations"
-          className={({ isActive }) =>
-            `${tabStyleClasses} ${
-              isActive ? activeTabStyleClasses : "border-river-bed-800"
-            }`
-          }
-        >
-          Reservations
-        </NavLink>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-9 w-9 fill-black"
+            viewBox="0 0 24 24"
+          >
+            <rect
+              className="line1"
+              width="18"
+              height="1.5"
+              x="3"
+              y="6"
+              rx="0.5"
+            ></rect>
+            <rect
+              className="line2"
+              width="18"
+              height="1.5"
+              x="3"
+              y="11"
+              rx="0.75"
+            ></rect>
+            <rect
+              className="line3"
+              width="18"
+              height="1.5"
+              x="3"
+              y="16"
+              rx="0.75"
+            ></rect>
+          </svg>
+        </button>
       </nav>
     </header>
   );

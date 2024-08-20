@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { cars } from '../../data/mockdata.json';
 import './ReservationPage.css'
