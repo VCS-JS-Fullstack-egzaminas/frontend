@@ -59,7 +59,7 @@
   font-size: 16px;
 }
 } */
-@media (max-width: 1500px) {
+@media (max-width: 1200px) {
   .banner-container2 {
     flex-direction: column;
     align-items: start;
@@ -72,7 +72,7 @@
   }
 }
 
-@media (max-width: 1450px) {
+@media (max-width: 1200px) {
   .banner-message {
     margin-top: 50px;
     margin-left: 50px;

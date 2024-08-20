@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Button from "../../../components/ui/Button";
 import { Link } from "react-router-dom";
 import { getAllListings } from "../../../services/listingsService";
+import { Helmet } from "react-helmet";
 
 const Listings = () => {
   const [listings, setListings] = useState([]);
@@ -21,6 +22,9 @@ const Listings = () => {
   return (
     <div className="p-8 bg-gray-100 min-h-screen">
       <div>
+        <Helmet>
+          <title>Listing</title>
+        </Helmet>
         <h1 className="text-2xl font-bold mb-4">Listings</h1>
         <Link to="/admin/new-listing">
           <Button className="mb-6" color={"create"}>
@@ -33,14 +37,15 @@ const Listings = () => {
               <div key={info._id} className="bg-white shadow-md rounded-md p-4">
                 <h2 className="text-xl font-semibold mb-2">{info.title}</h2>
                 <p className="mb-2">
-                  <strong>Description:</strong> {info.description}
+                  <strong>Year:</strong> {info.year}
                 </p>
+                <p> <strong>Size:</strong> {info.size}</p>
                 <p></p>
                 <p className="mb-2">
                   <img src={`${info.photos}`} />
                 </p>
                 <p className="mb-2">
-                  <strong>Price:</strong> {info.price} €
+                  <strong>Price from:</strong> {info.price} €
                 </p>
                 <p className="mb-2">
                   <strong>Availability:</strong>{" "}

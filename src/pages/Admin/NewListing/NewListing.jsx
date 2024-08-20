@@ -7,6 +7,7 @@ import Button from "../../../components/ui/Button";
 const NewListing = () => {
   const [entryData, setEntryData] = useState("");
   const [images, setImages] = useState([]);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const titleRef = useRef();
   const descriptionRef = useRef();
@@ -18,6 +19,8 @@ const NewListing = () => {
   const photosRef = useRef();
   const yearRef = useRef();
   const sizeRef = useRef();
+  const transmissionRef = useRef();
+  const fuelTypeRef = useRef()
 
   const inputStyle = "mb-2 p-2 rounded-md border border-gray-300";
 
@@ -33,24 +36,35 @@ const NewListing = () => {
   const handleImageDelete = (id) => {
     setImages((prev) => prev.filter((image) => image.id !== id));
   };
+
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault(e);
+    setLoading(true);
+
     try {
       const imagesFormData = new FormData();
-      images.forEach((image) => imagesFormData.append("images", image.file));
+      images.forEach((image) => {
+        imagesFormData.append("images", image.file);
+      });
 
       const uploadedImagesResponse = await uploadImg(imagesFormData);
+
+      console.log(uploadedImagesResponse);
 
       await createListing({
         ...entryData,
         photos: uploadedImagesResponse.data.images,
       });
-
-      alert("Record successfully added");
+      console.log("bando ikelti", entryData);
+      alert("Record succesfully added");
+      setLoading(false);
       navigate("/admin/listings");
     } catch (error) {
-      console.error(error);
+      console.log(error);
+      setLoading(false);
     }
+
+    console.log("returning");
   };
 
   const handleInputChange = () => {
@@ -64,6 +78,8 @@ const NewListing = () => {
       extras: extrasRef.current.value,
       year: yearRef.current.value,
       size: sizeRef.current.value,
+      transmission:transmissionRef.current.value,
+      fuelType: fuelTypeRef.current.value
     });
   };
 
@@ -85,6 +101,19 @@ const NewListing = () => {
           onChange={handleInputChange}
           placeholder="Year"
         />
+        <label>Fuel type:</label>
+         <select
+          className={inputStyle}
+          onChange={handleInputChange}
+          ref={fuelTypeRef}
+        >
+          <option value="Diesel">Diesel</option>
+          <option value="Gasoline">Gasoline</option>
+          <option value="Ethanol">Ethanol</option>
+          <option value="Natural Gas">Natural gas</option>
+          <option value="LPG">LPG</option>
+        </select>
+        <label>Size:</label>
         <select
           className={inputStyle}
           onChange={handleInputChange}
@@ -96,6 +125,15 @@ const NewListing = () => {
           <option value="Medium">Medium</option>
           <option value="Standard">Standard</option>
           <option value="SUV">SUV</option>
+        </select>
+        <label>Transmission:</label>
+        <select
+          className={inputStyle}
+          onChange={handleInputChange}
+          ref={transmissionRef}
+        >
+          <option value="Automatic">Automatic</option>
+          <option value="Manual">Manual</option>
         </select>
         <textarea
           className={inputStyle}
@@ -111,6 +149,7 @@ const NewListing = () => {
           onChange={handleInputChange}
           placeholder="Price"
         />
+         <label>Available:</label>
         <select
           className={inputStyle}
           onChange={handleInputChange}
@@ -119,13 +158,14 @@ const NewListing = () => {
           <option value="true">Available</option>
           <option value="false">Unavailable</option>
         </select>
+        <label>Photo:</label>
         <div>
           {images.map((image, index) => (
             <div key={index} className="mb-2 relative">
               <img
                 src={image.preview}
                 alt={`Thumbnail ${index}`}
-                className="w-full h-auto rounded-md"
+                className="w-full p-2 border border-gray-300 rounded"
               />
               <div
                 className="absolute top-2 right-2 h-6 w-6 bg-red-600 text-white rounded-full hover:bg-red-700 transition-bg duration-150 flex items-center justify-center cursor-pointer"
@@ -136,9 +176,6 @@ const NewListing = () => {
             </div>
           ))}
           <div className={inputStyle}>
-            <label htmlFor="file-input" className="">
-              Add image
-            </label>
             <input
               id="file-input"
               name="file-input"
@@ -173,7 +210,9 @@ const NewListing = () => {
           type="text"
           onChange={handleInputChange}
         />
-        <Button type="submit">Add Listing</Button>
+        <Button type="submit" disabled={loading}>
+          Add Listing
+        </Button>
       </form>
     </div>
   );

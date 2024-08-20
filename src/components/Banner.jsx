@@ -2,7 +2,7 @@ import "./Banner.css";
 const Banner = () => {
   return (
     <>
-      <div className="flex items-center mt-24 bg-ecstasy-500 shadow-md">
+      <div className="banner-container2 flex items-center mt-24 bg-ecstasy-500 shadow-md">
         <div className="banner-img">
           <img src="../../public/final-1.webp" alt="" />
         </div>
