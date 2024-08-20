@@ -98,7 +98,7 @@
 }
 
 .slider-container .slick-list {
-  height: 300px !important;
+  height: 350px !important;
 }
 
 @media (max-width: 1800px) {
@@ -137,12 +137,18 @@
   .slider-container {
     width: 439px;
     margin: 0 auto;
-    padding-top: 150px;
-    padding-bottom: 200px;
+    padding-top: 50px;
+    padding-bottom: 50px;
   }
 
   .slider-container h2 {
   font-size: 21px;
 text-align: center;
 }
+
+
+.slider-container .slick-list {
+  height: 350px !important;
+}
+
 }

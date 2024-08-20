@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./Index.css";
-import { cars } from "../../data/mockdata.json";
+import { cars as mockCars } from "../../data/mockdata.json";
 import PropTypes from "prop-types";
 import Search from "../../components/Search";
 import CarCard from "../../components/CarCard/CarCard";
@@ -13,7 +13,7 @@ import Comentators from "../../components/Comentators";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
-
+import { getAllListings } from "../../services/listingsService";
 
 const getRandomCars = (cars) => {
   const shuffled = cars.sort(() => 0.5 - Math.random());
@@ -22,10 +22,25 @@ const getRandomCars = (cars) => {
 
 const CarCarousel = ({ cars }) => {
   const [randomCars, setRandomCars] = useState([]);
+  const [listings, setListings] = useState([]);
 
   useEffect(() => {
-    setRandomCars(getRandomCars(cars));
-  }, [cars]);
+    const fetchListings = async () => {
+      try {
+        const response = await getAllListings();
+        setListings(response.data);
+      } catch (error) {
+        console.error("Error fetching listings", error);
+      }
+    };
+
+    fetchListings();
+  }, []);
+
+  useEffect(() => {
+    const combinedCars = [...listings];
+    setRandomCars(getRandomCars(combinedCars));
+  }, [listings]);
 
   const settings = {
     dots: true,
@@ -114,7 +129,7 @@ CarCarousel.propTypes = {
 const Index = () => (
   <>
     <Search />
-    <CarCarousel cars={cars} />
+    <CarCarousel cars={mockCars} />
     <Banner />
     <Comentators />
   </>
