@@ -34,6 +34,7 @@ const CarCarousel = ({ cars }) => {
     autoplay: true,
     autoplaySpeed: 3000,
     centerMode: false,
+    arrows: false,
     responsive: [
       {
         breakpoint: 1350,
