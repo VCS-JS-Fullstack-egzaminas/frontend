@@ -37,14 +37,15 @@ const Listings = () => {
               <div key={info._id} className="bg-white shadow-md rounded-md p-4">
                 <h2 className="text-xl font-semibold mb-2">{info.title}</h2>
                 <p className="mb-2">
-                  <strong>Description:</strong> {info.description}
+                  <strong>Year:</strong> {info.year}
                 </p>
+                <p> <strong>Size:</strong> {info.size}</p>
                 <p></p>
                 <p className="mb-2">
                   <img src={`${info.photos}`} />
                 </p>
                 <p className="mb-2">
-                  <strong>Price:</strong> {info.price} €
+                  <strong>Price from:</strong> {info.price} €
                 </p>
                 <p className="mb-2">
                   <strong>Availability:</strong>{" "}
