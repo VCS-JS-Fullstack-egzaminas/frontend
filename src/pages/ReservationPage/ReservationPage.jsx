@@ -26,6 +26,7 @@ const ReservationPage = () => {
 
     return (
       <div>
+      <div>
         <Helmet>
           <title>Reservation</title>
         </Helmet>
