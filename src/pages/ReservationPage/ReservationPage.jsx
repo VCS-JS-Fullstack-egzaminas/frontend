@@ -25,7 +25,6 @@ const ReservationPage = () => {
   };
 
   return (
-    <>
       <div>
       <div>
         <Helmet>
@@ -106,7 +105,7 @@ const ReservationPage = () => {
           </p>
         )}
       </div>
-    </>
+      </div>
   );
 };
 export default ReservationPage;
