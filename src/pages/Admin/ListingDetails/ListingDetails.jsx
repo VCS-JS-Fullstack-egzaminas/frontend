@@ -28,6 +28,8 @@ const ListingDetails = () => {
   const photosRef = useRef();
   const yearRef = useRef();
   const sizeRef = useRef();
+  const transmissionRef = useRef();
+  const fuelTypeRef = useRef()
 
   useEffect(() => {
     const getEntries = async () => {
@@ -112,7 +114,9 @@ const ListingDetails = () => {
       maxDurationRef.current.value.trim() || entry.max_duration;
     const extras = extrasRef.current.value.trim() || entry.extras;
     const year = yearRef.current.value.trim() || entry.year;
-    const size = sizeRef.current.value.trim() || entry.size
+    const size = sizeRef.current.value.trim() || entry.size;
+    const fuelType = fuelTypeRef.current.value.trim() || entry.fuelType;
+    const transmission = transmissionRef.current.value.trim() || entry.transmission;
    
 
     setEditData({
@@ -124,7 +128,9 @@ const ListingDetails = () => {
       max_duration,
       extras,
       year,
-      size
+      size,
+      fuelType,
+      transmission
     });
   };
 
@@ -139,8 +145,15 @@ const ListingDetails = () => {
           <p>
             <strong>Year:</strong> {entry.year}
           </p>
+          
           <p>
             <strong>Size:</strong> {entry.size}
+          </p>
+          <p>
+            <strong>Fuel:</strong> {entry.fuelType}
+          </p>
+          <p>
+            <strong>Transmission:</strong> {entry.transmission}
           </p>
           <p>
             <strong>Description:</strong> {entry.description}
@@ -232,11 +245,34 @@ const ListingDetails = () => {
                 className="w-full p-2 border border-gray-300 rounded"
               />
             </div>
+          
+            <div className="mb-4">
+              <label className="block mb-2">Transmission</label>
+              <select
+                ref={transmissionRef}
+                onChange={handleInputChange}
+                className="w-full p-2 border border-gray-300 rounded"
+              >
+                <option value="Automatic">Automatic</option>
+                <option value="Manual">Manual</option>
+              </select>
+            </div>
+             <label>Fuel type:</label>
+         <select
+        
+          onChange={handleInputChange}
+          ref={fuelTypeRef}
+        >
+          <option value="Diesel">Diesel</option>
+          <option value="Gasoline">Gasoline</option>
+          <option value="Ethanol">Ethanol</option>
+          <option value="Natural Gas">Natural gas</option>
+          <option value="LPG">LPG</option>
+        </select>
+            <div>
             <div className="mb-4">
               <label className="block mb-2">Photos</label>
-             
             </div>
-            <div>
             <div className="mb-4">
             {images.map((image, index) => (
               <div key={index}>
