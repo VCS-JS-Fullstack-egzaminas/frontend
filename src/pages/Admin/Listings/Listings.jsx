@@ -33,9 +33,11 @@ const Listings = () => {
                 <p className="mb-2">
                   <strong>Description:</strong> {info.description}
                 </p>
+                <p>
+              
+                </p>
                 <p className="mb-2">
-                  <strong>Photo:</strong>{" "}
-                  {info.photos.join(", ")}
+              <img src={`http://141.136.44.49:3000/${info.photos}`} />
                 </p>
                 <p className="mb-2">
                   <strong>Price:</strong> {info.price} €
