@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Button from "../../../components/ui/Button";
 import Card from "../../../components/ui/Card"; // Import Card component
 import { getAllUsers } from "../../../services/userService";
+import { Helmet } from "react-helmet";
 
 const Users = () => {
   const [content, setContent] = useState([]);
@@ -21,6 +22,9 @@ const Users = () => {
 
   return (
     <div className="App bg-gray-100">
+      <Helmet>
+        <title>Users</title>
+      </Helmet>
       <div className="home-content space-y-4 pt-8 mx-4">
         {content.length > 0 &&
           content.map((info) => (
