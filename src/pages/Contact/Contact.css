@@ -27,7 +27,6 @@
 
 .contactUs {
   padding-top: 50px;
-  width: 800px;
   margin-right: 100px;
 }
 .mapContainer {
@@ -49,28 +48,4 @@
 
 .forma {
   width: 450px;
-}
-
-@media (max-width: 1050px) {
-  .contactContainer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  }
-  .contactUs {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    width: 320px;
-    text-align: left;
-  }
-  .cardContainer {
-    width: 250px;
-    margin-right: 260px;
-  }
-  .email {
-    margin-right: 123px;
-  }
 }

@@ -12,11 +12,14 @@ const Contact = () => {
         <title>Contacts</title>
       </Helmet>
       <div className="container px-6">
-        <div className="contactContainer flex">
-          <div className="contactUs">
+        <div className="contactContainer flex flex-col lg:flex-row items-center justify-center">
+          <div className="contactUs lg:w-1/2">
             <br />
             <h2 id="title">
-              <strong>Have Questions? Contact Us!</strong>
+              <strong>
+                Have Questions?
+                <br /> Contact Us!
+              </strong>
             </h2>
             <br />
             <p>
@@ -147,11 +150,11 @@ const Contact = () => {
               </a>
             </div>
           </div>
-          <div className="cardContainer">
-            <Card className="cardOne">
-              <h2>Send us a message</h2>
+          <div className="cardContainer lg:w-1/2">
+            <Card className="w-full">
+              <h2 className="font-bold text-2xl">Send us a message</h2>
               <br />
-              <form className="forma flex flex-col gap-4" action="#">
+              <form className="forma flex flex-col gap-4 w-full" action="#">
                 <div className="grid gap-1">
                   <Label htmlFor="email"></Label>
                   <Input placeholder="Your email" name="email" id="email" />
@@ -162,6 +165,7 @@ const Contact = () => {
                     placeholder="Your firstname"
                     name="first-name"
                     id="first-name"
+                    className=""
                   />
                 </div>
                 <div className="grid gap-1">
