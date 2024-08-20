@@ -1,8 +1,13 @@
+import { Helmet } from "react-helmet";
+
 const AboutUs = () => {
   return (
     <div className="flex justify-center mt-[72px]">
       <div className="container px-6 my-12">
         <div className="boxas">
+          <Helmet>
+            <title>About</title>
+          </Helmet>
           <h1 className="text-left font-bold text-3xl mb-6">About Us</h1>
           <h2 className="sr-only">About us</h2>
           <p className="mb-8 pl-6">

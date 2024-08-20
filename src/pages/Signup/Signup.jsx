@@ -5,11 +5,15 @@ import Input from "../../components/ui/Input";
 import Label from "../../components/ui/Label";
 import { useEffect, useState } from "react";
 import { useAuth } from "../../hooks/useAuth";
+import { Helmet } from "react-helmet";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState("");
+  const [isFormValid, setIsFormValid] = useState(false);
 
   const { user, signUp } = useAuth();
 
@@ -21,14 +25,35 @@ const Signup = () => {
     }
   }, [user, navigate]);
 
+  useEffect(() => {
+    const regex = /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{5,}$/;
+    if (password !== confirmPassword) {
+      setError("Passwords do not match");
+      setIsFormValid(false);
+    } else if (!regex.test(password)) {
+      setError(
+        "Password must be at least 5 characters long, contain at least one uppercase letter and one number"
+      );
+      setIsFormValid(false);
+    } else {
+      setError("");
+      setIsFormValid(true);
+    }
+  }, [password, confirmPassword]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    signUp(email, username, password);
+    if (isFormValid) {
+      signUp(email, username, password);
+    }
   };
 
   return (
     <Card>
       <div className="grid gap-4 min-w-80">
+        <Helmet>
+          <title>Signup</title>
+        </Helmet>
         <h1 className="font-bold text-3xl">Sign up</h1>
         <form onSubmit={handleSubmit}>
           <div className="grid gap-4">
@@ -67,7 +92,20 @@ const Signup = () => {
                 <li>Has to have at least one uppercase letter</li>
               </ul>
             </div>
-            <Button type="submit">Sign up</Button>
+            <div className="grid">
+              <Label htmlFor="confirmPassword">Confirm Password</Label>
+              <Input
+                type="password"
+                name="confirmPassword"
+                id="confirmPassword"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+              />
+            </div>
+            {error && <p className="text-red-500">{error}</p>}
+            <Button type="submit" disabled={!isFormValid}>
+              Sign up
+            </Button>
           </div>
         </form>
         <div>

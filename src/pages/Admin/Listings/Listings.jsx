@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Button from "../../../components/ui/Button";
 import { Link } from "react-router-dom";
 import { getAllListings } from "../../../services/listingsService";
+import { Helmet } from "react-helmet";
 
 const Listings = () => {
   const [listings, setListings] = useState([]);
@@ -21,6 +22,9 @@ const Listings = () => {
   return (
     <div className="p-8 bg-gray-100 min-h-screen">
       <div>
+        <Helmet>
+          <title>Listing</title>
+        </Helmet>
         <h1 className="text-2xl font-bold mb-4">Listings</h1>
         <Link to="/admin/new-listing">
           <Button className="mb-6" color={"create"}>
