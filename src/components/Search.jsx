@@ -31,7 +31,7 @@ const Search = () => {
               services.
             </p>
           </div>
-          <Card className={"w-full"}>
+          {/* <Card className={"w-full"}>
             <div className="flex">
               <div className="flex flex-col gap-2">
                 <div className="flex w-full flex-col">
@@ -64,7 +64,7 @@ const Search = () => {
                 <Button>Reserve</Button>
               </div>
             </div>
-          </Card>
+          </Card> */}
         </div>
       </div>
     </div>
