@@ -301,7 +301,7 @@ const ListingDetails = () => {
                     <img src={image.preview} alt={`Thumbnail ${index}`} />
                   </div>
                 ))}
-                <div>
+                <div className="mb-2 p-2 rounded-md border border-gray-300">
                   <input
                     id="file-input"
                     name="file-input"
