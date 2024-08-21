@@ -139,16 +139,14 @@ const ListingDetails = () => {
       <div className="max-w-screen-lg mx-auto bg-white shadow-md rounded-md p-6">
         <h2 className="text-2xl font-bold mb-4">Listing Details</h2>
         <div className="mb-6">
-          <p>
-            {entry._id}
-          </p>
+          <p>{entry._id}</p>
           <p>
             <strong>Title:</strong> {entry.title}
           </p>
           <p>
             <strong>Year:</strong> {entry.year}
           </p>
-          
+
           <p>
             <strong>Size:</strong> {entry.size}
           </p>
@@ -161,7 +159,7 @@ const ListingDetails = () => {
           <p>
             <strong>Description:</strong> {entry.description}
           </p>
-        
+
           <p>
             <strong>Photos:</strong> <img src={entry.photos}></img>
           </p>
@@ -215,31 +213,33 @@ const ListingDetails = () => {
               />
             </div>
             <div>
-            <label className="block mb-2">Year</label>
-            <input
-          className="input-field"
-          ref={yearRef}
-          type="number"
-          onChange={handleInputChange}
-          placeholder="Year"
-        />
-        </div>
-        <div>
-        <label className="block mb-2">Size</label>
-          <select
-          className="input-field"
-          onChange={handleInputChange}
-          ref={sizeRef}
-             > 
-          <option selected disabled hidden value={entry.size}>{entry.size}</option>
-          <option value="Mini">Mini</option>
-          <option value="Economic">Economic</option>
-          <option value="Compact">Compact</option>
-          <option value="Medium">Medium</option>
-          <option value="Standard">Standard</option>
-          <option value="SUV">SUV</option>
-        </select>
-        </div>
+              <label className="block mb-2">Year</label>
+              <input
+                className="input-field"
+                ref={yearRef}
+                type="number"
+                onChange={handleInputChange}
+                placeholder="Year"
+              />
+            </div>
+            <div>
+              <label className="block mb-2">Size</label>
+              <select
+                className="input-field"
+                onChange={handleInputChange}
+                ref={sizeRef}
+              >
+                <option selected disabled hidden value={entry.size}>
+                  {entry.size}
+                </option>
+                <option value="Mini">Mini</option>
+                <option value="Economic">Economic</option>
+                <option value="Compact">Compact</option>
+                <option value="Medium">Medium</option>
+                <option value="Standard">Standard</option>
+                <option value="SUV">SUV</option>
+              </select>
+            </div>
             <div className="mb-4">
               <label className="block mb-2">Description</label>
               <textarea
@@ -249,7 +249,7 @@ const ListingDetails = () => {
                 className="w-full p-2 border border-gray-300 rounded"
               />
             </div>
-          
+
             <div className="mb-4">
               <label className="block mb-2">Transmission</label>
               <select
@@ -257,55 +257,55 @@ const ListingDetails = () => {
                 onChange={handleInputChange}
                 className="w-full p-2 border border-gray-300 rounded"
                 placeholder={entry.transmission}
-              >   <option  selected disabled hidden value={entry.transmission}>{entry.transmission}</option>
+              >
+                {" "}
+                <option selected disabled hidden value={entry.transmission}>
+                  {entry.transmission}
+                </option>
                 <option value="Automatic">Automatic</option>
                 <option value="Manual">Manual</option>
               </select>
             </div>
-             <label>Fuel type:</label>
-         <select
-        
-          onChange={handleInputChange}
-          ref={fuelTypeRef}
-        > 
-        <option  selected disabled hidden value={entry.fuelType}>{entry.fuelType}</option>
-          <option value="Diesel">Diesel</option>
-          <option value="Gasoline">Gasoline</option>
-          <option value="Ethanol">Ethanol</option>
-          <option value="Natural Gas">Natural gas</option>
-          <option value="LPG">LPG</option>
-        </select>
+            <label>Fuel type:</label>
+            <select onChange={handleInputChange} ref={fuelTypeRef}>
+              <option selected disabled hidden value={entry.fuelType}>
+                {entry.fuelType}
+              </option>
+              <option value="Diesel">Diesel</option>
+              <option value="Gasoline">Gasoline</option>
+              <option value="Ethanol">Ethanol</option>
+              <option value="Natural Gas">Natural gas</option>
+              <option value="LPG">LPG</option>
+            </select>
             <div>
-            <div className="mb-4">
-              <label className="block mb-2">Photos</label>
-            </div>
-            <div className="mb-4">
-            {images.map((image, index) => (
-              <div key={index}>
-                     <div
-                className="relative  left-3 h-6 w-6 bg-red-600 text-white rounded-full hover:bg-red-700 transition-bg duration-150 flex items-center justify-center cursor-pointer"
-                onClick={() => handleImageDelete(image.id)}
-              >
-                ×
+              <div className="mb-4">
+                <label className="block mb-2">Photos</label>
               </div>
-                <img src={image.preview} alt={`Thumbnail ${index}`} />
-           
+              <div className="mb-4">
+                {images.map((image, index) => (
+                  <div key={index} className="mb-2 relative">
+                    <div
+                      className="absolute top-4 left-4 h-6 w-6 pb-0.5 bg-red-600 text-white rounded-full hover:bg-red-700 transition-bg duration-150 flex items-center justify-center cursor-pointer border border-gray-300 text-2xl lh"
+                      onClick={() => handleImageDelete(image.id)}
+                    >
+                      ×
+                    </div>
+                    <img src={image.preview} alt={`Thumbnail ${index}`} />
+                  </div>
+                ))}
+                <div className="input-field">
+                  <input
+                    id="file-input"
+                    name="file-input"
+                    type="file"
+                    multiple
+                    onChange={handleImageInput}
+                    accept="image/*"
+                    ref={photosRef}
+                  />
+                </div>
+              </div>
             </div>
-            ))}
-            <div className="input-field">
-              <input
-              id="file-input"
-              name="file-input"
-              type="file"
-              multiple
-              onChange={handleImageInput}
-              accept="image/*"
-              ref={photosRef}
-            />
-          </div>
-
-          </div>
-          </div>
             <div className="mb-4">
               <label className="block mb-2">Price</label>
               <input
@@ -322,7 +322,11 @@ const ListingDetails = () => {
                 ref={availableRef}
                 onChange={handleInputChange}
                 className="w-full p-2 border border-gray-300 rounded"
-              >   <option value={entry.available} selected disabled hidden>{entry.available ? "Currently available" : "Unavailable"}</option>
+              >
+                {" "}
+                <option value={entry.available} selected disabled hidden>
+                  {entry.available ? "Currently available" : "Unavailable"}
+                </option>
                 <option value="true"> Currently Available</option>
                 <option value="false">Unavailable</option>
               </select>
