@@ -20,7 +20,7 @@ const getRandomCars = (cars) => {
   return shuffled.slice(0, 10);
 };
 
-const CarCarousel = ({ cars }) => {
+const CarCarousel = () => {
   const [randomCars, setRandomCars] = useState([]);
   const [listings, setListings] = useState([]);
 

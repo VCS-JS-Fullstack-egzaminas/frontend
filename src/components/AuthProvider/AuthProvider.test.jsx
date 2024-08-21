@@ -1,15 +1,15 @@
-import { describe, test, expect, vi, beforeEach } from "vitest";
-import { render, screen, waitFor } from "@testing-library/react";
-import AuthProvider, { AuthContext } from "./AuthProvider";
-import {
-  checkAuthStatus,
-  checkCookie,
-  login,
-  logout,
-  signup,
-} from "../../services/userService";
-import { BrowserRouter } from "react-router-dom";
+import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
+import { render, act } from "@testing-library/react";
+import { AuthContext, default as AuthProvider } from "./AuthProvider";
+import * as userService from "../../services/userService";
+import { useNavigate } from "react-router-dom";
 
+// Mock the react-router-dom's useNavigate hook
+vi.mock("react-router-dom", () => ({
+  useNavigate: vi.fn(),
+}));
+
+// Mock the userService module
 vi.mock("../../services/userService", () => ({
   checkAuthStatus: vi.fn(),
   checkCookie: vi.fn(),
@@ -18,143 +18,181 @@ vi.mock("../../services/userService", () => ({
   signup: vi.fn(),
 }));
 
-vi.mock("react-router-dom", async () => {
-  const actual = await vi.importActual("react-router-dom"); // Import the actual module
-  return {
-    ...actual, // Spread the actual exports so that everything else is still available
-    useNavigate: () => vi.fn(), // Mock only useNavigate
-  };
-});
-
-const customRender = (ui, { providerProps, ...renderOptions }) => {
-  return render(
-    <BrowserRouter>
-      <AuthProvider {...providerProps}>{ui}</AuthProvider>
-    </BrowserRouter>,
-    renderOptions
-  );
-};
-
 describe("AuthProvider", () => {
+  const mockNavigate = vi.fn();
+
   beforeEach(() => {
+    useNavigate.mockReturnValue(mockNavigate);
+  });
+
+  afterEach(() => {
     vi.clearAllMocks();
   });
 
-  test("should render children when loading is false", async () => {
-    checkCookie.mockResolvedValue(true);
-    checkAuthStatus.mockResolvedValue({ data: { role: "user" } });
+  it("should check auth status on mount", async () => {
+    userService.checkCookie.mockResolvedValue(true);
+    userService.checkAuthStatus.mockResolvedValue({ data: { role: "user" } });
 
-    customRender(<div>Test Content</div>, { providerProps: {} });
-
-    expect(screen.getByText(/loading/i)).toBeInTheDocument();
-
-    await waitFor(() => {
-      expect(screen.getByText(/test content/i)).toBeInTheDocument();
+    let contextValue;
+    await act(async () => {
+      render(
+        <AuthProvider>
+          <AuthContext.Consumer>
+            {(value) => {
+              contextValue = value;
+              return null;
+            }}
+          </AuthContext.Consumer>
+        </AuthProvider>
+      );
     });
+
+    expect(userService.checkCookie).toHaveBeenCalled();
+    expect(userService.checkAuthStatus).toHaveBeenCalled();
+    expect(contextValue.user).toEqual({ role: "user" });
+    expect(contextValue.role).toBe("user");
+    expect(contextValue.loading).toBe(false);
   });
 
-  test("should set user and role on successful auth status check", async () => {
-    checkCookie.mockResolvedValue(true);
-    checkAuthStatus.mockResolvedValue({ data: { role: "admin" } });
+  it("should set user to null if no auth cookie", async () => {
+    userService.checkCookie.mockResolvedValue(false);
 
     let contextValue;
-    customRender(
-      <AuthContext.Consumer>
-        {(value) => {
-          contextValue = value;
-          return null;
-        }}
-      </AuthContext.Consumer>,
-      { providerProps: {} }
-    );
-
-    await waitFor(() => {
-      expect(contextValue.user).not.toBeNull();
-      expect(contextValue.role).toBe("admin");
+    await act(async () => {
+      render(
+        <AuthProvider>
+          <AuthContext.Consumer>
+            {(value) => {
+              contextValue = value;
+              return null;
+            }}
+          </AuthContext.Consumer>
+        </AuthProvider>
+      );
     });
-  });
 
-  test("should set user to null when auth status check fails", async () => {
-    checkCookie.mockResolvedValue(false);
-    checkAuthStatus.mockRejectedValue(new Error("No auth cookie"));
-
-    let contextValue;
-    customRender(
-      <AuthContext.Consumer>
-        {(value) => {
-          contextValue = value;
-          return null;
-        }}
-      </AuthContext.Consumer>,
-      { providerProps: {} }
-    );
-
-    await waitFor(() => {
-      expect(contextValue.user).toBeNull();
-    });
-  });
-
-  test("signUp should update user after signup", async () => {
-    const mockUser = { email: "test@example.com", username: "testuser" };
-    signup.mockResolvedValue(mockUser);
-
-    let contextValue;
-    customRender(
-      <AuthContext.Consumer>
-        {(value) => {
-          contextValue = value;
-          return null;
-        }}
-      </AuthContext.Consumer>,
-      { providerProps: {} }
-    );
-
-    // Trigger the signUp function
-    await contextValue.signUp("test@example.com", "testuser", "password");
-
-    // Ensure the state is updated
-    await waitFor(() => {
-      expect(contextValue.user).toEqual(mockUser);
-    });
-  });
-
-  test("logIn should update user and navigate to home", async () => {
-    const mockUser = { email: "test@example.com", username: "testuser" };
-    login.mockResolvedValue(mockUser);
-
-    let contextValue;
-    customRender(
-      <AuthContext.Consumer>
-        {(value) => {
-          contextValue = value;
-          return null;
-        }}
-      </AuthContext.Consumer>,
-      { providerProps: {} }
-    );
-
-    await contextValue.logIn("test@example.com", "password");
-
-    expect(contextValue.user).toEqual(mockUser);
-    expect(contextValue.logOut).toHaveBeenCalled();
-  });
-
-  test("logOut should set user to null", async () => {
-    logout.mockResolvedValue();
-
-    let contextValue;
-    customRender(
-      <AuthContext.Consumer>
-        {(value) => {
-          contextValue = value;
-          return null;
-        }}
-      </AuthContext.Consumer>,
-      { providerProps: {} }
-    );
-
-    await contextValue.logOut();
-
+    expect(userService.checkCookie).toHaveBeenCalled();
+    expect(userService.checkAuthStatus).not.toHaveBeenCalled();
     expect(contextValue.user).toBeNull();
+    expect(contextValue.loading).toBe(false);
+  });
+
+  it("should handle signup", async () => {
+    const mockUser = { id: 1, email: "test@example.com" };
+    userService.signup.mockResolvedValue(mockUser);
+
+    let contextValue;
+    await act(async () => {
+      render(
+        <AuthProvider>
+          <AuthContext.Consumer>
+            {(value) => {
+              contextValue = value;
+              return null;
+            }}
+          </AuthContext.Consumer>
+        </AuthProvider>
+      );
+    });
+
+    await act(async () => {
+      await contextValue.signUp("test@example.com", "testuser", "password");
+    });
+
+    expect(userService.signup).toHaveBeenCalledWith({
+      email: "test@example.com",
+      username: "testuser",
+      password: "password",
+    });
+    expect(contextValue.user).toEqual(mockUser);
+  });
+
+  it("should handle login", async () => {
+    const mockUser = { id: 1, email: "test@example.com" };
+    userService.login.mockResolvedValue(mockUser);
+
+    let contextValue;
+    await act(async () => {
+      render(
+        <AuthProvider>
+          <AuthContext.Consumer>
+            {(value) => {
+              contextValue = value;
+              return null;
+            }}
+          </AuthContext.Consumer>
+        </AuthProvider>
+      );
+    });
+
+    await act(async () => {
+      await contextValue.logIn("test@example.com", "password");
+    });
+
+    expect(userService.login).toHaveBeenCalledWith({
+      email: "test@example.com",
+      password: "password",
+    });
+    expect(contextValue.user).toEqual(mockUser);
+    expect(mockNavigate).toHaveBeenCalledWith("/");
+  });
+
+  it("should handle logout", async () => {
+    userService.logout.mockResolvedValue();
+
+    let contextValue;
+    await act(async () => {
+      render(
+        <AuthProvider>
+          <AuthContext.Consumer>
+            {(value) => {
+              contextValue = value;
+              return null;
+            }}
+          </AuthContext.Consumer>
+        </AuthProvider>
+      );
+    });
+
+    await act(async () => {
+      await contextValue.logOut();
+    });
+
+    expect(userService.logout).toHaveBeenCalled();
+    expect(contextValue.user).toBeNull();
+  });
+
+  it("should handle logout failure", async () => {
+    const consoleErrorSpy = vi
+      .spyOn(console, "error")
+      .mockImplementation(() => {});
+    userService.logout.mockRejectedValue(new Error("Logout failed"));
+
+    let contextValue;
+    await act(async () => {
+      render(
+        <AuthProvider>
+          <AuthContext.Consumer>
+            {(value) => {
+              contextValue = value;
+              return null;
+            }}
+          </AuthContext.Consumer>
+        </AuthProvider>
+      );
+    });
+
+    await act(async () => {
+      await contextValue.logOut();
+    });
+
+    expect(userService.logout).toHaveBeenCalled();
+    expect(contextValue.user).toBeNull();
+    expect(consoleErrorSpy).toHaveBeenCalledWith(
+      "Logout failed:",
+      "Logout failed"
+    );
+
+    consoleErrorSpy.mockRestore();
   });
 });

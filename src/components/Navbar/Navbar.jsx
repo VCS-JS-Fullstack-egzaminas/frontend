@@ -65,6 +65,7 @@ const Navbar = () => {
               className="md:hidden"
               onClick={toggleMenu}
               aria-expanded={isMenuOpen}
+              aria-label="Toggle menu"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
