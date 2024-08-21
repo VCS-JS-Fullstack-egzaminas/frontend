@@ -26,7 +26,7 @@ const Reservations = () => {
       }
     };
     getReservations();
-  }, []); //isveda visus reservations
+  }, [reservations]); //isveda visus reservations
   
   const displayNotification = (type, message) => {
     setNotification({ type, message });
@@ -65,8 +65,8 @@ const Reservations = () => {
                 key={info._id}
                 className="bg-white shadow-md rounded-md p-6 flex flex-col justify-center items-center flex-wrap gap-4 w-fit justify-self-center md:flex md:flex-row md:justify-between md:w-full">
                 <div className="details">
-                  <h2 className="text-xl font-semibold mb-2">Listing: {info._id}</h2>
-                  <p >{info.listing.title}</p>
+                  <p className="mb-2" >
+                  <strong> Listing: </strong>{info.listing.title}</p>
                   <p className="mb-2">
                     <strong>User:</strong> {info.user.email}
                   </p>
