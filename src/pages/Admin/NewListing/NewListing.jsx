@@ -4,6 +4,8 @@ import { createListing } from "../../../services/listingsService";
 import { uploadImg } from "../../../services/uploadService";
 import Button from "../../../components/ui/Button";
 
+//TODO: create notification after creating a listing
+
 const NewListing = () => {
   const [entryData, setEntryData] = useState("");
   const [images, setImages] = useState([]);
@@ -20,7 +22,7 @@ const NewListing = () => {
   const yearRef = useRef();
   const sizeRef = useRef();
   const transmissionRef = useRef();
-  const fuelTypeRef = useRef()
+  const fuelTypeRef = useRef();
 
   const inputStyle = "mb-2 p-2 rounded-md border border-gray-300";
 
@@ -78,8 +80,8 @@ const NewListing = () => {
       extras: extrasRef.current.value,
       year: yearRef.current.value,
       size: sizeRef.current.value,
-      transmission:transmissionRef.current.value,
-      fuelType: fuelTypeRef.current.value
+      transmission: transmissionRef.current.value,
+      fuelType: fuelTypeRef.current.value,
     });
   };
 
