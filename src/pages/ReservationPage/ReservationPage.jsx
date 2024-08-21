@@ -176,6 +176,7 @@ const ReservationPage = () => {
           </div>
         </div>
       </div>
+      {car.available == true ?
       <div className="reservationForm">
         <h2 className="text-center text-xl font-semibold">
           Choose the duration of your rental:
@@ -205,7 +206,10 @@ const ReservationPage = () => {
           </p>
         )}
       </div>
+            : 
+            <h2 className="text-center text-xl font-semibold">Sorry, this vehicle is currently unavailable</h2>}
     </>
+      
   );
 };
 
