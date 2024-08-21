@@ -62,10 +62,36 @@ const Fleet = () => {
             <img src={car.photos[0]} alt={car.name} className="fleet-img" />
             <div className="fleet-details">
               <h3>{car.title}</h3>
-              <p>{car.size}</p>
-              <p>{car.year}</p>
-              <p>Price from:{car.price}€</p>
-              <Link to={`/car/${car._id}`} className="btn btn-primary">
+              <div className="fleet-detail-columns">
+                <div className="fleet-detail-column">
+                  <div className="fleet-detail-item">
+                    <img src="../../public/icons/expand.png" alt="" />
+                    <p>{car.size}</p>
+                  </div>
+                  <div className="fleet-detail-item">
+                    <img src="../../public/icons/calendar.png" alt="" />
+                    <p>{car.year}</p>
+                  </div>
+                  <div className="fleet-detail-item">
+                    <img src="../../public/icons/gearbox.png" alt="" />
+                    <p>{car.transmission}</p>
+                  </div>
+                </div>
+                <div className="fleet-detail-column">
+                  <div className="fleet-detail-item">
+                    <img src="../../public/icons/gas.png" alt="" />
+                    <p>{car.fuelType}</p>
+                  </div>
+                  <div className="fleet-detail-item">
+                    <img src="../../public/icons/price-tag-euro.png" alt="" />
+                    <p>Price from: {car.price}€</p>
+                  </div>
+                </div>
+              </div>
+              <Link
+                to={`/car/${car._id}`}
+                className="btn btn-primary full-width"
+              >
                 Reserve
               </Link>
             </div>

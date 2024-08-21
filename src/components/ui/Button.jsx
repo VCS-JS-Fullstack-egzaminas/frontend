@@ -19,6 +19,12 @@ const Button = ({ children, color, className, ...props }) => {
     case "create":
       colorClasses = "bg-green-500 hover:bg-green-700 active:bg-green-800";
       break;
+    case "blue":
+      colorClasses = "bg-blue-500 hover:bg-blue-700 active:bg-blue-800";
+      break;
+    case "gray":
+      colorClasses = "bg-gray-200 hover:bg-gray-700 active:bg-gray-800";
+      break;
     default:
       colorClasses =
         "bg-ecstasy-500 hover:bg-ecstasy-600 active:bg-ecstasy-700";
@@ -42,6 +48,8 @@ Button.propTypes = {
     "disabled",
     "danger",
     "create",
+    "blue",
+    "gray"
   ]),
   className: PropTypes.string,
 };
