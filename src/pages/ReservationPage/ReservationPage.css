@@ -49,21 +49,6 @@
   border-radius: 4px;
 }
 
-/* .reservationForm button {
-    display: block;
-    margin: auto;
-    width: 50%;
-    padding: 0.75rem;
-    background-color: #fa9511;
-    color: white;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .reservationForm button:hover {
-    background-color: #f88400;
-  } */
-
 #costId {
   margin-top: 10px;
   text-align: center;

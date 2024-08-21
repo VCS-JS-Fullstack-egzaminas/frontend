@@ -2,6 +2,7 @@
   background-image: url(../../public/banner.webp);
   background-size: cover;
   background-position: center;
+  height: 400px;
   /* min-height: 400px;
   display: flex;
   flex-direction: column;

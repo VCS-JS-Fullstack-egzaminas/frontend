@@ -81,8 +81,8 @@ const Comentators = () => {
             <span>&#9733;</span>
             <span>&#9733;</span>
           </div>
-          <img src="../../public/avatar.png" alt="" />
-          <h3>Emily Carter</h3>
+          <img src="../../public/profile-img/andrius-markevicius.jpg" alt="" />
+          <h3>Andrius Markevičius</h3>
           <p>
             Renting from VCS Rentals was a breeze! The car was spotless and in
             perfect condition. The staff were incredibly helpful and made the
