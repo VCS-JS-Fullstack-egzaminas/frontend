@@ -109,6 +109,7 @@ const ListingDetails = () => {
     const extras = extrasRef.current.value.trim() || entry.extras;
     const year = yearRef.current.value.trim() || entry.year;
     const size = sizeRef.current.value.trim() || entry.size;
+    console.log(size)
     const fuelType = fuelTypeRef.current.value.trim() || entry.fuelType;
     const transmission =
       transmissionRef.current.value.trim() || entry.transmission;
