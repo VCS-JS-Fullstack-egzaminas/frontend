@@ -135,6 +135,7 @@ const Navbar = () => {
                 </NavLink>
                 {user ? (
                   <>
+                    <NavLink to="/my-reservations">My reservations</NavLink>
                     {role === "admin" && (
                       <NavLink to="/admin">Admin panel</NavLink>
                     )}
