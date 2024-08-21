@@ -90,7 +90,6 @@ const ReservationCarCard = ({ reservation }) => {
       status: "Pending",
     });
     setCurrentReservation(response.data);
-    console.log(response.data);
     setEditing(false);
   };
 
