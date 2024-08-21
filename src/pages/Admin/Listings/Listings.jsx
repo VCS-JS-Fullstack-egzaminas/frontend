@@ -100,7 +100,7 @@ const Listings = () => {
                 className="bg-white shadow-md rounded-md p-6 flex flex-col justify-center items-center flex-wrap gap-4 w-fit justify-self-center md:flex md:flex-row md:justify-between md:w-full"
               >
                 <div className="details">
-                  <h2 className="text-xl font-semibold mb-2">{info.title}</h2>
+                  <h2 className="text-xl font-semibold mb-2 max-w-60 md:max-w-full">{info.title}</h2>
                   <p className="mb-2">
                     <strong>Year:</strong> {info.year}
                   </p>
