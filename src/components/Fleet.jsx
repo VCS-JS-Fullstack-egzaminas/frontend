@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Fleet.css";
-import { cars } from "../data/mockdata.json";
 import { Helmet } from "react-helmet";
 import { getAllListings } from "../services/listingsService";
 
