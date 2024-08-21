@@ -66,7 +66,7 @@ const Fleet = () => {
               <p>{car.size}</p>
               <p>{car.year}</p>
               <p>Price from:{car.price}€</p>
-              <Link to={`/car/${car.id}`} className="btn btn-primary">Reserve
+              <Link to={`/car/${car._id}`} className="btn btn-primary">Reserve
                 {car.reserve}
               </Link>
             </div>
