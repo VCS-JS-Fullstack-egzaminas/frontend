@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet";
 import { useEffect,  useState, useRef  } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import {getAllReservations, updateReservationById}
  from "../../../services/reservationsService";
 
@@ -19,13 +19,14 @@ const Reservations = () => {
       try {
         const response = await getAllReservations();
         setReservations(response.data);
+        console.log(response.data)
 
       } catch (error) {
         console.error("Error Fetching Reservation", error);
       }
     };
     getReservations();
-  }, [reservations]); //isveda visus reservations
+  }, []); //isveda visus reservations
   
   const displayNotification = (type, message) => {
     setNotification({ type, message });
@@ -33,7 +34,6 @@ const Reservations = () => {
   }; 
 
   const handleInputChange = (e) => {
-    e.preventDefault(e)
     const status = e.target.value
     setEditData({status});
   };
@@ -65,10 +65,10 @@ const Reservations = () => {
                 key={info._id}
                 className="bg-white shadow-md rounded-md p-6 flex flex-col justify-center items-center flex-wrap gap-4 w-fit justify-self-center md:flex md:flex-row md:justify-between md:w-full">
                 <div className="details">
-                  <h2 className="text-xl font-semibold mb-2">Listing: {info.listing}</h2>
-                  <p value={info._id}>{info._id}</p>
+                  <h2 className="text-xl font-semibold mb-2">Listing: {info._id}</h2>
+                  <p >{info.listing.title}</p>
                   <p className="mb-2">
-                    <strong>User:</strong> {info.user}
+                    <strong>User:</strong> {info.user.email}
                   </p>
                   <p className="mb-2">
                   <strong>Start:</strong>{" "}
@@ -112,6 +112,7 @@ const Reservations = () => {
       </div>
       <button type="submit">Submit</button>
       </form>
+
         )}
               </div>
               
@@ -120,7 +121,11 @@ const Reservations = () => {
         ) : (
           <p>No reservations available.</p>
         )}
+      
+
       </div>
+
+
     </div>
   );
 }
