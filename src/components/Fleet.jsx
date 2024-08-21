@@ -68,7 +68,6 @@ const Fleet = () => {
               <p>Price from:{car.price}€</p>
               <Link to={`/car/${car._id}`} className="btn btn-primary">
                 Reserve
-                {car.reserve}
               </Link>
             </div>
           </div>

@@ -1,9 +1,10 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
+import { Link,useParams } from "react-router-dom";
 
 const CarCard = ({ car }) => {
   const [isFlipped, setIsFlipped] = useState(false);
-
+  const { id } = useParams();
   return (
     <div
       className={`car-card ${isFlipped ? "flipped" : ""}`}
@@ -20,9 +21,9 @@ const CarCard = ({ car }) => {
           <p>{car.year}</p>
           <p>{car.info}</p>
           <p>Price from: {car.price}€</p>
-          <a href="/rezervuoti" className="btn btn-primary">
+       <Link to={`/car/${car._id}`} >  <button className="btn btn-primary">Find out more</button>
             {car.reserve}
-          </a>
+            </Link>
         </div>
       </div>
     </div>
