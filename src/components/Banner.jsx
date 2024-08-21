@@ -8,7 +8,6 @@ const Banner = () => {
           alt=""
           className="h-full w-full object-cover col-span-2"
         />
-        {/* <div className="bg-red-500 h-full w-full flex col-span-2">zaza</div> */}
         <div className="banner-message flex flex-col gap-4 mx-16 my-12">
           <div className="text-white text-3xl">
             <span>&#9733;</span>
