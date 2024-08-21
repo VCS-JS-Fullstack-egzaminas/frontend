@@ -23,3 +23,7 @@ export const deleteReservationById = async (id) => {
 export const getReservationsByListingId = async (id) => {
   return axios.get(`/reservations/listing/${id}`);
 };
+
+export const getMyReservations = async () => {
+  return axios.get("/reservations/me");
+};
