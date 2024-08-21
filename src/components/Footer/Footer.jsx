@@ -19,7 +19,7 @@ const Footer = () => {
                     <Link to="/terms">Terms & conditions</Link>
                   </li>
                   <li className="hover:text-ecstasy-400 hover:underline transition duration-150">
-                    Privacy policy
+                    <Link to="/privacy">Privacy policy</Link>
                   </li>
                   <li className="hover:text-ecstasy-400 hover:underline transition duration-150">
                     <a href="./careers">Careers</a>
@@ -31,13 +31,13 @@ const Footer = () => {
               <div className="text-center md:text-left">
                 <h2 className="font-bold text-2xl mb-2">Services</h2>
                 <ul className="text-river-bed-100 grid gap-1 capitalize">
-                  <li className="hover:text-ecstasy-400 hover:underline transition duration-150">
+                  <li className="hover:text-ecstasy-400 transition duration-150">
                     Car rentals
                   </li>
-                  <li className="hover:text-ecstasy-400 hover:underline transition duration-150">
+                  <li className="hover:text-ecstasy-400 transition duration-150">
                     Personal car listing for rent
                   </li>
-                  <li className="hover:text-ecstasy-400 hover:underline transition duration-150">
+                  <li className="hover:text-ecstasy-400 transition duration-150">
                     Partnership
                   </li>
                 </ul>

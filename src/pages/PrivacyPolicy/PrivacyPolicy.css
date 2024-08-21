@@ -1,0 +1,9 @@
+.termsBoxas {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    height: 70vh;
+    padding: 30px;
+    gap: 10px;
+}
