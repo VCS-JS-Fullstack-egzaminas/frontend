@@ -4,6 +4,8 @@ import { createListing } from "../../../services/listingsService";
 import { uploadImg } from "../../../services/uploadService";
 import Button from "../../../components/ui/Button";
 
+//TODO: create notification after creating a listing
+
 const NewListing = () => {
   const [entryData, setEntryData] = useState("");
   const [images, setImages] = useState([]);
@@ -20,7 +22,7 @@ const NewListing = () => {
   const yearRef = useRef();
   const sizeRef = useRef();
   const transmissionRef = useRef();
-  const fuelTypeRef = useRef()
+  const fuelTypeRef = useRef();
 
   const inputStyle = "mb-2 p-2 rounded-md border border-gray-300";
 
@@ -78,8 +80,8 @@ const NewListing = () => {
       extras: extrasRef.current.value,
       year: yearRef.current.value,
       size: sizeRef.current.value,
-      transmission:transmissionRef.current.value,
-      fuelType: fuelTypeRef.current.value
+      transmission: transmissionRef.current.value,
+      fuelType: fuelTypeRef.current.value,
     });
   };
 
@@ -102,7 +104,7 @@ const NewListing = () => {
           placeholder="Year"
         />
         <label>Fuel type:</label>
-         <select
+        <select
           className={inputStyle}
           onChange={handleInputChange}
           ref={fuelTypeRef}
@@ -149,7 +151,7 @@ const NewListing = () => {
           onChange={handleInputChange}
           placeholder="Price"
         />
-         <label>Available:</label>
+        <label>Available:</label>
         <select
           className={inputStyle}
           onChange={handleInputChange}
@@ -168,7 +170,7 @@ const NewListing = () => {
                 className="w-full p-2 border border-gray-300 rounded"
               />
               <div
-                className="absolute top-2 right-2 h-6 w-6 bg-red-600 text-white rounded-full hover:bg-red-700 transition-bg duration-150 flex items-center justify-center cursor-pointer"
+                className="absolute top-4 left-4 h-6 w-6 pb-0.5 bg-red-600 text-white rounded-full hover:bg-red-700 transition-bg duration-150 flex items-center justify-center cursor-pointer border border-gray-300 text-2xl lh"
                 onClick={() => handleImageDelete(image.id)}
               >
                 ×

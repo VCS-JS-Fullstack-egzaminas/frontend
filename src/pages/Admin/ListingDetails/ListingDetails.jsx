@@ -8,7 +8,6 @@ import {
 } from "../../../services/listingsService";
 import { uploadImg } from "../../../services/uploadService";
 
-
 const ListingDetails = () => {
   const { id } = useParams();
   const [entry, setEntry] = useState({});
@@ -29,7 +28,7 @@ const ListingDetails = () => {
   const yearRef = useRef();
   const sizeRef = useRef();
   const transmissionRef = useRef();
-  const fuelTypeRef = useRef()
+  const fuelTypeRef = useRef();
 
   useEffect(() => {
     const getEntries = async () => {
@@ -46,7 +45,7 @@ const ListingDetails = () => {
   const displayNotification = (type, message) => {
     setNotification({ type, message });
     setTimeout(() => navigate("/admin/listings"), 3000);
-  }; 
+  };
 
   const handleDelete = async (e) => {
     e.preventDefault();
@@ -66,41 +65,36 @@ const ListingDetails = () => {
       id: crypto.randomUUID(),
     }));
     setImages((prev) => [...prev, ...newImages]);
-   
   };
 
   const handleImageDelete = (id) => {
     setImages((prev) => prev.filter((image) => image.id !== id));
   };
 
-
-
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
       const imagesFormData = new FormData();
-      if (images.length >= 1 ) {
-      images.forEach((image) => {
-        imagesFormData.append("images", image.file)
-      }) 
-   
-      const uploadedImagesResponse = await uploadImg(imagesFormData)
-      await updateListingById(id, {...editData
-        ,photos: uploadedImagesResponse.data.images,
-      });}
-      else {
-        await updateListingById(id, {...editData
-          ,photos: entry.photos,
-        });}
+      if (images.length > 0) {
+        images.forEach((image) => {
+          imagesFormData.append("images", image.file);
+        });
+
+        const uploadedImagesResponse = await uploadImg(imagesFormData);
+        await updateListingById(id, {
+          ...editData,
+          photos: uploadedImagesResponse.data.images,
+        });
+      } else {
+        await updateListingById(id, { ...editData, photos: entry.photos });
+      }
       displayNotification("success", "Listing successfully updated!");
       setShowEdit(false);
     } catch (error) {
       displayNotification("error", "Error updating listing!");
       console.error(error);
     }
-
   };
-
 
   const handleInputChange = () => {
     const title = titleRef.current.value.trim() || entry.title;
@@ -115,9 +109,10 @@ const ListingDetails = () => {
     const extras = extrasRef.current.value.trim() || entry.extras;
     const year = yearRef.current.value.trim() || entry.year;
     const size = sizeRef.current.value.trim() || entry.size;
+    console.log(size);
     const fuelType = fuelTypeRef.current.value.trim() || entry.fuelType;
-    const transmission = transmissionRef.current.value.trim() || entry.transmission;
-   
+    const transmission =
+      transmissionRef.current.value.trim() || entry.transmission;
 
     setEditData({
       title,
@@ -130,68 +125,79 @@ const ListingDetails = () => {
       year,
       size,
       fuelType,
-      transmission
+      transmission,
     });
   };
 
   return (
     <div className="p-8 bg-gray-100 min-h-screen">
-      <div className="max-w-screen-lg mx-auto bg-white shadow-md rounded-md p-6">
+      <div className="max-w-screen-lg mx-auto bg-white shadow-md rounded-md p-8">
         <h2 className="text-2xl font-bold mb-4">Listing Details</h2>
         <div className="mb-6">
-          <p>
+          <p className="break-words">
+            <strong>ID: </strong>
             {entry._id}
           </p>
           <p>
-            <strong>Title:</strong> {entry.title}
+            <strong>Title: </strong>
+            {entry.title}
           </p>
           <p>
-            <strong>Year:</strong> {entry.year}
+            <strong>Year: </strong>
+            {entry.year}
           </p>
-          
+
           <p>
-            <strong>Size:</strong> {entry.size}
-          </p>
-          <p>
-            <strong>Fuel:</strong> {entry.fuelType}
-          </p>
-          <p>
-            <strong>Transmission:</strong> {entry.transmission}
+            <strong>Size: </strong>
+            {entry.size}
           </p>
           <p>
-            <strong>Description:</strong> {entry.description}
-          </p>
-        
-          <p>
-            <strong>Photos:</strong> <img src={entry.photos}></img>
+            <strong>Fuel: </strong>
+            {entry.fuelType}
           </p>
           <p>
-            <strong>Price:</strong> {entry.price} €
+            <strong>Transmission: </strong>
+            {entry.transmission}
+          </p>
+          <p className="text-balance">
+            <strong>Description: </strong>
+            {entry.description}
           </p>
           <p>
-            <strong>Availability:</strong>{" "}
+            <strong>Price: </strong>
+            {entry.price} €
+          </p>
+          <p>
+            <strong>Availability: </strong>
             {entry.available ? "Currently available" : "Unavailable"}
           </p>
           <p>
-            <strong>Min Duration:</strong> {entry.min_duration} days
+            <strong>Min Duration: </strong>
+            {entry.min_duration} days
           </p>
           <p>
-            <strong>Max Duration:</strong> {entry.max_duration} days
+            <strong>Max Duration: </strong>
+            {entry.max_duration} days
+          </p>
+          <p className="text-balance">
+            <strong>Extras Included: </strong>
+            {entry.extras}
           </p>
           <p>
-            <strong>Extras Included:</strong> {entry.extras}
-          </p>
-          <p>
-            <strong>Created At:</strong>{" "}
+            <strong>Created At: </strong>
             {new Date(entry.createdAt).toLocaleString()}
           </p>
           <p>
-            <strong>Updated At:</strong>{" "}
+            <strong>Updated At: </strong>
             {new Date(entry.updatedAt).toLocaleString()}
           </p>
+          <div>
+            <strong>Photos: </strong>
+            <img src={entry.photos} className="w-60"></img>
+          </div>
         </div>
 
-        <div className="flex space-x-4 mb-6">
+        <div className="flex gap-4 mb-6 flex-wrap">
           <Button onClick={() => setShowEdit(true)}>Edit</Button>
           <Button color="danger" onClick={handleDelete}>
             Delete
@@ -215,31 +221,33 @@ const ListingDetails = () => {
               />
             </div>
             <div>
-            <label className="block mb-2">Year</label>
-            <input
-          className="input-field"
-          ref={yearRef}
-          type="number"
-          onChange={handleInputChange}
-          placeholder="Year"
-        />
-        </div>
-        <div>
-        <label className="block mb-2">Size</label>
-          <select
-          className="input-field"
-          onChange={handleInputChange}
-          ref={sizeRef}
-             > 
-          <option selected disabled hidden value={entry.size}>{entry.size}</option>
-          <option value="Mini">Mini</option>
-          <option value="Economic">Economic</option>
-          <option value="Compact">Compact</option>
-          <option value="Medium">Medium</option>
-          <option value="Standard">Standard</option>
-          <option value="SUV">SUV</option>
-        </select>
-        </div>
+              <label className="block mb-2">Year</label>
+              <input
+                className="input-field"
+                ref={yearRef}
+                type="number"
+                onChange={handleInputChange}
+                placeholder="Year"
+              />
+            </div>
+            <div>
+              <label className="block mb-2">Size</label>
+              <select
+                className="input-field"
+                onChange={handleInputChange}
+                ref={sizeRef}
+              >
+                <option selected disabled hidden value={entry.size}>
+                  {entry.size}
+                </option>
+                <option value="Mini">Mini</option>
+                <option value="Economic">Economic</option>
+                <option value="Compact">Compact</option>
+                <option value="Medium">Medium</option>
+                <option value="Standard">Standard</option>
+                <option value="SUV">SUV</option>
+              </select>
+            </div>
             <div className="mb-4">
               <label className="block mb-2">Description</label>
               <textarea
@@ -249,7 +257,7 @@ const ListingDetails = () => {
                 className="w-full p-2 border border-gray-300 rounded"
               />
             </div>
-          
+
             <div className="mb-4">
               <label className="block mb-2">Transmission</label>
               <select
@@ -257,55 +265,55 @@ const ListingDetails = () => {
                 onChange={handleInputChange}
                 className="w-full p-2 border border-gray-300 rounded"
                 placeholder={entry.transmission}
-              >   <option  selected disabled hidden value={entry.transmission}>{entry.transmission}</option>
+              >
+                {" "}
+                <option selected disabled hidden value={entry.transmission}>
+                  {entry.transmission}
+                </option>
                 <option value="Automatic">Automatic</option>
                 <option value="Manual">Manual</option>
               </select>
             </div>
-             <label>Fuel type:</label>
-         <select
-        
-          onChange={handleInputChange}
-          ref={fuelTypeRef}
-        > 
-        <option  selected disabled hidden value={entry.fuelType}>{entry.fuelType}</option>
-          <option value="Diesel">Diesel</option>
-          <option value="Gasoline">Gasoline</option>
-          <option value="Ethanol">Ethanol</option>
-          <option value="Natural Gas">Natural gas</option>
-          <option value="LPG">LPG</option>
-        </select>
+            <label>Fuel type:</label>
+            <select onChange={handleInputChange} ref={fuelTypeRef}>
+              <option selected disabled hidden value={entry.fuelType}>
+                {entry.fuelType}
+              </option>
+              <option value="Diesel">Diesel</option>
+              <option value="Gasoline">Gasoline</option>
+              <option value="Ethanol">Ethanol</option>
+              <option value="Natural Gas">Natural gas</option>
+              <option value="LPG">LPG</option>
+            </select>
             <div>
-            <div className="mb-4">
-              <label className="block mb-2">Photos</label>
-            </div>
-            <div className="mb-4">
-            {images.map((image, index) => (
-              <div key={index}>
-                     <div
-                className="relative  left-3 h-6 w-6 bg-red-600 text-white rounded-full hover:bg-red-700 transition-bg duration-150 flex items-center justify-center cursor-pointer"
-                onClick={() => handleImageDelete(image.id)}
-              >
-                ×
+              <div className="mb-4">
+                <label className="block mb-2">Photos</label>
               </div>
-                <img src={image.preview} alt={`Thumbnail ${index}`} />
-           
+              <div className="mb-4">
+                {images.map((image, index) => (
+                  <div key={index} className="mb-2 relative">
+                    <div
+                      className="absolute top-4 left-4 h-6 w-6 pb-0.5 bg-red-600 text-white rounded-full hover:bg-red-700 transition-bg duration-150 flex items-center justify-center cursor-pointer border border-gray-300 text-2xl lh"
+                      onClick={() => handleImageDelete(image.id)}
+                    >
+                      ×
+                    </div>
+                    <img src={image.preview} alt={`Thumbnail ${index}`} />
+                  </div>
+                ))}
+                <div>
+                  <input
+                    id="file-input"
+                    name="file-input"
+                    type="file"
+                    onChange={handleImageInput}
+                    accept="image/*"
+                    ref={photosRef}
+                    className="text-zinc-400 text-xs max-w-48 file:rounded-full file:border-0 file:px-2 file:cursor-pointer file:bg-ecstasy-100 file:text-ecstasy-700 file:py-1 file:hover:bg-ecstasy-200"
+                  />
+                </div>
+              </div>
             </div>
-            ))}
-            <div className="input-field">
-              <input
-              id="file-input"
-              name="file-input"
-              type="file"
-              multiple
-              onChange={handleImageInput}
-              accept="image/*"
-              ref={photosRef}
-            />
-          </div>
-
-          </div>
-          </div>
             <div className="mb-4">
               <label className="block mb-2">Price</label>
               <input
@@ -322,7 +330,11 @@ const ListingDetails = () => {
                 ref={availableRef}
                 onChange={handleInputChange}
                 className="w-full p-2 border border-gray-300 rounded"
-              >   <option value={entry.available} selected disabled hidden>{entry.available ? "Currently available" : "Unavailable"}</option>
+              >
+                {" "}
+                <option value={entry.available} selected disabled hidden>
+                  {entry.available ? "Currently available" : "Unavailable"}
+                </option>
                 <option value="true"> Currently Available</option>
                 <option value="false">Unavailable</option>
               </select>
@@ -357,7 +369,7 @@ const ListingDetails = () => {
                 className="w-full p-2 border border-gray-300 rounded"
               />
             </div>
-            <div className="flex space-x-4">
+            <div className="flex gap-4 flex-wrap">
               <Button type="submit" color={"create"}>
                 Save
               </Button>

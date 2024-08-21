@@ -102,7 +102,7 @@ const Signup = () => {
                 onChange={(e) => setConfirmPassword(e.target.value)}
               />
             </div>
-            {error && <p className="text-red-500">{error}</p>}
+            {error && <p className="text-red-500 w-80">{error}</p>}
             <Button type="submit" disabled={!isFormValid}>
               Sign up
             </Button>
