@@ -8,7 +8,6 @@ import {
 } from "../../../services/listingsService";
 import { uploadImg } from "../../../services/uploadService";
 
-
 const ListingDetails = () => {
   const { id } = useParams();
   const [entry, setEntry] = useState({});
@@ -29,7 +28,7 @@ const ListingDetails = () => {
   const yearRef = useRef();
   const sizeRef = useRef();
   const transmissionRef = useRef();
-  const fuelTypeRef = useRef()
+  const fuelTypeRef = useRef();
 
   useEffect(() => {
     const getEntries = async () => {
@@ -46,7 +45,7 @@ const ListingDetails = () => {
   const displayNotification = (type, message) => {
     setNotification({ type, message });
     setTimeout(() => navigate("/admin/listings"), 3000);
-  }; 
+  };
 
   const handleDelete = async (e) => {
     e.preventDefault();
@@ -66,41 +65,36 @@ const ListingDetails = () => {
       id: crypto.randomUUID(),
     }));
     setImages((prev) => [...prev, ...newImages]);
-   
   };
 
   const handleImageDelete = (id) => {
     setImages((prev) => prev.filter((image) => image.id !== id));
   };
 
-
-
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
       const imagesFormData = new FormData();
-      if (images.length >= 1 ) {
-      images.forEach((image) => {
-        imagesFormData.append("images", image.file)
-      }) 
-   
-      const uploadedImagesResponse = await uploadImg(imagesFormData)
-      await updateListingById(id, {...editData
-        ,photos: uploadedImagesResponse.data.images,
-      });}
-      else {
-        await updateListingById(id, {...editData
-          ,photos: entry.photos,
-        });}
+      if (images.length >= 1) {
+        images.forEach((image) => {
+          imagesFormData.append("images", image.file);
+        });
+
+        const uploadedImagesResponse = await uploadImg(imagesFormData);
+        await updateListingById(id, {
+          ...editData,
+          photos: uploadedImagesResponse.data.images,
+        });
+      } else {
+        await updateListingById(id, { ...editData, photos: entry.photos });
+      }
       displayNotification("success", "Listing successfully updated!");
       setShowEdit(false);
     } catch (error) {
       displayNotification("error", "Error updating listing!");
       console.error(error);
     }
-
   };
-
 
   const handleInputChange = () => {
     const title = titleRef.current.value.trim() || entry.title;
@@ -116,8 +110,8 @@ const ListingDetails = () => {
     const year = yearRef.current.value.trim() || entry.year;
     const size = sizeRef.current.value.trim() || entry.size;
     const fuelType = fuelTypeRef.current.value.trim() || entry.fuelType;
-    const transmission = transmissionRef.current.value.trim() || entry.transmission;
-   
+    const transmission =
+      transmissionRef.current.value.trim() || entry.transmission;
 
     setEditData({
       title,
@@ -130,7 +124,7 @@ const ListingDetails = () => {
       year,
       size,
       fuelType,
-      transmission
+      transmission,
     });
   };
 
