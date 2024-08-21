@@ -25,7 +25,7 @@ const Reservations = () => {
       }
     };
     getReservations();
-  }, [reservations]); //isveda visus reservations
+  }, []); //isveda visus reservations
   
   const displayNotification = (type, message) => {
     setNotification({ type, message });
