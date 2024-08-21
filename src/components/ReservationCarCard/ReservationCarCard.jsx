@@ -141,7 +141,7 @@ const ReservationCarCard = ({ reservation }) => {
                 </p>
                 <p> - </p>
                 <p>
-                  {new Date(currentReservation.start).toLocaleDateString(
+                  {new Date(currentReservation.end).toLocaleDateString(
                     undefined,
                     {
                       year: "numeric",
