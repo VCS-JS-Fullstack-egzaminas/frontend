@@ -22,6 +22,7 @@ import Terms from "./pages/Terms/Terms";
 import AuthenticationLayout from "./layouts/AuthenticationLayout";
 import AuthProvider from "./components/AuthProvider/AuthProvider";
 import ReservationPage from "./pages/ReservationPage/ReservationPage";
+import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
 
 const router = createBrowserRouter([
   {
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
       {
         path: "/car/:id",
         element: <ReservationPage />,
+      },
+      {
+        path: "/privacy",
+        element: <PrivacyPolicy />
       },
     ],
   },
