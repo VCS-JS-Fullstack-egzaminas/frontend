@@ -7,7 +7,8 @@ import { getListingById } from "../../services/listingsService";
 import {
   createReservation,
   getReservationsByListingId,
-} from "../../services/reservationsService";
+} 
+from "../../services/reservationsService";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Button from "../../components/ui/Button";
@@ -35,10 +36,10 @@ const ReservationPage = () => {
       } catch (error) {
         console.error(error);
       }
-    };
+    }
 
     getCarData();
-  }, [id]);
+  }, [id])
 
   useEffect(() => {
     if (reservations) {
@@ -50,9 +51,9 @@ const ReservationPage = () => {
           return {
             start: start,
             end: end,
-          };
+          }
         })
-      );
+      )
     }
   }, [reservations]);
 
@@ -125,46 +126,53 @@ const ReservationPage = () => {
           <title>Reservation</title>
         </Helmet>
         <div className="car-detail-container">
-          <img src={car.photos[0]} alt={car.name} className="car-detail-img" />
-          <div className="car-detail-info">
-            <h2>
+          <div className="CarBox">
+          <h2 className="text-left text-5xl mt-10 mb-5 text-ecstasy-500">
               <strong>{car.title}</strong>
-            </h2>
-            <p>
-              <strong>Size:</strong> {car.size}
+          </h2>
+          <img src={car.photos[0]} alt={car.name} className="car-detail-img mb-8" />
+          <div className="bothBoxes">
+          <div className="carBoxTextOne flex gap-5 mt-5">
+          <p className="svgThree flex items-center gap-1 ">
+              <strong><img className="svgColor" width="25" height="20"  src="https://img.icons8.com/ios-filled/50/expand--v1.png" alt="expand--v1"/></strong> {car.size}
             </p>
-            <p>
-              <strong>Year:</strong> {car.year}
+          <p className="svgThree flex items-center gap-1">
+          <img className="svgColor" width="25" height="20"  src="https://img.icons8.com/ios-filled/50/gas-station.png" alt="gas-station"/> {car.fuelType}
             </p>
-            <p>
-              <strong>Size:</strong> {car.size}
+            <p className="svgThree flex items-center gap-1">
+              <strong><img className="svgColor" width="24" height="24" src="https://img.icons8.com/material-outlined/24/gearbox-selector.png" alt="gearbox-selector"/></strong> {car.transmission}
             </p>
-            <p>
-              <strong>Description:</strong> {car.description}
-            </p>
-            <p>
-              <strong>Fuel:</strong> {car.fuelType}
-            </p>
-            <p>
-              <strong>Transmission:</strong> {car.transmission}
-            </p>
-            <p>
-              <strong>Price:</strong> {car.price} <strong>€</strong>
-            </p>
-
-            <p>
-              <strong>Availability:</strong>{" "}
+            <p className="svgThree flex items-center gap-1" >
+              <strong><img className="svgColor" width="25" height="20" src="https://img.icons8.com/ios/50/approval--v1.png" alt="approval--v1"/></strong>{" "}
               {car.available ? "Currently available" : "Unavailable"}
             </p>
-            <p>
-              <strong>Min Duration:</strong> {car.min_duration} days
+            </div>
+            <div className="carBoxTextTwo flex gap-5 mt-2">
+            <p className="svgThree flex items-center gap-1">
+              <strong><img className="svgColor" width="25" height="25" src="https://img.icons8.com/ios-filled/50/calendar--v1.png" alt="calendar--v1"/></strong> {car.year}
             </p>
-            <p>
-              <strong>Max Duration:</strong> {car.max_duration} days
+            <p className="svgThree flex items-center gap-1">
+              <strong><img className="svgColor" width="25" height="25" src="https://img.icons8.com/ios-filled/50/price-tag-euro.png" alt="price-tag-euro"/></strong> {car.price} <strong>€</strong>
             </p>
-            <p>
-              <strong>Extras Included:</strong> {car.extras}
+            <p className="svgThree">
+              <strong>Min Duration:</strong> {car.min_duration} day
             </p>
+            <p className="svgThree">
+              <strong>Max Duration:</strong> {car.max_duration} day
+            </p>
+            </div>
+            </div>
+            </div>
+
+            
+            
+          <div className="DescriptionContainer">
+            <p className="description">
+              <strong className="text-2xl mb-2">Extras Included:</strong> {car.extras}
+            </p>
+              <p className="description" >
+                <strong className="text-2xl mb-2">Description:</strong> {car.description}
+              </p>
           </div>
         </div>
       </div>
@@ -200,4 +208,5 @@ const ReservationPage = () => {
     </>
   );
 };
+
 export default ReservationPage;
