@@ -89,20 +89,10 @@ const ReservationPage = () => {
     );
   }
 
+  if (!car) {
+    return <div>Car not found</div>;
+  }
 
-  useEffect(() => {
-    const getEntries = async () => {
-      try {
-        const response = await getListingById(id);
-        setCar(response.data);
-      } catch (error) {
-        console.error("Error Fetching Entry", error);
-      }
-    };
-    getEntries();
-  }, [id, car]);
-
-  
   const calculateTotalCost = () => {
     const start = new Date(startDate);
     const end = new Date(endDate);
@@ -135,7 +125,6 @@ const ReservationPage = () => {
           <title>Reservation</title>
         </Helmet>
         <div className="car-detail-container">
-
           <img src={car.photos[0]} alt={car.name} className="car-detail-img" />
           <div className="car-detail-info">
             <h2>
@@ -147,35 +136,35 @@ const ReservationPage = () => {
             <p>
               <strong>Year:</strong> {car.year}
             </p>
-          <p>
-            <strong>Size:</strong> {car.size}
-          </p>
-          <p>
+            <p>
+              <strong>Size:</strong> {car.size}
+            </p>
+            <p>
               <strong>Description:</strong> {car.description}
             </p>
-          <p>
-            <strong>Fuel:</strong> {car.fuelType}
-          </p>
-          <p>
-            <strong>Transmission:</strong> {car.transmission}
-          </p>
-          <p>
+            <p>
+              <strong>Fuel:</strong> {car.fuelType}
+            </p>
+            <p>
+              <strong>Transmission:</strong> {car.transmission}
+            </p>
+            <p>
               <strong>Price:</strong> {car.price} <strong>€</strong>
             </p>
 
             <p>
-            <strong>Availability:</strong>{" "}
-            {car.available ? "Currently available" : "Unavailable"}
-          </p>
-          <p>
-            <strong>Min Duration:</strong> {car.min_duration} days
-          </p>
-          <p>
-            <strong>Max Duration:</strong> {car.max_duration} days
-          </p>
-          <p>
-            <strong>Extras Included:</strong> {car.extras}
-          </p>
+              <strong>Availability:</strong>{" "}
+              {car.available ? "Currently available" : "Unavailable"}
+            </p>
+            <p>
+              <strong>Min Duration:</strong> {car.min_duration} days
+            </p>
+            <p>
+              <strong>Max Duration:</strong> {car.max_duration} days
+            </p>
+            <p>
+              <strong>Extras Included:</strong> {car.extras}
+            </p>
           </div>
         </div>
       </div>
