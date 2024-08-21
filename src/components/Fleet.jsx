@@ -14,9 +14,9 @@ const Fleet = () => {
     const getEntries = async () => {
       try {
         const response = await getAllListings();
-        const combinedListings = [...response.data]; 
+        const combinedListings = [...response.data];
         setListings(combinedListings);
-        setFilteredCars(combinedListings); 
+        setFilteredCars(combinedListings);
       } catch (error) {
         console.error("Error Fetching Entries", error);
       }
@@ -36,7 +36,7 @@ const Fleet = () => {
       setFadeClass("fade-in");
     }, 500);
   };
-  
+
   return (
     <>
       <Helmet>
@@ -66,8 +66,8 @@ const Fleet = () => {
               <p>{car.size}</p>
               <p>{car.year}</p>
               <p>Price from:{car.price}€</p>
-              <Link to={`/car/${car._id}`} className="btn btn-primary">Reserve
-                {car.reserve}
+              <Link to={`/car/${car._id}`} className="btn btn-primary">
+                Reserve
               </Link>
             </div>
           </div>
