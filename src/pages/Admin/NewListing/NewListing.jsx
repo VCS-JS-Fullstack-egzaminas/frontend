@@ -10,6 +10,7 @@ const NewListing = () => {
   const [entryData, setEntryData] = useState("");
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [notification, setNotification] = useState(null);
   const navigate = useNavigate();
   const titleRef = useRef();
   const descriptionRef = useRef();
@@ -25,6 +26,11 @@ const NewListing = () => {
   const fuelTypeRef = useRef();
 
   const inputStyle = "mb-2 p-2 rounded-md border border-gray-300";
+
+  const displayNotification = (type, message) => {
+    setNotification({ type, message });
+    setTimeout(() => navigate("/admin/listings"), 3000);
+  };
 
   const handleImageInput = (e) => {
     const newImages = Array.from(e.target.files).map((file) => ({
@@ -58,10 +64,10 @@ const NewListing = () => {
         photos: uploadedImagesResponse.data.images,
       });
       console.log("bando ikelti", entryData);
-      alert("Record succesfully added");
+      displayNotification("success", "Listing successfully created!");
       setLoading(false);
-      navigate("/admin/listings");
     } catch (error) {
+      displayNotification("error", "Error creating listing!");
       console.log(error);
       setLoading(false);
     }
@@ -182,10 +188,10 @@ const NewListing = () => {
               id="file-input"
               name="file-input"
               type="file"
-              multiple
               onChange={handleImageInput}
               accept="image/*"
               ref={photosRef}
+              className="text-zinc-400 text-xs max-w-48 file:rounded-full file:border-0 file:px-2 file:cursor-pointer file:bg-ecstasy-100 file:text-ecstasy-700 file:py-1 file:hover:bg-ecstasy-200"
             />
           </div>
         </div>
@@ -216,6 +222,17 @@ const NewListing = () => {
           Add Listing
         </Button>
       </form>
+      {notification && (
+        <div
+          className={`mt-6 p-4 rounded ${
+            notification.type === "success"
+              ? "bg-green-100 text-green-800"
+              : "bg-red-100 text-red-800"
+          }`}
+        >
+          {notification.message}
+        </div>
+      )}
     </div>
   );
 };
