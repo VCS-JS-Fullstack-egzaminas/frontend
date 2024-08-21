@@ -11,7 +11,6 @@ const MyReservations = () => {
     const populateReservations = async () => {
       const response = await getMyReservations();
       setReservations(response.data);
-      console.log(response.data);
     };
 
     populateReservations();

@@ -6,9 +6,12 @@ import { MdiCheck } from "../ui/icons/MdiCheck";
 import { MdiClose } from "../ui/icons/MdiClose";
 import DatePicker from "react-datepicker";
 import {
+  deleteReservationById,
   getReservationsByListingId,
   updateReservationById,
 } from "../../services/reservationsService";
+import Button from "../ui/Button";
+import { useNavigate } from "react-router-dom";
 
 const ReservationCarCard = ({ reservation }) => {
   const [editing, setEditing] = useState(false);
@@ -19,6 +22,8 @@ const ReservationCarCard = ({ reservation }) => {
   const [reservations, setReservations] = useState([]);
   const [currentReservation, setCurrentReservation] = useState(reservation);
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     const populateReservations = async () => {
       try {
@@ -26,7 +31,6 @@ const ReservationCarCard = ({ reservation }) => {
           currentReservation.listing._id
         );
         setReservations(response.data);
-        console.log(response.data);
       } catch (error) {
         console.error(error.message);
       }
@@ -93,9 +97,21 @@ const ReservationCarCard = ({ reservation }) => {
     setEditing(false);
   };
 
+  const handleReservationDelete = async () => {
+    try {
+      if (confirm("Are you sure you want to cancel your reservation?")) {
+        await deleteReservationById(currentReservation._id);
+        navigate(0);
+      }
+    } catch (error) {
+      console.error(error.message);
+      alert("An unexpected error occured. Please try again later.");
+    }
+  };
+
   return (
     <Card
-      className="p-0 w-full overflow-hidden max-w-[380px] mx-auto"
+      className="px-0 py-0 w-full overflow-hidden max-w-[380px] mx-auto"
       key={currentReservation._id}
     >
       <div className="flex justify-center items-center border-b h-44">
@@ -189,6 +205,14 @@ const ReservationCarCard = ({ reservation }) => {
           >
             {currentReservation.status}
           </p>
+        </div>
+        <div className="flex mt-6">
+          <Button
+            className="w-full bg-red-500 hover:bg-red-600 active:bg-red-700"
+            onClick={handleReservationDelete}
+          >
+            Cancel reservation
+          </Button>
         </div>
       </div>
     </Card>
