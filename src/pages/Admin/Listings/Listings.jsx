@@ -32,28 +32,34 @@ const Listings = () => {
           </Button>
         </Link>
         {listings.length > 0 ? (
-          <div className="space-y-4">
+          <div className="space-y-4 flex flex-col justify-center items-center">
             {listings.map((info) => (
-              <div key={info._id} className="bg-white shadow-md rounded-md p-4">
-                <h2 className="text-xl font-semibold mb-2">{info.title}</h2>
-                <p className="mb-2">
-                  <strong>Year:</strong> {info.year}
-                </p>
-                <p> <strong>Size:</strong> {info.size}</p>
-                <p></p>
-                <p className="mb-2">
-                  <img src={`${info.photos}`} />
-                </p>
-                <p className="mb-2">
-                  <strong>Price from:</strong> {info.price} €
-                </p>
-                <p className="mb-2">
-                  <strong>Availability:</strong>{" "}
-                  {info.available ? "Currently available" : "Unavailable"}
-                </p>
-                <Link to={`${info._id}`}>
-                  <Button>Details</Button>
-                </Link>
+              <div
+                key={info._id}
+                className="bg-white shadow-md rounded-md p-6 flex flex-col justify-center items-center flex-wrap gap-4 w-fit justify-self-center md:flex md:flex-row md:justify-between md:w-full"
+              >
+                <div className="details">
+                  <h2 className="text-xl font-semibold mb-2">{info.title}</h2>
+                  <p className="mb-2">
+                    <strong>Year:</strong> {info.year}
+                  </p>
+                  <p className="mb-2">
+                    <strong>Size:</strong> {info.size}
+                  </p>
+                  <p className="mb-2">
+                    <strong>Price from:</strong> {info.price} €
+                  </p>
+                  <p className="mb-4">
+                    <strong>Availability:</strong>{" "}
+                    {info.available ? "Currently available" : "Unavailable"}
+                  </p>
+                  <Link to={`${info._id}`}>
+                    <Button>Details</Button>
+                  </Link>
+                </div>
+                <div className="w-60">
+                  <img src={`${info.photos}`} className="w-full" />
+                </div>
               </div>
             ))}
           </div>

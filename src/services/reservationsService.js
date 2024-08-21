@@ -19,3 +19,7 @@ export const updateReservationById = async (id, data) => {
 export const deleteReservationById = async (id) => {
   return axios.get(`/reservations/${id}`);
 };
+
+export const getReservationsByListingId = async (id) => {
+  return axios.get(`/reservations/listing/${id}`);
+};
