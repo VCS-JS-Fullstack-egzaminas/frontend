@@ -24,6 +24,7 @@ import AuthProvider from "./components/AuthProvider/AuthProvider";
 import ReservationPage from "./pages/ReservationPage/ReservationPage";
 import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
 import Careers from "./pages/Carrers/Careers";
+import MyReservations from "./pages/MyReservations/MyReservations";
 
 const router = createBrowserRouter([
   {
@@ -61,11 +62,13 @@ const router = createBrowserRouter([
       },
       {
         path: "/privacy",
-        element: <PrivacyPolicy />
+        element: <PrivacyPolicy />,
       },
-      {path: "/careers",
-        element: <Careers />,
-      }
+      { path: "/careers", element: <Careers /> },
+      {
+        path: "/my-reservations",
+        element: <MyReservations />,
+      },
     ],
   },
   {
