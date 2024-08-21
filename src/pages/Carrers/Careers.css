@@ -1,0 +1,19 @@
+.careers-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 64vh;
+  text-align: center;
+}
+
+.careers-heading {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.careers-icon {
+  margin-top: 1rem;
+  font-size: 3rem;
+  color: #555;
+}

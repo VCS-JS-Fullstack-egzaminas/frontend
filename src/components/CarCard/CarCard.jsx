@@ -1,10 +1,11 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
-import { Link,useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const CarCard = ({ car }) => {
   const [isFlipped, setIsFlipped] = useState(false);
   const { id } = useParams();
+
   return (
     <div
       className={`car-card ${isFlipped ? "flipped" : ""}`}
@@ -12,18 +13,42 @@ const CarCard = ({ car }) => {
     >
       <div className="car-card-inner">
         <div className="car-card-front">
-          <img src={car.photos[0]} alt={car.title} />
-          <h2>{car.title}</h2>
+          <img
+            src={car.photos[0]}
+            alt={car.title}
+            style={{ width: "265px", height: "151px", objectFit: "contain" }}
+          />
+          <h2 className="text-xl font-bold">{car.title}</h2>
         </div>
-        <div className="car-card-back">
-          <h2>{car.title}</h2>
-          <p>{car.size}</p>
-          <p>{car.year}</p>
-          <p>{car.info}</p>
-          <p>Price from: {car.price}€</p>
-       <Link to={`/car/${car._id}`} >  <button className="btn btn-primary">Find out more</button>
-            {car.reserve}
-            </Link>
+        <div className="car-card-back p-4">
+          <h2 className="text-xl font-bold mb-2">{car.title}</h2>
+          <p className="flex items-center mb-2">
+            <img
+              src="../../public/icons/gas.png"
+              alt=""
+              className="w-6 h-6 mr-2"
+            />
+            {car.fuelType}
+          </p>
+          <p className="flex items-center mb-2">
+            <img
+              src="../../public/icons/gearbox.png"
+              alt=""
+              className="w-6 h-6 mr-2"
+            />
+            {car.transmission}
+          </p>
+          <p className="flex items-center mb-2">
+            <img
+              src="../../public/icons/price-tag-euro.png"
+              alt=""
+              className="w-6 h-6 mr-2"
+            />
+            {car.price}€
+          </p>
+          <Link to={`/car/${car._id}`} className="block mt-4">
+            <button className="btn btn-primary">Find out more</button>
+          </Link>
         </div>
       </div>
     </div>
@@ -32,13 +57,13 @@ const CarCard = ({ car }) => {
 
 CarCard.propTypes = {
   car: PropTypes.shape({
-    imgSrc: PropTypes.string.isRequired,
+    photos: PropTypes.arrayOf(PropTypes.string).isRequired,
     title: PropTypes.string.isRequired,
     size: PropTypes.string.isRequired,
     year: PropTypes.string.isRequired,
-    info: PropTypes.string.isRequired,
+    transmission: PropTypes.string.isRequired,
     price: PropTypes.string.isRequired,
-    reserve: PropTypes.string.isRequired,
+    _id: PropTypes.string.isRequired,
   }).isRequired,
 };
 

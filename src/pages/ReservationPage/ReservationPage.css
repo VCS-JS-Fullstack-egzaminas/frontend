@@ -1,12 +1,23 @@
 .car-detail-container {
   max-width: 100%;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   padding: 2rem;
   text-align: center;
-  border-bottom: 1px solid rgb(198, 197, 197);
-  padding: 90px 0px;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 90px 0;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.car-detail-img-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .car-detail-img {
@@ -15,29 +26,47 @@
   height: auto;
   border-radius: 8px;
   margin-right: 50px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .car-detail-info {
+  flex: 2;
   text-align: left;
+  margin-right: 100px;
 }
 
 .car-detail-info h2 {
-  font-size: 20px;
+  font-size: 24px;
   margin-bottom: 1rem;
+  color: #333;
 }
 
 .car-detail-info p {
   margin-bottom: 0.5rem;
+  font-size: 16px;
+  color: #666;
 }
 
-.reservationForm {
-  height: 250px;
+.toggle-description-btn {
+  display: block;
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  background-color: #fa9511;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.reservationForm {
-  height: 350px;
-  padding: 2rem;
-  border-radius: 8px;
+.toggle-description-btn:hover {
+  background-color: #f88400;
+}
+
+.car-description {
+  margin-top: 1rem;
+  font-size: 16px;
+  color: #666;
 }
 
 .reservationForm {
@@ -45,35 +74,39 @@
   margin: 2rem auto;
   padding: 2rem;
   border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.reservationForm h2 {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.reservationForm .flex {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
 }
 
 .reservationForm label {
   display: block;
   margin-bottom: 1rem;
+  font-size: 16px;
+  color: #666;
 }
 
 .reservationForm input {
   width: 100%;
-  padding: 0.5rem;
-  margin-top: 0.5rem;
+  padding: 0.75rem;
   border: 1px solid #ccc;
   border-radius: 4px;
+  font-size: 16px;
 }
-
-/* .reservationForm button {
-    display: block;
-    margin: auto;
-    width: 50%;
-    padding: 0.75rem;
-    background-color: #fa9511;
-    color: white;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .reservationForm button:hover {
-    background-color: #f88400;
-  } */
 
 .text-center {
   text-align: center;
@@ -82,4 +115,21 @@
 #costId {
   margin-top: 10px;
   text-align: center;
+  font-size: 18px;
+  color: #333;
+}
+
+.total-cost-container {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 18px;
+  color: #333;
+  padding: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #f4f4f9;
+}
+
+.align-center {
+  align-items: center;
 }

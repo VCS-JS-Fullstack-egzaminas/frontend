@@ -22,6 +22,7 @@ import Terms from "./pages/Terms/Terms";
 import AuthenticationLayout from "./layouts/AuthenticationLayout";
 import AuthProvider from "./components/AuthProvider/AuthProvider";
 import ReservationPage from "./pages/ReservationPage/ReservationPage";
+import Careers from "./pages/Carrers/Careers";
 
 const router = createBrowserRouter([
   {
@@ -57,6 +58,9 @@ const router = createBrowserRouter([
         path: "/car/:id",
         element: <ReservationPage />,
       },
+      {path: "/careers",
+        element: <Careers />,
+      }
     ],
   },
   {

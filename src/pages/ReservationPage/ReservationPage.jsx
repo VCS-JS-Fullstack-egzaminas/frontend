@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-// import { cars } from "../../data/mockdata.json";
 import "./ReservationPage.css";
 import { Helmet } from "react-helmet";
 import { getListingById } from "../../services/listingsService";
@@ -14,7 +13,6 @@ import Button from "../../components/ui/Button";
 
 const ReservationPage = () => {
   const { id } = useParams();
-  // const car = cars.find((car) => car.id === parseInt(id));
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [totalCost, setTotalCost] = useState(0);
@@ -23,6 +21,7 @@ const ReservationPage = () => {
   const [reservations, setReservations] = useState(null);
   const [datesToExclude, setDatesToExclude] = useState(null);
   const [maxEndDate, setMaxEndDate] = useState(null);
+  const [showDescription, setShowDescription] = useState(false);
 
   useEffect(() => {
     const getCarData = async () => {
@@ -78,8 +77,18 @@ const ReservationPage = () => {
       } else {
         setEndDate(end);
       }
+
+      if (end) {
+        const timeDiff = end - start;
+        const daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
+        const cost = daysDiff * car.price;
+        setTotalCost(cost);
+      } else {
+        setTotalCost(0);
+      }
     } else {
       setEndDate(end);
+      setTotalCost(0);
     }
   };
 
@@ -92,15 +101,6 @@ const ReservationPage = () => {
   if (!car) {
     return <div>Car not found</div>;
   }
-
-  const calculateTotalCost = () => {
-    const start = new Date(startDate);
-    const end = new Date(endDate);
-    const timeDiff = end - start;
-    const daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
-    const cost = daysDiff * car.price;
-    setTotalCost(cost);
-  };
 
   const resetDatePicker = () => {
     setStartDate(null);
@@ -125,7 +125,13 @@ const ReservationPage = () => {
           <title>Reservation</title>
         </Helmet>
         <div className="car-detail-container">
-          <img src={car.photos[0]} alt={car.name} className="car-detail-img" />
+          <div className="car-detail-img-container">
+            <img
+              src={car.photos[0]}
+              alt={car.name}
+              className="car-detail-img"
+            />
+          </div>
           <div className="car-detail-info">
             <h2>
               <strong>{car.title}</strong>
@@ -137,12 +143,6 @@ const ReservationPage = () => {
               <strong>Year:</strong> {car.year}
             </p>
             <p>
-              <strong>Size:</strong> {car.size}
-            </p>
-            <p>
-              <strong>Description:</strong> {car.description}
-            </p>
-            <p>
               <strong>Fuel:</strong> {car.fuelType}
             </p>
             <p>
@@ -151,7 +151,6 @@ const ReservationPage = () => {
             <p>
               <strong>Price:</strong> {car.price} <strong>€</strong>
             </p>
-
             <p>
               <strong>Availability:</strong>{" "}
               {car.available ? "Currently available" : "Unavailable"}
@@ -165,6 +164,17 @@ const ReservationPage = () => {
             <p>
               <strong>Extras Included:</strong> {car.extras}
             </p>
+            <button
+              className="toggle-description-btn"
+              onClick={() => setShowDescription(!showDescription)}
+            >
+              {showDescription ? "Hide Description" : "Show Description"}
+            </button>
+            {showDescription && (
+              <p className="car-description">
+                <strong>Description:</strong> {car.description}
+              </p>
+            )}
           </div>
         </div>
       </div>
@@ -172,7 +182,7 @@ const ReservationPage = () => {
         <h2 className="text-center text-xl font-semibold">
           Choose the duration of your rental:
         </h2>
-        <div className="flex gap-4">
+        <div className="flex gap-4 align-center">
           <DatePicker
             selected={startDate}
             onChange={onDatePickerChange}
@@ -181,7 +191,7 @@ const ReservationPage = () => {
             minDate={new Date()}
             maxDate={maxEndDate}
             excludeDateIntervals={datesToExclude}
-            placeholderText="Select a date other than the interval from 5 days ago to 5 days in the future"
+            placeholderText="Select from-to dates"
             selectsRange
           />
           <Button type="button" onClick={resetDatePicker}>
@@ -189,15 +199,16 @@ const ReservationPage = () => {
           </Button>
           <Button onClick={handleSubmit}>Submit</Button>
         </div>
-        <button onClick={calculateTotalCost}>Calculate Cost</button>
         {totalCost > 0 && (
-          <p id="costId">
-            <strong>Total Cost:</strong> {totalCost}
-            <strong> € </strong>
-          </p>
+          <div className="total-cost-container">
+            <p id="costId">
+              <strong>Total Cost:</strong> {totalCost} <strong>€</strong>
+            </p>
+          </div>
         )}
       </div>
     </>
   );
 };
+
 export default ReservationPage;

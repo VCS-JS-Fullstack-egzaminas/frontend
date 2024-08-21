@@ -22,7 +22,7 @@ const Footer = () => {
                     Privacy policy
                   </li>
                   <li className="hover:text-ecstasy-400 hover:underline transition duration-150">
-                    Careers
+                    <a href="./careers">Careers</a>
                   </li>
                 </ul>
               </div>
@@ -50,7 +50,8 @@ const Footer = () => {
                 </h2>
                 <div className="items-center justify-center md:justify-start flex gap-6">
                   <a href="https://www.facebook.com/" target="_blank">
-                    <svg className="hover:text-ecstasy-400"
+                    <svg
+                      className="hover:text-ecstasy-400"
                       stroke="currentColor"
                       fill="currentColor"
                       strokeWidth="0"
@@ -63,7 +64,8 @@ const Footer = () => {
                     </svg>
                   </a>
                   <a href="https://www.instagram.com/" target="_blank">
-                    <svg className="hover:text-ecstasy-400"
+                    <svg
+                      className="hover:text-ecstasy-400"
                       stroke="currentColor"
                       fill="none"
                       strokeWidth="2"
@@ -87,7 +89,7 @@ const Footer = () => {
                     </svg>
                   </a>
                   <a href="https://x.com/" target="_blank">
-                    <svg 
+                    <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="35"
                       height="35"
