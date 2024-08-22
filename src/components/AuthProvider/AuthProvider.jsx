@@ -39,6 +39,7 @@ const AuthProvider = ({ children }) => {
 
   const signUp = async (email, username, password) => {
     const response = await signup({ email, username, password });
+    // console.log(response);
     return response;
   };
 

@@ -67,6 +67,7 @@ const Login = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
+                autocomplete="email"
               />
               {emailError && (
                 <p className="ml-2 mt-1 text-red-500 text-sm">{emailError}</p>

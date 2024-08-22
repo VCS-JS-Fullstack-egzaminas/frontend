@@ -11,9 +11,9 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [error, setError] = useState("");
-  const [isFormValid, setIsFormValid] = useState(false);
+  const [passwordError, setPasswordError] = useState(null);
+  const [emailError, setEmailError] = useState(null);
+  const [usernameError, setUsernameError] = useState(null);
 
   const { user, signUp } = useAuth();
 
@@ -25,26 +25,36 @@ const Signup = () => {
     }
   }, [user, navigate]);
 
-  useEffect(() => {
-    const regex = /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{5,}$/;
-    if (password !== confirmPassword) {
-      setError("Passwords do not match");
-      setIsFormValid(false);
-    } else if (!regex.test(password)) {
-      setError(
-        "Password must be at least 5 characters long, contain at least one uppercase letter and one number"
-      );
-      setIsFormValid(false);
-    } else {
-      setError("");
-      setIsFormValid(true);
-    }
-  }, [password, confirmPassword]);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (isFormValid) {
-      signUp(email, username, password);
+    setEmailError(null);
+    setUsernameError(null);
+    setPasswordError(null);
+
+    try {
+      const response = await signUp(email, username, password);
+      console.log(response.data);
+
+      if (response.status === 200) {
+        navigate("/");
+      } else {
+        console.log(response.data);
+      }
+    } catch (error) {
+      console.log(error.response.data);
+      if (error.response && error.response.data) {
+        if (error.response.data.error.toLowerCase().includes("password")) {
+          setPasswordError(error.response.data.error);
+        }
+
+        if (error.response.data.error.toLowerCase().includes("email")) {
+          setEmailError(error.response.data.error);
+        }
+
+        if (error.response.data.error.toLowerCase().includes("username")) {
+          setUsernameError(error.response.data.error);
+        }
+      }
     }
   };
 
@@ -65,7 +75,12 @@ const Signup = () => {
                 id="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                required
+                autocomplete="email"
               />
+              {emailError && (
+                <p className="ml-2 mt-1 text-red-500 text-sm">{emailError}</p>
+              )}
             </div>
             <div className="grid">
               <Label htmlFor="username">Username</Label>
@@ -75,7 +90,13 @@ const Signup = () => {
                 id="username"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
+                required
               />
+              {usernameError && (
+                <p className="ml-2 mt-1 text-red-500 text-sm">
+                  {usernameError}
+                </p>
+              )}
             </div>
             <div className="grid">
               <Label htmlFor="password">Password</Label>
@@ -85,27 +106,20 @@ const Signup = () => {
                 id="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                required
               />
+              {passwordError && (
+                <p className="ml-2 mt-1 text-red-500 text-sm">
+                  {passwordError}
+                </p>
+              )}
               <ul className="list-disc list-inside mt-2 text-xs text-river-bed-800">
                 <li>Has to be at least 5 characters long</li>
                 <li>Has to have at least one numerical character</li>
                 <li>Has to have at least one uppercase letter</li>
               </ul>
             </div>
-            <div className="grid">
-              <Label htmlFor="confirmPassword">Confirm Password</Label>
-              <Input
-                type="password"
-                name="confirmPassword"
-                id="confirmPassword"
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-              />
-            </div>
-            {error && <p className="text-red-500 w-80">{error}</p>}
-            <Button type="submit" disabled={!isFormValid}>
-              Sign up
-            </Button>
+            <Button type="submit">Sign up</Button>
           </div>
         </form>
         <div>
