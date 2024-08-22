@@ -23,17 +23,19 @@ const MyReservations = () => {
   }, [loading, user, navigate]);
 
   useEffect(() => {
-    if (user) {
-      const populateReservations = async () => {
-        const response = await getMyReservations();
-        setReservations(response.data);
-      };
+    if (!loading) {
+      if (user) {
+        const populateReservations = async () => {
+          const response = await getMyReservations();
+          setReservations(response.data);
+        };
 
-      populateReservations();
-    } else {
-      navigate("/");
+        populateReservations();
+      } else {
+        navigate("/");
+      }
     }
-  }, [user, navigate]);
+  }, [user, navigate, loading]);
 
   if (loading) {
     return <h1>loading</h1>;
