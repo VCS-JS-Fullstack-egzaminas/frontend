@@ -157,7 +157,13 @@ const Contact = () => {
               <form className="forma flex flex-col gap-4 w-full" action="#">
                 <div className="grid gap-1">
                   <Label htmlFor="email"></Label>
-                  <Input placeholder="Your email" name="email" id="email" />
+                  <Input
+                    placeholder="Your email"
+                    name="email"
+                    id="email"
+                    type="email"
+                    required
+                  />
                 </div>
                 <div className="grid gap-1">
                   <Label htmlFor="first-name"></Label>
@@ -166,11 +172,13 @@ const Contact = () => {
                     name="first-name"
                     id="first-name"
                     className=""
+                    required
                   />
                 </div>
                 <div className="grid gap-1">
                   <Label htmlFor="last-name"></Label>
                   <Input
+                    required
                     placeholder="Your lastname"
                     name="last-name"
                     id="last-name"
@@ -178,7 +186,7 @@ const Contact = () => {
                 </div>
                 <div className="grid gap-1">
                   <Label htmlFor="topic"></Label>
-                  <Input placeholder="Topic" name="topic" id="topic" />
+                  <Input placeholder="Topic" name="topic" id="topic" required />
                 </div>
                 <div className="grid gap-1">
                   <Label htmlFor="message"></Label>
@@ -187,6 +195,7 @@ const Contact = () => {
                     placeholder="Message"
                     name="message"
                     id="message"
+                    required
                   />
                 </div>
                 <Button type="submit">Send Message</Button>
