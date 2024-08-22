@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 
 import { createContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import {
   checkAuthStatus,
   checkCookie,
@@ -16,7 +15,6 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [role, setRole] = useState(null);
-  const navigate = useNavigate();
 
   useEffect(() => {
     checkCookie()
@@ -40,14 +38,14 @@ const AuthProvider = ({ children }) => {
   }, []);
 
   const signUp = async (email, username, password) => {
-    const user = await signup({ email, username, password });
-    setUser(user);
+    const response = await signup({ email, username, password });
+    // console.log(response);
+    return response;
   };
 
   const logIn = async (email, password) => {
-    const user = await login({ email, password });
-    setUser(user);
-    navigate("/");
+    const response = await login({ email, password });
+    return response;
   };
 
   const logOut = async () => {

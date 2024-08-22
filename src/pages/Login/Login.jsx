@@ -10,6 +10,8 @@ import { Helmet } from "react-helmet";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordError, setPasswordError] = useState(null);
+  const [emailError, setEmailError] = useState(null);
 
   const { user, logIn } = useAuth();
 
@@ -23,7 +25,28 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    logIn(email, password);
+    setEmailError(null);
+    setPasswordError(null);
+
+    try {
+      const response = await logIn(email, password);
+
+      if (response.status === 200) {
+        navigate("/");
+      } else {
+        console.log(response.data);
+      }
+    } catch (error) {
+      if (error.response && error.response.data) {
+        if (error.response.data.error.toLowerCase().includes("password")) {
+          setPasswordError(error.response.data.error);
+        }
+
+        if (error.response.data.error.toLowerCase().includes("email")) {
+          setEmailError(error.response.data.error);
+        }
+      }
+    }
   };
 
   return (
@@ -43,7 +66,12 @@ const Login = () => {
                 id="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                required
+                autocomplete="email"
               />
+              {emailError && (
+                <p className="ml-2 mt-1 text-red-500 text-sm">{emailError}</p>
+              )}
             </div>
             <div className="grid">
               <Label htmlFor="password">Password</Label>
@@ -53,7 +81,13 @@ const Login = () => {
                 id="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                required
               />
+              {passwordError && (
+                <p className="ml-2 mt-1 text-red-500 text-sm">
+                  {passwordError}
+                </p>
+              )}
             </div>
             <Button type="submit">Log in</Button>
           </div>
