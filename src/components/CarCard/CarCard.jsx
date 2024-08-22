@@ -23,24 +23,16 @@ const CarCard = ({ car }) => {
         <div className="car-card-back p-4">
           <h2 className="text-xl font-bold mb-2">{car.title}</h2>
           <p className="flex items-center mb-2">
-            <img
-              src="../../public/icons/gas.png"
-              alt=""
-              className="w-6 h-6 mr-2"
-            />
+            <img src="/icons/gas.png" alt="" className="w-6 h-6 mr-2" />
             {car.fuelType}
           </p>
           <p className="flex items-center mb-2">
-            <img
-              src="../../public/icons/gearbox.png"
-              alt=""
-              className="w-6 h-6 mr-2"
-            />
+            <img src="/icons/gearbox.png" alt="" className="w-6 h-6 mr-2" />
             {car.transmission}
           </p>
           <p className="flex items-center mb-2">
             <img
-              src="../../public/icons/price-tag-euro.png"
+              src="/icons/price-tag-euro.png"
               alt=""
               className="w-6 h-6 mr-2"
             />
