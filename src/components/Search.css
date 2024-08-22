@@ -1,5 +1,5 @@
 .search-main {
-  background-image: url(../../public/banner.webp);
+  background-image: url(/banner.webp);
   background-size: cover;
   background-position: center;
   height: 400px;
