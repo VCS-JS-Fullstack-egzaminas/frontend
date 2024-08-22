@@ -65,15 +65,23 @@ const ReservationCarCard = ({ reservation }) => {
     setEndDate(end);
 
     if (start) {
+      const maxDuration =
+        currentReservation.listing.max_duration * 24 * 60 * 60 * 1000; // Convert days to milliseconds
+      const maxEndDateByDuration = new Date(start.getTime() + maxDuration);
+
       const nextReservation = reservations.find(
-        (res) => new Date(res.start) > start
+        (res) =>
+          new Date(res.start) > start && res._id !== currentReservation._id
       );
 
       const calculatedMaxEndDate = nextReservation
         ? new Date(
-            new Date(nextReservation.start).getTime() - 24 * 60 * 60 * 1000
+            Math.min(
+              new Date(nextReservation.start).getTime() - 24 * 60 * 60 * 1000,
+              maxEndDateByDuration.getTime()
+            )
           )
-        : null;
+        : maxEndDateByDuration;
 
       setMaxEndDate(calculatedMaxEndDate);
 

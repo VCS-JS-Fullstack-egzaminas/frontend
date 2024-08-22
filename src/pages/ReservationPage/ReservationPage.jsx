@@ -16,7 +16,6 @@ import Card from "../../components/ui/Card";
 
 const ReservationPage = () => {
   const { id } = useParams();
-  // const car = cars.find((car) => car.id === parseInt(id));
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [totalCost, setTotalCost] = useState(0);
@@ -47,7 +46,7 @@ const ReservationPage = () => {
     };
 
     getCarData();
-  }, [id]);
+  }, [id, user]);
 
   useEffect(() => {
     if (reservations) {
@@ -70,15 +69,21 @@ const ReservationPage = () => {
     setStartDate(start);
 
     if (start) {
+      const maxDuration = car.max_duration * 24 * 60 * 60 * 1000; // Convert days to milliseconds
+      const maxEndDateByDuration = new Date(start.getTime() + maxDuration);
+
       const nextReservation = reservations.find(
         (res) => new Date(res.start) > start
       );
 
       const calculatedMaxEndDate = nextReservation
         ? new Date(
-            new Date(nextReservation.start).getTime() - 24 * 60 * 60 * 1000
+            Math.min(
+              new Date(nextReservation.start).getTime() - 24 * 60 * 60 * 1000,
+              maxEndDateByDuration.getTime()
+            )
           )
-        : null;
+        : maxEndDateByDuration;
 
       setMaxEndDate(calculatedMaxEndDate);
 
